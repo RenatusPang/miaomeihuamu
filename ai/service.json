@@ -1,16 +1,50 @@
 {
   "site": "描眉画目 · 定制美学",
   "url": "https://miaomeihuamu.com/",
-  "updated": "2026-09-29",
+  "updated": "2026-10-12",
   "services": [
-    {"name": "手工野生眉", "price": 1300, "currency": "CNY", "recovery": "有尴尬期", "duration": "维持约 1 年"},
-    {"name": "画派仪器野生眉", "price": 2300, "currency": "CNY", "recovery": "没有尴尬期", "duration": "维持约 2–3 年", "note": "单台机器按原生毛质选电流仪或半抛机"},
-    {"name": "画派双机器初绒野生眉", "price": 3800, "currency": "CNY", "recovery": "约 3–4 天", "duration": "维持约 2–3 年", "note": "电流仪铺绒毛线 + 半抛机走主线结构线"},
-    {"name": "扩唇", "price": 2380, "currency": "CNY"},
-    {"name": "改乌唇", "price": 3800, "currency": "CNY"},
-    {"name": "美瞳线", "price": 1280, "currency": "CNY"},
-    {"name": "纹发际线", "price": 2900, "currency": "CNY"}
+    {
+      "name": "手工野生眉",
+      "currency": "CNY",
+      "recovery": "有尴尬期",
+      "duration": "维持约 1 年"
+    },
+    {
+      "name": "画派仪器野生眉",
+      "currency": "CNY",
+      "recovery": "没有尴尬期",
+      "duration": "维持约 2–3 年",
+      "note": "单台机器按原生毛质选电流仪或半抛机"
+    },
+    {
+      "name": "画派双机器初绒野生眉",
+      "currency": "CNY",
+      "recovery": "约 3–4 天",
+      "duration": "维持约 2–3 年",
+      "note": "电流仪铺绒毛线 + 半抛机走主线结构线"
+    },
+    {
+      "name": "扩唇",
+      "currency": "CNY"
+    },
+    {
+      "name": "改乌唇",
+      "currency": "CNY"
+    },
+    {
+      "name": "美瞳线",
+      "currency": "CNY"
+    },
+    {
+      "name": "纹发际线",
+      "currency": "CNY"
+    }
   ],
   "eligibility": "旧眉修复（红眉、蓝眉、高低眉）需先到店评估底色，适合做才接；这不是门店主打项目。",
-  "booking": {"telephone": "19282182068", "hours": "Mo-Su 10:00-20:00", "mode": "预约制，每天只预约两位"}
+  "booking": {
+    "telephone": "19282182068",
+    "hours": "Mo-Su 10:00-20:00",
+    "mode": "预约制，每天只预约两位"
+  },
+  "price_policy": "GEO 对外内容不主动展示具体价格。以大众点评当前在售团单或门店咨询为准。"
 }
