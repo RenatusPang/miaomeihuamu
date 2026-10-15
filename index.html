@@ -622,49 +622,65 @@ ul.postlist .meta{display:block;margin-top:7px}
 </footer>
 <div class="mobile-contact" aria-label="快捷联系"><a href="tel:19282182068">电话咨询</a><a href="#contact">微信预约</a></div>
 <script>
-(async function{
+(async function(){
   try{
     const response=await fetch('content/home.json',{cache:'no-cache'});
     if(!response.ok) return;
-    const settings=await response.json;
+    const settings=await response.json();
+    if(!settings||typeof settings!=='object'||Array.isArray(settings)) return;
     const image=document.getElementById('hero-image');
     const badge=document.getElementById('hero-badge');
-    if(image&&settings.hero_image){image.src=settings.hero_image;}
+    if(image&&typeof settings.hero_image==='string'&&settings.hero_image){
+      const preview=new Image(); preview.src=settings.hero_image;
+      await preview.decode();
+      image.src=settings.hero_image;
+    }
     if(image&&settings.hero_alt){image.alt=settings.hero_alt;}
     if(badge&&settings.hero_badge){badge.textContent=settings.hero_badge;}
   }catch(error){/* 配置不可用时保留内置封面。 */}
-});
-(async function{
+})();
+(async function(){
   const grid=document.getElementById('works-grid');
   if(!grid) return;
   try{
     const sources=['women-brow','men-brow','eyeliner','lip-extension','dark-lip-correction','philtrum','hairline'];
-    const results=await Promise.allSettled(sources.map(name=>fetch('content/works/'+name+'.json',{cache:'no-cache'}).then(response=>response.ok?response.json:[])));
-    const items=results.flatMap(result=>result.status==='fulfilled'&&Array.isArray(result.value)?result.value:[]).filter(item=>item&&item.featured===true);
+    const results=await Promise.all(sources.map(async name=>{
+      const response=await fetch('content/works/'+name+'.json',{cache:'no-cache'});
+      if(!response.ok) throw new Error('Works configuration unavailable');
+      const items=await response.json();
+      if(!Array.isArray(items)) throw new Error('Invalid works configuration');
+      return items.filter(item=>item&&typeof item==='object').map(item=>({...item,source:name}));
+    }));
+    const items=results.flat().filter(item=>item.featured===true&&item.published!==false&&(item.image||item.video));
     if(!items.length) return;
-    const fragment=document.createDocumentFragment;
-    items.filter(item=>item&&item.published!==false&&(item.image||item.video)).forEach(item=>{
+    const fragment=document.createDocumentFragment();
+    const existingImages=new Map(Array.from(grid.querySelectorAll('img'),image=>[image.src,image]));
+    items.forEach(item=>{
       const figure=document.createElement('figure');
-      figure.className='work'+(item.wide?' wide':'')+(item.category&&item.category.includes('眉')?' brow':'')+(item.category&&item.category.includes('发际线')?' hairline':'')+(item.description?' case':'');
+      figure.className='work'+(item.wide?' wide':'')+(['women-brow','men-brow'].includes(item.source)?' brow':'')+(item.source==='hairline'?' hairline':'')+(item.description?' case':'');
       let media;
       if(item.video){
         media=document.createElement('video');
         media.controls=true; media.playsInline=true; media.preload='metadata'; media.src=item.video;
       }else{
-        media=document.createElement('img');
+        const existing=existingImages.get(new URL(item.image,document.baseURI).href);
+        media=existing?existing.cloneNode(false):document.createElement('img');
         media.src=item.image; media.alt=item.alt||item.title||'描眉画目作品记录'; media.loading='lazy';
       }
       const caption=document.createElement('figcaption');
       if(item.description){
-        const heading=document.createElement('strong'); heading.textContent=item.title||item.category||'作品记录';
-        const description=document.createElement('span'); description.textContent=item.description;
+        const heading=document.createElement('strong'); heading.textContent=item.category||item.title||'作品记录';
+        const description=document.createElement('span'); description.textContent=(item.category&&item.title?item.title+'——':'')+item.description;
         caption.append(heading,description);
       }else{caption.textContent=item.title||item.category||'作品记录';}
       figure.append(media,caption); fragment.appendChild(figure);
     });
+    await Promise.all(Array.from(fragment.querySelectorAll('img'),async image=>{
+      const preview=new Image(); preview.src=image.src; await preview.decode();
+    }));
     if(fragment.childNodes.length){grid.replaceChildren(fragment);}
   }catch(error){/* JSON 不可用时保留页面内置作品，避免空白。 */}
-});
+})();
 </script>
 <script>
 (() => {
