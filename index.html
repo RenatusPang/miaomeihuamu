@@ -316,6 +316,7 @@ section{scroll-margin-top:100px}
 .contact-card{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:34px;align-items:center;padding:30px;background:var(--paper);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
 .contact-card h3{font-family:"Songti SC","STSong","SimSun",serif;font-size:25px;color:var(--wine);margin:0 0 12px}
 .contact-list{list-style:none;padding:0;margin:18px 0 0}.contact-list li{margin:10px 0}.contact-list a{font-weight:700;text-decoration:none}.contact-card img{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line)}
+.copy-wechat{margin-left:10px;padding:6px 10px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--wine);font:inherit;font-weight:700;cursor:pointer}.copy-wechat:focus-visible{outline:2px solid var(--wine);outline-offset:2px}.copy-wechat-status{display:block;margin-top:4px;color:var(--dim);font-size:13px}
 .media-stage{margin:24px auto 0;max-width:640px}.media-stage video{display:block;width:100%;height:auto;aspect-ratio:720/792;object-fit:cover;background:#171416;border-radius:20px;box-shadow:var(--shadow)}.media-stage figcaption{margin-top:10px;color:var(--dim);font-size:13px;text-align:center}
 .works-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin:26px 0 0}.work{grid-column:span 4;margin:0;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(74,39,50,.06)}.work.wide{grid-column:span 6}.work img,.work video{display:block;width:100%;height:290px;object-fit:cover;background:#eee}.work.case img{height:360px;object-position:center 28%}.work figcaption{padding:11px 14px;color:var(--dim);font-size:13px}.work figcaption strong{display:block;color:var(--ink);font-size:14px}.work figcaption span{display:block;margin-top:6px;line-height:1.6}.work.brow img{object-position:center 34%}.work.hairline img{object-position:center 24%}
 .studio-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin:26px 0 0}.studio-grid .work img{height:340px;object-position:center 50%}
@@ -499,7 +500,7 @@ ul.postlist .meta{display:block;margin-top:7px}
 <p>可先说明想了解的项目和时间。到店后先看基础、设计眉形，再确认具体做法。</p>
 <ul class="contact-list">
 <li>电话：<a href="tel:19282182068">19282182068</a></li>
-<li>微信预约：<strong>MiaoMeiHuaMu</strong></li>
+<li>微信预约：<strong id="wechat-id">MiaoMeiHuaMu</strong><button class="copy-wechat" id="copy-wechat" type="button">复制微信号</button><span class="copy-wechat-status" id="copy-wechat-status" role="status" aria-live="polite">复制后到微信搜索添加；也可扫描右侧二维码。</span></li>
 <li>地址：上海市浦东新区三林长清路 1200 弄 39 号 1613 室</li>
 <li>营业时间：周一至周日 10:00–20:00</li>
 <li>到店设计：免费，约 30–45 分钟</li>
@@ -664,6 +665,40 @@ ul.postlist .meta{display:block;margin-top:7px}
     if(fragment.childNodes.length){grid.replaceChildren(fragment);}
   }catch(error){/* JSON 不可用时保留页面内置作品，避免空白。 */}
 });
+</script>
+<script>
+(() => {
+  const button = document.getElementById('copy-wechat');
+  const label = document.getElementById('wechat-id');
+  const status = document.getElementById('copy-wechat-status');
+  if (!button || !label || !status) return;
+  function fallbackCopy(value) {
+    const field = document.createElement('textarea');
+    field.value = value;
+    field.style.position = 'fixed';
+    field.style.opacity = '0';
+    document.body.appendChild(field);
+    field.select();
+    const copied = document.execCommand('copy');
+    field.remove();
+    return copied;
+  }
+  button.addEventListener('click', async () => {
+    const value = label.textContent.trim();
+    let copied = false;
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(value);
+        copied = true;
+      } else {
+        copied = fallbackCopy(value);
+      }
+    } catch (error) {
+      try { copied = fallbackCopy(value); } catch (ignored) { /* 用户仍可手动复制。 */ }
+    }
+    status.textContent = copied ? '已复制微信号，打开微信搜索添加。' : '复制未成功，请长按微信号手动复制。';
+  });
+})();
 </script>
 </body>
 </html>
