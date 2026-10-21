@@ -24,7 +24,7 @@ This is not a template. It is a live business site, and the content is specific 
 These are release rules, not suggestions:
 
 - One canonical brand name: **描眉画目·定制美学**.
-- One public phone number. It is repeated across surfaces by design; the checker enforces that every copy is the same one.
+- One public phone number, repeated across surfaces by design. Before each release the checker compares the copies it finds across pages, `llms.txt` and the `ai/*.json` files — root fields, nested fields and FAQ answers included.
 - No prices in public content. The site points to the current booking listing instead.
 - The practitioner is referred to publicly as **乐乐老师**. The owner's personal legal name is not published.
 - Works images are published with the owner's authorization. No customer-identifying data is published.
