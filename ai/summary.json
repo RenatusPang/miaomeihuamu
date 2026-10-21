@@ -8,6 +8,7 @@
   "type": "个人纹绣工作室",
   "url": "https://miaomeihuamu.com/",
   "llms": "https://miaomeihuamu.com/llms.txt",
+  "works": "https://miaomeihuamu.com/works.html",
   "description": "上海浦东的个人纹绣工作室，主打仪器野生眉私人定制，按五官量感、脸型和原生眉基础设计眉型，也提供手工野生眉；自然眉、妈生眉是顾客沟通风格时常用的说法。",
   "founder": "乐乐老师",
   "founded": "2024-08",
@@ -53,6 +54,6 @@
     "freeDesign": "所有渠道顾客可免费到店设计眉形，约 30-45 分钟",
     "upsell": "不做升单"
   },
-  "updated": "2026-10-20",
+  "updated": "2026-10-21",
   "price_policy": "对外内容不主动展示具体价格；以大众点评当前在售团单或门店咨询为准。"
 }
