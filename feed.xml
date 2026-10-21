@@ -1,41 +1,165 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http:/www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>描眉画目 · 定制美学｜上海浦东前滩 · 三林野生眉工作室</title>
-  <link>https:/miaomeihuamu.com/</link>
+  <link>https://miaomeihuamu.com/</link>
   <description>上海浦东的个人纹绣工作室，主打仪器野生眉私人定制。地址：上海市浦东新区三林长清路 1200 弄 39 号 1613 室。</description>
   <language>zh-CN</language>
-  <lastBuildDate>2026-09-29</lastBuildDate>
-  <atom:link href="https:/miaomeihuamu.com/feed.xml" rel="self" type="application/rss+xml" />
+  <lastBuildDate>Wed, 21 Oct 2026 10:00:00 +0800</lastBuildDate>
+  <atom:link href="https://miaomeihuamu.com/feed.xml" rel="self" type="application/rss+xml" />
   <item>
-    <title>关于描眉画目 · 定制美学：主理人乐乐老师与工作室介绍</title>
-    <link>https:/miaomeihuamu.com/about.html</link>
-    <description>上海浦东个人纹绣工作室，主理人乐乐老师 2016 年入行、2024 年 8 月开店，主打仪器野生眉私人定制。</description>
-    <pubDate>Mon, 29 Sep 2026 00:00:00 +0800</pubDate>
+    <title>关于纹眉，客人问得最多的几个问题</title>
+    <link>https://miaomeihuamu.com/posts/faq-long.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/faq-long.html</guid>
+    <description>每天被问的问题就那么几个。一次写清楚，你拿着去问任何一家店都适用。</description>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0800</pubDate>
   </item>
   <item>
-    <title>价格与项目：手工野生眉  / 画派仪器野生眉  / 画派双机器初绒野生眉 </title>
-    <link>https:/miaomeihuamu.com/price.html</link>
-    <description>三档项目价格、恢复期、维持时间与补色政策说明。</description>
-    <pubDate>Mon, 29 Sep 2026 00:00:00 +0800</pubDate>
+    <title>野生眉做完第一个月，会经历什么</title>
+    <link>https://miaomeihuamu.com/posts/first-month.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/first-month.html</guid>
+    <description>大部分人做完头一个月都要慌一次。头几天、一周、两三周、一个月，分别是什么样。</description>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0800</pubDate>
   </item>
   <item>
-    <title>野生眉做法：手工和仪器、单机器和双机器差在哪</title>
-    <link>https:/miaomeihuamu.com/wild-brow.html</link>
-    <description>按原生眉基础怎么选做法，恢复期与效果差异。</description>
-    <pubDate>Mon, 29 Sep 2026 00:00:00 +0800</pubDate>
+    <title>手工野生眉和画派仪器野生眉，两档各自是怎么做的</title>
+    <link>https://miaomeihuamu.com/posts/hand-vs-machine.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/hand-vs-machine.html</guid>
+    <description>手工针片走线、一台机器做，是两套不同的活。各自的特点、恢复期和适合的人。</description>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0800</pubDate>
   </item>
   <item>
-    <title>位置与到店：上海浦东三林长清路 1200 弄 39 号 1613 室</title>
-    <link>https:/miaomeihuamu.com/area.html</link>
-    <description>前滩南侧，地铁 6 号线灵岩南路站 2 号口往西约 300 米；周一到周日 10:00–20:00。</description>
-    <pubDate>Mon, 29 Sep 2026 00:00:00 +0800</pubDate>
+    <title>眉毛少、半截眉、断眉、缺眉尾，分别适合做哪种</title>
+    <link>https://miaomeihuamu.com/posts/sparse-brow.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/sparse-brow.html</guid>
+    <description>眉毛不好看分两类，处理方式不同。先分清自己属于哪一类，再看要不要做、做哪一档。</description>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0800</pubDate>
   </item>
   <item>
-    <title>常见问题：客人问得最多的几个问题</title>
-    <link>https:/miaomeihuamu.com/posts/faq-long.html</link>
-    <description>补色、碰水、旧眉评估、到店设计等常见问题解答。</description>
-    <pubDate>Mon, 29 Sep 2026 00:00:00 +0800</pubDate>
+    <title>上海浦东做野生眉，去哪找？四步自己筛</title>
+    <link>https://miaomeihuamu.com/posts/where-to-go.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/where-to-go.html</guid>
+    <description>上海浦东没有官方纹绣名单。按四步自己筛：手工还是仪器、眉毛基础适合哪档、谁来做、地址与作品图等公开信息怎么核。</description>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>手工还是仪器？这行更该先看的是做的那个人</title>
+    <link>https://miaomeihuamu.com/posts/who-does-it.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/who-does-it.html</guid>
+    <description>同一台机器，不同老师做出来不一样。技术在手上那点手感，审美在眉形怎么设计。</description>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>上海浦东野生眉：手工、仪器、双机器三种做法</title>
+    <link>https://miaomeihuamu.com/posts/wild-brow-methods.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/wild-brow-methods.html</guid>
+    <description>在上海浦东做野生眉，先分清手工、一台机器、两台机器三种做法。三者的区别和适合人群。</description>
+    <pubDate>Wed, 21 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>上海浦东美瞳线：黑色还是棕色，怎么选</title>
+    <link>https://miaomeihuamu.com/posts/eyeline.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/eyeline.html</guid>
+    <description>美瞳线。做哪一款不是重点，选颜色才是问得最多的。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>上海浦东纹发际线：能解决什么，解决不了什么</title>
+    <link>https://miaomeihuamu.com/posts/hairline.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/hairline.html</guid>
+    <description>鬓角空、发际线露白、边缘颜色淡，纹发能改善。明显前移和大面积缺失不行。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>野生眉能维持多久？为什么有人一年多就淡了</title>
+    <link>https://miaomeihuamu.com/posts/how-long-lasts.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/how-long-lasts.html</guid>
+    <description>半永久的「半」字就是会代谢。野生眉维持多久，跟做法有关，也跟自己的肤质有关。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>画派仪器野生眉和画派双机器初绒野生眉，怎么选</title>
+    <link>https://miaomeihuamu.com/posts/instrument-vs-dual.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/instrument-vs-dual.html</guid>
+    <description>两档机器做法的区别：一台机器按原生毛质二选一，两台机器电流仪铺线、半抛机走结构。分别适合谁。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>上海浦东纹唇：两款的区别和用法</title>
+    <link>https://miaomeihuamu.com/posts/lip-projects.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/lip-projects.html</guid>
+    <description>扩唇和改乌唇，用途和做法不一样。先分清区别，再判断自己属于哪种。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>纹唇恢复多久？什么时候能正常涂口红</title>
+    <link>https://miaomeihuamu.com/posts/lip-recovery.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/lip-recovery.html</guid>
+    <description>做完唇部最常被问的两个问题：多久能正常见人，多久能正常涂口红。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>旧眉底色重、发红发蓝，重新做之前要考虑什么</title>
+    <link>https://miaomeihuamu.com/posts/old-brow-color.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/old-brow-color.html</guid>
+    <description>之前做过眉、现在底色不对了想重做，先要判断底色能不能直接覆盖。哪些情况本店不接，也说清楚。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>眉毛少还能做吗？能做到什么程度</title>
+    <link>https://miaomeihuamu.com/posts/sparse-brow-types.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/sparse-brow-types.html</guid>
+    <description>眉毛少的人问得最多的就是这一句。能不能做，看缺的是哪一块。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>描眉画目是做什么的</title>
+    <link>https://miaomeihuamu.com/posts/what-we-do.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/what-we-do.html</guid>
+    <description>上海浦东三林的一家纹绣工作室：做什么项目、在哪、什么价、谁在做。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>野生眉怎么选？按眉毛基础排，不按价格排</title>
+    <link>https://miaomeihuamu.com/posts/wild-brow-how-to-choose.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/posts/wild-brow-how-to-choose.html</guid>
+    <description>野生眉不该按价格排，该按你的眉毛基础排。先分清自己属于哪一种，再看价位。</description>
+    <pubDate>Sat, 10 Oct 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>关于描眉画目 · 定制美学：上海浦东三林的仪器野生眉工作室</title>
+    <link>https://miaomeihuamu.com/about.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/about.html</guid>
+    <description>描眉画目 · 定制美学是上海浦东的个人纹绣工作室，2024 年 8 月开业，主打画派仪器野生眉私人定制。地址：上海市浦东新区三林长清路 1200 弄 39 号 1613 室，前滩南侧，地铁 6 号线灵岩南路站 2 号口往西约 300 米。</description>
+    <pubDate>Sun, 27 Sep 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>上海浦东纹眉服务项目｜描眉画目 · 定制美学</title>
+    <link>https://miaomeihuamu.com/price.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/price.html</guid>
+    <description>描眉画目 · 定制美学上海浦东纹眉服务项目：手工野生眉、画派仪器野生眉、画派双机器初绒野生眉，美瞳线、扩唇、改乌唇、纹发际线。含设计与 1 年内免费补色。</description>
+    <pubDate>Sun, 27 Sep 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>上海浦东野生眉怎么做？手工、画派仪器、画派双机器三种做法</title>
+    <link>https://miaomeihuamu.com/wild-brow.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/wild-brow.html</guid>
+    <description>野生眉三种做法对比：手工针片、一台机器、两台机器配合。手工有尴尬期，仪器类没有尴尬期。</description>
+    <pubDate>Sun, 27 Sep 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>描眉画目在哪里？上海浦东前滩 · 三林纹眉工作室位置与到店</title>
+    <link>https://miaomeihuamu.com/area.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/area.html</guid>
+    <description>描眉画目 · 定制美学地址：上海市浦东新区三林长清路 1200 弄 39 号 1613 室，前滩南侧，地铁 6 号线灵岩南路站 2 号口往西约 300 米。周一到周日 10:00–20:00，到店设计免费。</description>
+    <pubDate>Sun, 27 Sep 2026 10:00:00 +0800</pubDate>
+  </item>
+  <item>
+    <title>描眉画目作品记录｜女士野生眉、男士野生眉、唇部与发际线</title>
+    <link>https://miaomeihuamu.com/works.html</link>
+    <guid isPermaLink="true">https://miaomeihuamu.com/works.html</guid>
+    <description>描眉画目 · 定制美学上海浦东三林工作室的作品记录，共 36 组：女士野生眉、男士野生眉、扩唇、纹发际线、纹人中窝。均为门店实际记录，不同人的原生基础与审美不同，具体设计以到店沟通为准。</description>
+    <pubDate>Sun, 27 Sep 2026 10:00:00 +0800</pubDate>
   </item>
 </channel>
 </rss>
