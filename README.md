@@ -27,7 +27,7 @@ These are release rules, not suggestions:
 - One public phone number, repeated across surfaces by design. Before each release the checker compares the copies it finds across pages, `llms.txt` and the `ai/*.json` files — root fields, nested fields and FAQ answers included.
 - No prices in public content. The site points to the current booking listing instead.
 - The practitioner is referred to publicly as **乐乐老师**. The owner's personal legal name is not published.
-- Works images are published with the owner's authorization. No customer-identifying data is published.
+- Works images are published with the owner's authorization. Review excerpts are shown with nicknames redacted.
 
 ## Editing and release
 
