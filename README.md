@@ -15,7 +15,7 @@ It is a working example of a small-business site that publishes the same facts t
 - `llms.txt` and `.well-known/ai.txt` for AI crawlers;
 - `ai/summary.json`, `ai/faq.json`, `ai/service.json` for machine reading.
 
-Keeping those copies in agreement is the hard part. The release process runs [website-fact-check](https://github.com/wintercheer5353-png/website-fact-check), a read-only checker that fails on drift. This repository is its reference deployment.
+Keeping those copies in agreement is the hard part. Before each release we run [website-fact-check](https://github.com/wintercheer5353-png/website-fact-check), a read-only checker, over the site and review anything it flags. This repository is its reference deployment.
 
 This is not a template. It is a live business site, and the content is specific to it.
 
@@ -35,7 +35,7 @@ These are release rules, not suggestions:
 2. Run `website-fact-check` against the changed files.
 3. Deploy on merge to `main`.
 
-The checker is read-only; it never edits the site. A failing check blocks the release until a human decides which surface is wrong.
+The checker is read-only; it never edits the site. A failing check is reviewed by a human, who decides which surface is wrong, before the release goes out.
 
 ## Layout
 
