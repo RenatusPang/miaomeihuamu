@@ -1,5 +1,25 @@
 [
   {
+    "title": "眉头往上，眉身转向眉尾",
+    "description": "这张近照里，眉头线条偏直立，走到眉身逐渐倾斜，眉尾顺着外侧收拢。沿着这三个位置看，可以看清毛流方向怎样变化。",
+    "image": "/assets/works/women-brow-direction-detail.png",
+    "video": "",
+    "alt": "描眉画目野生眉近照，眉头向上、眉身斜向眉尾的毛流细节",
+    "published": true,
+    "featured": false,
+    "wide": true
+  },
+  {
+    "title": "眉峰转折较缓，眉尾逐渐收细",
+    "description": "这张近照的眉峰转折较缓，眉尾逐渐变窄。看眉形时，可以一起看上缘的起伏和下缘的走向，再看眉尾如何收拢。",
+    "image": "/assets/works/women-brow-arch-detail.jpg",
+    "video": "",
+    "alt": "描眉画目野生眉近照，较缓的眉峰转折与收细的眉尾",
+    "published": true,
+    "featured": false,
+    "wide": true
+  },
+  {
     "title": "女士野生眉 · 不同角度",
     "image": "/assets/works/women-brow-detail.webp",
     "video": "",
