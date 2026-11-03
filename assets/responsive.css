@@ -1,0 +1,38 @@
+/* Shared responsive layout. Keep business copy and existing assets unchanged. */
+header.site .in{display:flex;flex-wrap:wrap;align-items:center;gap:4px 24px;min-width:0}
+header.site .in>b{flex:0 0 auto;white-space:nowrap;max-width:100%}
+/* Preserve nested English brand text; the legacy mobile span rule hides it. */
+header.site .in>b span{display:inline;color:inherit;font:inherit;letter-spacing:inherit;white-space:normal}
+header.site .in>span{flex:1 1 18rem;min-width:0;line-height:1.6}
+header.site .in>nav.crumb{flex:1 0 100%;width:100%;max-width:100%;min-width:0;display:flex;align-items:center;justify-content:flex-start;gap:16px;overflow-x:auto;overflow-y:hidden;white-space:nowrap;padding:0;scroll-padding-inline:12px;-webkit-overflow-scrolling:touch}
+header.site nav.crumb a,header.site nav.crumb span{display:inline-flex;flex:0 0 auto;align-items:center;min-height:44px;line-height:1.5}
+header.site nav.crumb a:focus-visible{outline:2px solid currentColor;outline-offset:-2px}
+main,article,.hero>*,.contact-card>*,.works-grid>*,.studio-grid>*{min-width:0}
+main img,main video{max-width:100%}
+section[id],main [id]{scroll-margin-top:150px}
+.mobile-contact{bottom:calc(10px + env(safe-area-inset-bottom,0px))}
+@media(max-width:1024px){
+  table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table caption{display:block;width:100%;min-width:0;white-space:normal}
+  table thead,table tbody{display:table;width:100%;min-width:640px}
+}
+@media(min-width:761px) and (max-width:1024px){
+  .hero{grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:30px;min-height:0;padding:40px 0 26px}
+  .hero-visual img{height:480px}
+  .hero-badge{left:8px;right:8px;bottom:18px;padding:10px 12px}
+  .trustbar{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .works-grid .work,.works-grid .work.wide,.studio-grid .work{grid-column:span 6}
+}
+@media(max-width:760px){
+  header.site .in{padding:10px 18px;gap:2px 12px;align-items:center}
+  header.site .in>span{display:none}
+  header.site .in>b{font-size:18px;letter-spacing:.08em}
+  header.site nav.crumb span{display:inline-flex}
+  main{padding-bottom:calc(110px + env(safe-area-inset-bottom,0px))}
+  body>footer{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
+  section[id],main [id]{scroll-margin-top:120px}
+}
+@media(max-height:500px) and (orientation:landscape){
+  header.site{position:static}
+  section[id],main [id]{scroll-margin-top:16px}
+}
