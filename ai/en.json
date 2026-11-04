@@ -4,14 +4,45 @@
   "url": "https://miaomeihuamu.com/",
   "page": "https://miaomeihuamu.com/en/",
   "inLanguage": "en",
-  "description": "A private studio centred on personal aesthetic judgement and individual brow design. Instrument hair-stroke brows are the main service; designs respond to the individual rather than one fixed style.",
+  "description": "A private studio for brow design grounded in your features and bone structure. Specialising in instrument hair-stroke brows, we consider contour, natural hair flow and your own style to bring the brows into harmony with the whole face.",
+  "design_principles": {
+    "summary": "Grounded in each person’s bone structure, main strokes establish structure and fine strokes enrich the layers. Individual brow design brings the brows into harmony with the other features, seeking a more fluid, dimensional and natural overall appearance.",
+    "sections": [
+      {
+        "title": "Brow design grounded in bone structure and facial harmony",
+        "paragraphs": [
+          "Lele’s brow design always begins with each person’s own features and bone structure, rather than a fixed brow template.",
+          "Before designing, she considers the depth, visual weight and overall character of the features, the height and prominence of the cheekbones and brow bone, the relationship between brows and eyes, and the direction of the existing brow hairs.",
+          "Working with the existing bone structure, she adjusts the position and curvature of the brow start, arch and tail, along with the overall contour, to refine facial proportions visually and balance the relationship between the cheekbones and eye area. The aim is a smoother, more open visual flow, with natural depth and definition between facial planes."
+        ]
+      },
+      {
+        "title": "Main strokes establish structure; fine strokes build layers",
+        "paragraphs": [
+          "Lele pays close attention to the framework, structure and layers of hair flow within the brows.",
+          "In hair-stroke brow designs suited to a combination of main and fine strokes, the main strokes first establish the primary structure and direction of hair flow, bringing out the visual relationship between the brows and brow bone.",
+          "Delicate, fine strokes then introduce variations in density, tone, and the balance of defined and subtle lines. The strokes connect naturally, giving the brow a clear contour and structure while retaining the lightness and softness of natural hair.",
+          "The result sought is more than density alone: a brow with a framework, layered detail and natural hair flow that complements the other facial features."
+        ]
+      },
+      {
+        "title": "A preference for softness, with room for every individual style",
+        "paragraphs": [
+          "Lele personally favours soft, natural brows that retain the character of the original hair, with the softness and restraint of Eastern aesthetics.",
+          "But a bespoke service does not mean giving every client the same brows.",
+          "Whether you prefer soft and natural brows, a cool and refined look, or clean, strong definition, the design can be tailored to your features, bone structure, personal character and aesthetic preferences."
+        ]
+      }
+    ],
+    "source": "https://miaomeihuamu.com/en/about.html"
+  },
   "design_considerations": [
     "Facial depth: Look at the relationship between the eyes, nose and lips before deciding how much definition the brows need.",
     "Visual weight and character: Consider the scale and lines of the features when choosing brow thickness and contour.",
-    "Cheekbones and facial contour: Consider cheekbone prominence and facial contours when placing the arch and tail.",
-    "Brow bone and eye area: Work with the existing bone structure, brow-to-eye distance and proportions from different angles.",
+    "Cheekbones and facial contour: Consider cheekbone height and facial contours together. Brow position, curvature and contour help balance the visual relationship between the cheekbones and eye area.",
+    "Brow bone and eye area: Study the brow bone and the relationship between brows and eyes. Design the start, arch, tail and overall contour with respect for the existing bone structure.",
     "Existing brows and hair direction: Study the shape, density, texture and direction of existing hairs to decide what to retain and where to add detail.",
-    "The character you want: Understated, soft, defined or more expressive: your preferences are part of the brief."
+    "The character you want: Soft and natural, cool and refined, or clean and strongly defined: the design responds to features, bone structure, character and preferences, rather than a fixed template."
   ],
   "services": [
     {
@@ -22,7 +53,7 @@
     {
       "name": "Huapai dual-instrument layered hair-stroke brows",
       "original_name": "画派双仪器初绒野生眉",
-      "description": "Two instruments combine structural strokes with finer, softer strokes. Main strokes establish the shape and primary hair flow; fine strokes add internal layers, density and softer transitions. The aim is coherent structure, not simply darker brows. Sparse hair alone does not determine the choice."
+      "description": "Two instruments combine main structural strokes with fine strokes. Where this combination is suitable, main strokes establish structure and hair direction, bringing out the visual relationship between brows and brow bone. Fine strokes vary density, tone and definition for natural transitions and the lightness of existing hair. Suitability depends on the individual’s brows and style; the aim is not density alone."
     },
     {
       "name": "Manual hair-stroke brows",
@@ -68,7 +99,7 @@
   "faqs": [
     {
       "q": "Do you only design soft, natural-looking brows?",
-      "a": "No. Lele personally favours a soft, natural look, but each design responds to the facial features, existing brows and the character the client wants. Her work is not limited to one brow style."
+      "a": "No. Lele personally favours soft, natural brows and the restraint of Eastern aesthetics. Bespoke design does not mean one style for everyone: soft and natural, cool and refined, or clean and strongly defined brows can all be considered in relation to your features, bone structure, character and preferences."
     },
     {
       "q": "Is the design consultation free?",

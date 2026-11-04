@@ -164,6 +164,66 @@
           "name": "procedure_alt_en",
           "label": "操作视频说明（English）",
           "type": "string"
+        },
+        {
+          "name": "design_intro",
+          "label": "设计观察区简介（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "design_intro_en",
+          "label": "设计观察区简介（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "layers_intro",
+          "label": "主线与绒毛区简介（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "layers_intro_en",
+          "label": "主线与绒毛区简介（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "main_strokes",
+          "label": "主线条说明（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "main_strokes_en",
+          "label": "主线条说明（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "fine_strokes",
+          "label": "绒毛线说明（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "fine_strokes_en",
+          "label": "绒毛线说明（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "layers_result",
+          "label": "结构与层次小结（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "layers_result_en",
+          "label": "结构与层次小结（English）",
+          "type": "text",
+          "required": true
         }
       ]
     },
@@ -270,6 +330,96 @@
           "name": "image_alt_en",
           "label": "工作室照片替代文字（English）",
           "type": "string"
+        },
+        {
+          "name": "philosophy_bone_title",
+          "label": "正式理念：骨相与五官标题（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "philosophy_bone_title_en",
+          "label": "正式理念：骨相与五官标题（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "philosophy_bone_body",
+          "label": "正式理念：骨相与五官正文（中文）",
+          "type": "text",
+          "required": true,
+          "description": "段落之间留一个空行，保留至少3段；此处同步用于关于页与 AI 资料。"
+        },
+        {
+          "name": "philosophy_bone_body_en",
+          "label": "正式理念：骨相与五官正文（English）",
+          "type": "text",
+          "required": true,
+          "description": "段落之间留一个空行，保留至少3段；此处同步用于关于页与 AI 资料。"
+        },
+        {
+          "name": "philosophy_strokes_title",
+          "label": "正式理念：主线与绒毛标题（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "philosophy_strokes_title_en",
+          "label": "正式理念：主线与绒毛标题（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "philosophy_strokes_body",
+          "label": "正式理念：主线与绒毛正文（中文）",
+          "type": "text",
+          "required": true,
+          "description": "段落之间留一个空行，保留至少4段；此处同步用于关于页与 AI 资料。"
+        },
+        {
+          "name": "philosophy_strokes_body_en",
+          "label": "正式理念：主线与绒毛正文（English）",
+          "type": "text",
+          "required": true,
+          "description": "段落之间留一个空行，保留至少4段；此处同步用于关于页与 AI 资料。"
+        },
+        {
+          "name": "philosophy_style_title",
+          "label": "正式理念：审美与定制风格标题（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "philosophy_style_title_en",
+          "label": "正式理念：审美与定制风格标题（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "philosophy_style_body",
+          "label": "正式理念：审美与定制风格正文（中文）",
+          "type": "text",
+          "required": true,
+          "description": "段落之间留一个空行，保留至少3段；此处同步用于关于页与 AI 资料。"
+        },
+        {
+          "name": "philosophy_style_body_en",
+          "label": "正式理念：审美与定制风格正文（English）",
+          "type": "text",
+          "required": true,
+          "description": "段落之间留一个空行，保留至少3段；此处同步用于关于页与 AI 资料。"
+        },
+        {
+          "name": "philosophy_summary",
+          "label": "正式设计理念总述（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "philosophy_summary_en",
+          "label": "正式设计理念总述（English）",
+          "type": "text",
+          "required": true
         }
       ]
     },
@@ -1246,7 +1396,7 @@
     },
     {
       "name": "design",
-      "label": "设计理念（六项依据）",
+      "label": "设计前观察（六项依据）",
       "type": "file",
       "path": "content/design.json",
       "format": "json",
