@@ -4,7 +4,7 @@
   "url": "https://miaomeihuamu.com/",
   "page": "https://miaomeihuamu.com/en/",
   "inLanguage": "en",
-  "description": "A private studio for brow design grounded in your features and bone structure. Specialising in instrument hair-stroke brows, we consider contour, natural hair flow and your own style to bring the brows into harmony with the whole face.",
+  "description": "Grounded in each person’s bone structure, main strokes establish structure and fine strokes enrich the layers. Individual brow design brings the brows into harmony with the other features, seeking a more fluid, dimensional and natural overall appearance.",
   "design_principles": {
     "summary": "Grounded in each person’s bone structure, main strokes establish structure and fine strokes enrich the layers. Individual brow design brings the brows into harmony with the other features, seeking a more fluid, dimensional and natural overall appearance.",
     "sections": [
@@ -37,12 +37,12 @@
     "source": "https://miaomeihuamu.com/en/about.html"
   },
   "design_considerations": [
-    "Facial depth: Look at the relationship between the eyes, nose and lips before deciding how much definition the brows need.",
+    "Facial depth: Before designing, Lele considers the depth, visual weight and overall character of the facial features.",
     "Visual weight and character: Consider the scale and lines of the features when choosing brow thickness and contour.",
     "Cheekbones and facial contour: Consider cheekbone height and facial contours together. Brow position, curvature and contour help balance the visual relationship between the cheekbones and eye area.",
     "Brow bone and eye area: Study the brow bone and the relationship between brows and eyes. Design the start, arch, tail and overall contour with respect for the existing bone structure.",
     "Existing brows and hair direction: Study the shape, density, texture and direction of existing hairs to decide what to retain and where to add detail.",
-    "The character you want: Soft and natural, cool and refined, or clean and strongly defined: the design responds to features, bone structure, character and preferences, rather than a fixed template."
+    "Personal character and aesthetic preferences: Soft and natural, cool and refined, or clean and strongly defined: the design responds to features, bone structure, character and preferences, rather than a fixed template."
   ],
   "services": [
     {
@@ -103,7 +103,7 @@
     },
     {
       "q": "Is the design consultation free?",
-      "a": "Yes. The design consultation is free and usually takes 30–45 minutes. Discuss your brows and preferences, see the proposed shape, then decide whether to proceed. There is no charge if you decide not to."
+      "a": "Yes. The design consultation is free and usually takes 30–45 minutes. Discuss your facial features, bone structure, personal character and aesthetic preferences, see the proposed shape, then decide whether to proceed. There is no charge if you decide not to."
     },
     {
       "q": "Where can I check prices and touch-up terms?",
@@ -122,5 +122,5 @@
       "a": "Contact the studio on WeChat at MiaoMeiHuaMu or call +86 192 8218 2068 to discuss the service and a suitable time. Lele designs and performs the work personally, one client at a time. An appointment is confirmed by the studio’s reply."
     }
   ],
-  "updated": "2026-11-04"
+  "updated": "2026-11-05"
 }
