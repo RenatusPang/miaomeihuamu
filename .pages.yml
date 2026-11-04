@@ -24,6 +24,8 @@ content:
         options: { media: work_images }
       - { name: hero_alt, label: 图片说明（给搜索和无障碍使用）, type: string, required: true }
       - { name: hero_badge, label: 图片左下角文字, type: string, required: true }
+      - { name: hero_alt_en, label: 英文图片说明, type: string }
+      - { name: hero_badge_en, label: 英文图片说明文字, type: string }
 
   - name: women_brow
     label: 女士野生眉作品
@@ -34,6 +36,9 @@ content:
     fields: &work_fields
       - { name: title, label: 展示标题, type: string, required: true }
       - { name: description, label: 作品说明（只写已确认的设计事实）, type: string }
+      - { name: title_en, label: 英文展示标题, type: string }
+      - { name: description_en, label: 英文作品说明（只写已确认的设计事实）, type: string }
+      - { name: alt_en, label: 英文图片说明, type: string }
       - name: image
         label: 图片（图片作品填写）
         type: image

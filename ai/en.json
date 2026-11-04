@@ -1,0 +1,95 @@
+{
+  "name": "描眉画目·定制美学",
+  "alternateName": "Miaomeihuamu · Bespoke Aesthetics",
+  "url": "https://miaomeihuamu.com/",
+  "page": "https://miaomeihuamu.com/en/",
+  "inLanguage": "en",
+  "description": "A private studio centred on personal aesthetic judgement and individual brow design. Instrument hair-stroke brows are the main service; designs respond to the individual rather than one fixed style.",
+  "design_considerations": [
+    "Facial depth: Look at the relationship between the eyes, nose and lips before deciding how much definition the brows need.",
+    "Visual weight and character: Consider the scale and lines of the features when choosing brow thickness and contour.",
+    "Cheekbones and facial contour: Consider cheekbone prominence and facial contours when placing the arch and tail.",
+    "Brow bone and eye area: Work with the existing bone structure, brow-to-eye distance and proportions from different angles.",
+    "Existing brows and hair direction: Study the shape, density, texture and direction of existing hairs to decide what to retain and where to add detail.",
+    "The character you want: Understated, soft, defined or more expressive: your preferences are part of the brief."
+  ],
+  "services": [
+    {
+      "name": "Huapai single-instrument hair-stroke brows",
+      "original_name": "画派单仪器野生眉",
+      "description": "One instrument is selected for the existing hair texture. Main and supporting strokes refine the outline and hair flow. A possible choice for subtle definition that works with existing brows; suitability depends on the individual design."
+    },
+    {
+      "name": "Huapai dual-instrument layered hair-stroke brows",
+      "original_name": "画派双仪器初绒野生眉",
+      "description": "Two instruments combine structural strokes with finer, softer strokes. Main strokes establish the shape and primary hair flow; fine strokes add internal layers, density and softer transitions. The aim is coherent structure, not simply darker brows. Sparse hair alone does not determine the choice."
+    },
+    {
+      "name": "Manual hair-stroke brows",
+      "original_name": "手工野生眉",
+      "description": "Strokes are placed with a manual blade, with pressure and direction controlled by the practitioner. Often considered when there is an established natural brow framework. Colour may look darker during the first week; about seven days is an experience-based recovery guide, not a guaranteed schedule."
+    },
+    {
+      "name": "Silk-shaded brows (丝雾眉)",
+      "original_name": "丝雾眉",
+      "description": "An available brow service. Discuss the existing brows, underlying pigment and desired definition in person before choosing a technique."
+    },
+    {
+      "name": "Velvet-shaded brows (绒雾眉)",
+      "original_name": "绒雾眉",
+      "description": "An available brow service. First discuss the preferred contour and colour intensity, then assess whether it suits your brows."
+    },
+    {
+      "name": "Lash-line enhancement",
+      "original_name": "美瞳线",
+      "description": "Definition along the lash line. Black gives a stronger visual presence, while brown is softer. Suitability and aftercare are discussed before treatment."
+    },
+    {
+      "name": "Lip-contour refinement",
+      "original_name": "扩唇 / 唇形调整",
+      "description": "Refines the visual shape and edges of the lips. It does not add tissue volume and is distinct from full-lip colour correction. Surface flaking can occur; about three days is an experience-based guide, with individual variation."
+    },
+    {
+      "name": "Dark-lip colour correction",
+      "original_name": "改乌唇",
+      "description": "Assessment-led colour correction for darker lips, with contour refinement where appropriate. Surface flaking can occur. A recovery plan is discussed after assessment rather than assigning the same timeline to everyone."
+    },
+    {
+      "name": "Hairline pigmentation",
+      "original_name": "纹发际线",
+      "description": "Hair-like lines follow the existing direction to address some visible gaps or faint edges. Pigmentation does not regrow hair. Large areas of hair loss or substantial repositioning need a different assessment."
+    },
+    {
+      "name": "Philtrum shading",
+      "original_name": "纹人中窝",
+      "description": "A localised pigmentation service for the philtrum area. Discuss the intended visual detail and suitability first; it does not change bone or tissue structure."
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do you only design soft, natural-looking brows?",
+      "a": "No. Lele personally favours a soft, natural look, but each design responds to the facial features, existing brows and the character the client wants. Her work is not limited to one brow style."
+    },
+    {
+      "q": "Is the design consultation free?",
+      "a": "Yes. The design consultation is free and usually takes 30–45 minutes. Discuss your brows and preferences, see the proposed shape, then decide whether to proceed. There is no charge if you decide not to."
+    },
+    {
+      "q": "Where can I check prices and touch-up terms?",
+      "a": "Check the studio’s current Dianping listing for prices. All services include free touch-ups within one year. The service and aftercare plan are confirmed before treatment."
+    },
+    {
+      "q": "Can recovery time or pigment retention be guaranteed?",
+      "a": "No. Skin, existing pigment, the procedure and aftercare can affect healing and retention. Any time estimate is an experience-based guide, not a guaranteed result."
+    },
+    {
+      "q": "Can existing brow pigment be worked over?",
+      "a": "The depth, extent and shape of existing pigment must be assessed first. Darker residual pigment may need advice on removal from an appropriately qualified provider. This studio does not offer pigment removal."
+    },
+    {
+      "q": "How do I arrange a visit?",
+      "a": "Contact the studio on WeChat at MiaoMeiHuaMu or call +86 192 8218 2068 to discuss the service and a suitable time. Lele designs and performs the work personally, one client at a time. An appointment is confirmed by the studio’s reply."
+    }
+  ],
+  "updated": "2026-11-04"
+}

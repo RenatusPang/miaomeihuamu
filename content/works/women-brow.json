@@ -7,7 +7,10 @@
     "alt": "描眉画目野生眉近照，眉头向上、眉身斜向眉尾的毛流细节",
     "published": true,
     "featured": false,
-    "wide": true
+    "wide": true,
+    "title_en": "Direction from brow start to tail",
+    "description_en": "The existing close-up shows more upright lines at the start and a gradual inclination towards the tail.",
+    "alt_en": "Direction from brow start to tail"
   },
   {
     "title": "眉峰转折较缓，眉尾逐渐收细",
@@ -17,7 +20,10 @@
     "alt": "描眉画目野生眉近照，较缓的眉峰转折与收细的眉尾",
     "published": true,
     "featured": false,
-    "wide": true
+    "wide": true,
+    "title_en": "A gradual arch and tapering tail",
+    "description_en": "This close-up shows a gradual change at the arch and a tail that narrows towards the end.",
+    "alt_en": "A gradual arch and tapering tail"
   },
   {
     "title": "女士野生眉 · 不同角度",
@@ -46,7 +52,10 @@
     "alt": "描眉画目画派双仪器初绒野生眉作品，条纹衣模特的正面成品照",
     "published": true,
     "featured": true,
-    "wide": false
+    "wide": false,
+    "title_en": "Working with the existing brows",
+    "description_en": "The recorded design follows the existing brows, refining the arch, tail and hair direction. The photograph shows the finished work on the striped-top model.",
+    "alt_en": "Working with the existing brows"
   },
   {
     "title": "顺着原生毛流，调整眉型细节",
@@ -57,7 +66,10 @@
     "alt": "描眉画目画派双仪器初绒野生眉作品，棕发模特的正面成品照",
     "published": true,
     "featured": true,
-    "wide": false
+    "wide": false,
+    "title_en": "Refining shape around natural hair flow",
+    "description_en": "The existing record describes retaining the natural brow foundation while refining thickness, the arch and hair direction.",
+    "alt_en": "Refining shape around natural hair flow"
   },
   {
     "title": "笑起来，也保留柔和的眉型",
@@ -68,7 +80,10 @@
     "alt": "描眉画目画派双仪器初绒野生眉作品，白花发夹模特微笑时的眉型",
     "published": true,
     "featured": true,
-    "wide": false
+    "wide": false,
+    "title_en": "A softer arch in a smiling portrait",
+    "description_en": "The documented design avoids a sharp corner at the arch and follows the existing hair direction. The portrait shows the model smiling with a white flower hair clip.",
+    "alt_en": "A softer arch in a smiling portrait"
   },
   {
     "title": "女士野生眉 · 作品 1",
