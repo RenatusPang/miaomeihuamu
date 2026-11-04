@@ -1,7 +1,7 @@
 {
   "site": "描眉画目 · 定制美学",
   "url": "https://miaomeihuamu.com/",
-  "updated": "2026-10-21",
+  "updated": "2026-11-04",
   "services": [
     {
       "name": "手工野生眉",
@@ -12,19 +12,23 @@
     {
       "name": "画派仪器野生眉",
       "currency": "CNY",
-      "recovery": "没有尴尬期",
+      "recovery": "没有结痂期",
       "duration": "维持约 2–3 年",
       "note": "单台机器按原生毛质选电流仪或半抛机"
     },
     {
       "name": "画派双机器初绒野生眉",
       "currency": "CNY",
-      "recovery": "没有尴尬期",
+      "recovery": "没有结痂期",
       "duration": "维持约 2–3 年",
       "note": "电流仪铺绒毛线 + 半抛机走主线结构线"
     },
     {
       "name": "扩唇",
+      "currency": "CNY"
+    },
+    {
+      "name": "纹人中窝",
       "currency": "CNY"
     },
     {
