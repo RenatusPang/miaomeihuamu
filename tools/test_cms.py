@@ -60,6 +60,34 @@ class ContentFlow(unittest.TestCase):
                 'image':'/assets/hero-model.webp', 'description':'CMS-TEST description',
                 'published':True, 'featured':True, 'featured_order':-100}
 
+    def test_formal_philosophy_edits_reach_pages_and_machine_sources(self):
+        studio=dict(self.studio)
+        for suffix in ('', '_en'):
+            studio['philosophy_style_body'+suffix]+='\n\nCMS philosophy paragraph'+suffix
+            studio['philosophy_summary'+suffix]+=' CMS philosophy summary'+suffix
+        self.write(self.studio_path,studio)
+        self.build()
+        for suffix,page,ai_path in (('', 'about.html','ai/summary.json'),('_en','en/about.html','ai/en.json')):
+            source=self.source(page)
+            visible=re.sub(r'<script.*?</script>','',source,flags=re.S)
+            self.assertIn('CMS philosophy paragraph'+suffix,visible)
+            self.assertIn('CMS philosophy summary'+suffix,visible)
+            ai=json.loads(self.source(ai_path))['design_principles']
+            self.assertEqual(ai['sections'][2]['paragraphs'][-1],'CMS philosophy paragraph'+suffix)
+            self.assertEqual(ai['summary'],studio['philosophy_summary'+suffix])
+            schemas=[json.loads(s) for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S)]
+            about=next(s for s in schemas if s['@type']=='AboutPage')
+            self.assertEqual(about['abstract'],ai['summary'])
+            self.assertIn('CMS philosophy paragraph'+suffix,about['hasPart'][2]['text'])
+            self.assertIn(studio['philosophy_summary'+suffix],self.source('llms.txt'))
+
+    def test_incomplete_formal_paragraphs_block_publication(self):
+        studio=dict(self.studio)
+        studio['philosophy_strokes_body']=studio['philosophy_strokes_body'].replace('\n\n',' ')
+        self.write(self.studio_path,studio)
+        result=self.build(success=False)
+        self.assertIn('strokes',result.stderr)
+
     def test_publish_hide_and_delete_across_static_pages(self):
         record = self.record()
         self.write(self.path, [record] + self.records)

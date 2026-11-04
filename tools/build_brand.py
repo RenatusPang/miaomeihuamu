@@ -120,18 +120,54 @@ def faqs(lang, indices=None):
     body=''.join(f'<details class="faq"><summary>{e(q[lang])}</summary><p>{e(q[2+lang])}</p></details>' for q in data)
     return f'<section class="wrap section faq-section"><div class="faq-layout"><h2 class="section-title">{text("你可能想问","Questions before a visit",lang)}</h2><div id="faq-list">{body}</div></div></section>', data
 
-def design_section(lang, compact=False):
+def design_section(lang, full=False):
     items=''.join(f'<div class="approach-item"><h3>{e(d[lang])}</h3><p>{e(d[2+lang])}</p></div>' for d in DESIGN)
-    return f'''<section class="section approach" id="design"><div class="wrap approach-inner"><div><h2 class="section-title">{text('眉形设计，<br>先看这些关系。','The details that<br>guide a design.',lang)}</h2><p class="approach-lead">{text('尽量顺应原有骨骼结构，让眉头、眉峰、眉尾与面部比例协调。乐乐偏爱自然柔和，但设计会回应你的喜好，不限于一种眉形。','Work with the existing structure, relating the brow start, arch and tail to facial proportions. Lele favours a natural, soft look personally; each design still responds to your preferences.',lang)}</p><a class="text-link" href="{route('about.html',lang)}">{text('了解乐乐的设计思路','Lele’s approach to design',lang)}</a></div><div class="approach-items">{items}</div></div></section>'''
+    title=text('眉形设计，<br>先看这些关系。','The details that<br>guide a design.',lang)
+    lead=cms_text(HOME,'design_intro',lang)
+    if full:
+        # The approved narrative uses the same section and column containers;
+        # its paragraphs are not recast as six independent promotional points.
+        paragraphs=cms_paragraphs(STUDIO,'philosophy_bone_body',lang)
+        title=cms_text(STUDIO,'philosophy_bone_title',lang)
+        lead=e(paragraphs[0])
+        items='<div class="approach-item">'+paragraph_html(paragraphs[1:])+'</div>'
+    return f'''<section class="section approach" id="design"><div class="wrap approach-inner"><div><h2 class="section-title">{title}</h2><p class="approach-lead">{lead}</p><a class="text-link" href="{route('about.html',lang)}">{text('了解乐乐的设计思路','Lele’s approach to design',lang)}</a></div><div class="approach-items">{items}</div></div></section>'''
 
-def layers(lang):
+def layers(lang, full=False):
     detail=selection('detail')
     visual=work_figure(detail[0],lang) if detail else ''
-    return f'''<section class="wrap section layer-story">{visual}<div><h2 class="section-title">{text('有框架，也有层次。','Structure, with softer layers.',lang)}</h2><p>{text('对于适合采用主线条与绒毛线组合的项目，先建立结构，再讨论内部的疏密与过渡。','Where a combination of structural and fine strokes is appropriate, establish the framework before planning internal density and transitions.',lang)}</p><dl><dt>{text('主线条','Main strokes',lang)}</dt><dd>{text('建立眉形框架、结构与主要毛流。','Establish the framework, structure and primary hair direction.',lang)}</dd><dt>{text('绒毛线','Finer strokes',lang)}</dt><dd>{text('丰富内部层次、密度与柔和过渡。','Add internal layers, density and softer transitions.',lang)}</dd></dl><p>{text('深浅、虚实和方向共同影响视觉上的立体感。不是把眉毛做浓，也不是改变骨骼结构；最终表现因人而异。','Tone, spacing and direction contribute to visual depth. The aim is not simply darker brows, and pigmentation does not change bone structure. Results vary by person.',lang)}</p><a class="text-link" href="{article_route('instrument-vs-dual',lang)}">{text('看单仪器与双仪器的区别','Read about single and dual instruments',lang)}</a></div></section>'''
+    title=text('有框架，也有层次。','Structure, with softer layers.',lang)
+    intro=cms_text(HOME,'layers_intro',lang)
+    main=cms_text(HOME,'main_strokes',lang)
+    fine=cms_text(HOME,'fine_strokes',lang)
+    result='<p>'+cms_text(HOME,'layers_result',lang)+'</p>'
+    if full:
+        paragraphs=cms_paragraphs(STUDIO,'philosophy_strokes_body',lang)
+        title=cms_text(STUDIO,'philosophy_strokes_title',lang)
+        intro,main,fine=map(e,paragraphs[:3])
+        result=paragraph_html(paragraphs[3:])
+    return f'''<section class="wrap section layer-story">{visual}<div><h2 class="section-title">{title}</h2><p>{intro}</p><dl><dt>{text('主线条','Main strokes',lang)}</dt><dd>{main}</dd><dt>{text('绒毛线','Fine strokes',lang)}</dt><dd>{fine}</dd></dl>{result}<a class="text-link" href="{article_route('instrument-vs-dual',lang)}">{text('看单仪器与双仪器的区别','Read about single and dual instruments',lang)}</a></div></section>'''
 
 def cms_text(data, key, lang, breaks=False):
     value = data.get(key + ('_en' if lang else ''), '') or ''
     return e(value).replace('\n', '<br>') if breaks else e(value)
+
+def cms_paragraphs(data, key, lang):
+    value=data.get(key+('_en' if lang else ''), '') or ''
+    return [part.strip() for part in re.split(r'\n\s*\n',value) if part.strip()]
+
+def paragraph_html(paragraphs):
+    return ''.join('<p>'+e(paragraph).replace('\n','<br>')+'</p>' for paragraph in paragraphs)
+
+def design_philosophy(lang):
+    suffix='_en' if lang else ''
+    return {
+        'summary':STUDIO['philosophy_summary'+suffix],
+        'sections':[{'title':STUDIO['philosophy_'+key+'_title'+suffix],
+                     'paragraphs':cms_paragraphs(STUDIO,'philosophy_'+key+'_body',lang)}
+                    for key in ('bone','strokes','style')],
+        'source':BASE+route('about.html',lang),
+    }
 
 def procedure_label(lang):
     return HOME.get('procedure_alt_en' if lang else 'procedure_alt') or text('本店操作过程记录','A studio procedure record',lang)
@@ -223,8 +259,8 @@ def services(lang):
 def about(lang):
     body=page_intro(cms_text(STUDIO,'title',lang,True),cms_text(STUDIO,'intro',lang),lang)
     body+=f'<section class="wrap section artist"><div class="artist-inner"><figure class="artist-image">{image(STUDIO['image'],STUDIO.get('image_alt_en' if lang else 'image_alt') or STUDIO['image_alt']) if STUDIO.get('image') else ''}<figcaption>{text("真实工作室环境","Inside the studio",lang)}</figcaption></figure><div class="artist-copy"><h2>{text("从从业经验，到个人工作室。","From professional experience<br>to a private studio.",lang)}</h2><p>{cms_text(STUDIO,'history',lang)}</p><p>{cms_text(STUDIO,'current',lang)}</p></div></div></section>'
-    body+=design_section(lang)+layers(lang)
-    body+=f'<section class="wrap section personal-note"><h2>{text("你的风格，也在设计里。","Your preferences belong in the design.",lang)}</h2><p>{text("喜欢柔和、利落，或希望眉形更有存在感，都可以说清楚。设计尽量顺应原有骨骼结构，通过眉头、眉峰、眉尾与整体轮廓的调整，追求视觉上的面部流畅度、比例协调和立体感。","Whether you prefer softness, definition or a stronger brow presence, say so. The design works with existing bone structure, adjusting the start, arch, tail and contour to seek visual flow, balanced proportions and depth.",lang)}</p><p>{text("这些是设计目标，不是必然发生的效果，也不是改变实际骨骼结构。","These are design aims, not guaranteed outcomes or changes to actual bone structure.",lang)}</p></section>'
+    body+=design_section(lang,full=True)+layers(lang,full=True)
+    body+=f'<section class="wrap section personal-note"><h2>{cms_text(STUDIO,"philosophy_style_title",lang)}</h2>{paragraph_html(cms_paragraphs(STUDIO,"philosophy_style_body",lang))}<p>{cms_text(STUDIO,"philosophy_summary",lang)}</p></section>'
     return body,[]
 
 def area(lang):
@@ -235,7 +271,7 @@ def area(lang):
     faq,data=faqs(lang,[1,3,5]);return body+faq,data
 
 def methods(lang):
-    body=page_intro(text('三种做法，<br>从同一个人出发。','Three methods.<br>One individual starting point.',lang),text('工具与线条组织不同，设计依据却始终是五官、原生眉和顾客偏好。','Tools and stroke arrangements differ. The design still begins with facial features, existing brows and individual preference.',lang),lang)
+    body=page_intro(text('三种做法，<br>从同一个人出发。','Three methods.<br>One individual starting point.',lang),text('工具与线条组织不同，设计依据始终是五官与骨相、原生毛流和个人风格。主线条与绒毛线的组合只用于适合的设计，不是所有项目的统一做法。','Tools and stroke arrangements differ. The design begins with facial features and bone structure, existing hair flow and personal style. Main and fine strokes are combined where appropriate, not as a universal technique for every service.',lang),lang)
     body+=f'<section class="wrap section methods-list">{service_list(lang)}</section>'+layers(lang)
     faq,data=faqs(lang,[0,3,4]);return body+faq,data
 
@@ -265,7 +301,8 @@ def update_machine_readable():
         (ROOT/path).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     summary=json.loads((ROOT/'ai/summary.json').read_text(encoding='utf-8'))
     summary['description']=BUSINESS['description']
-    summary['design_principles']={'personal_preference':'乐乐老师个人审美偏自然柔和、原生态，不限制顾客定制其他眉形风格。','observations':[d[0]+'：'+d[2] for d in DESIGN],'main_strokes':'建立眉形框架、结构与主要毛流。','fine_strokes':'在适合组合的项目中丰富内部层次、密度与柔和过渡。','limits':'设计追求视觉协调，不改变实际骨骼结构，不保证统一效果。'}
+    philosophy=design_philosophy(0)
+    summary['design_principles']={**philosophy,'personal_preference':philosophy['sections'][2]['paragraphs'][0],'custom_styles':philosophy['sections'][2]['paragraphs'][2],'observations':[d[0]+'：'+d[2] for d in DESIGN],'main_strokes':philosophy['sections'][1]['paragraphs'][1],'fine_strokes':philosophy['sections'][1]['paragraphs'][2],'limits':'设计追求视觉协调，不改变实际骨骼结构，不保证统一效果。'}
     care='恢复与留色因项目、个人肤质、原有底色、操作和护理而异。洗脸、化妆、游泳或运动需按本次项目及实际恢复情况确认，不承诺统一无痛或即刻恢复。'
     summary['policies']['waterContact']=care
     summary['policies']['touchColor']='所有项目一年内免费补色'
@@ -280,16 +317,19 @@ def update_machine_readable():
         if row['name']=='扩唇 / 唇形调整': row.update(recovery='可能有结痂期',recovery_period='约3天为经验参考，实际因人而异')
         if row['name']=='改乌唇': row['recovery']='可能有结痂期；恢复时间按评估说明'
     services['booking']['mode']='预约制，乐乐老师本人一对一设计操作，时间以联系确认为准。'
+    services['brow_design_approach']=HOME['design_intro']
+    services['stroke_combination_scope']=HOME['layers_intro']
+    services['design_principles_url']=BASE+'/about.html'
     services['aftercare']=care;services['updated']=DATE
     save('ai/service.json',services)
     faq=json.loads((ROOT/'ai/faq.json').read_text(encoding='utf-8'))
     faq['faqs']=faq['faqs'][:2]+[{'q':q[0],'a':q[2]} for q in FAQ]
     faq['updated']=DATE;save('ai/faq.json',faq)
-    save('ai/en.json',{'name':BRAND,'alternateName':BRAND_EN,'url':BASE+'/','page':BASE+'/en/','inLanguage':'en','description':'A private studio centred on personal aesthetic judgement and individual brow design. Instrument hair-stroke brows are the main service; designs respond to the individual rather than one fixed style.','design_considerations':[d[1]+': '+d[3] for d in DESIGN],'services':[{'name':s[2],'original_name':s[1],'description':s[4]} for s in SERVICES],'faqs':[{'q':q[1],'a':q[3]} for q in FAQ],'updated':DATE})
+    save('ai/en.json',{'name':BRAND,'alternateName':BRAND_EN,'url':BASE+'/','page':BASE+'/en/','inLanguage':'en','description':HOME['hero_intro_en'],'design_principles':design_philosophy(1),'design_considerations':[d[1]+': '+d[3] for d in DESIGN],'services':[{'name':s[2],'original_name':s[1],'description':s[4]} for s in SERVICES],'faqs':[{'q':q[1],'a':q[3]} for q in FAQ],'updated':DATE})
     llms=f'''# {BRAND}
 
-以个人审美和专业眉形设计为核心的私人定制纹绣工作室，主打仪器野生眉。
-乐乐老师个人偏爱自然柔和、原生态；可以根据顾客要求定制不同风格，不局限于温柔眉。
+{HOME['hero_intro']}
+{STUDIO['home_intro']}
 
 ## 门店事实
 - 主理人：乐乐老师，2016年进入纹绣行业；工作室2024年8月开业。
@@ -301,11 +341,12 @@ def update_machine_readable():
 - 所有项目一年内免费补色。
 - 不主动展示具体价格；以大众点评当期门店信息为准：{DIANPING}
 
-## 设计依据
-'''+ '\n'.join('- '+d[0]+'：'+d[2] for d in DESIGN)+'''
-
-主线条建立框架、结构与主要毛流；适合组合的项目中，绒毛线丰富内部层次、密度与柔和过渡。
+## 正式设计理念
+'''+ '\n\n'.join('### '+section['title']+'\n\n'+'\n\n'.join(section['paragraphs']) for section in philosophy['sections'])+'\n\n'+philosophy['summary']+f'\n\n完整说明：{philosophy["source"]}\n'+'''
 这些调整追求视觉协调，不改变实际骨骼结构，不保证每个人呈现同样效果。
+
+## 设计前观察
+'''+ '\n'.join('- '+d[0]+'：'+d[2] for d in DESIGN)+'''
 
 ## 实际项目
 '''+ '\n'.join('- '+s[1]+'：'+s[3] for s in SERVICES)+f'''
@@ -319,6 +360,8 @@ def update_machine_readable():
 
 ## English pages
 English-language pages explain the same studio and services.
+{STUDIO['philosophy_summary_en']}
+Full design approach: {BASE}/en/about.html
 '''+ '\n'.join(f'- [{label}]({BASE}{route(key,1)})' for key,label in [('home','Home'),('works.html','Work'),('about.html','Lele'),('price.html','Services'),('posts','Journal'),('area.html','Visit'),('guide','Choosing a brow studio')])+f'''
 
 ## Structured information
@@ -335,6 +378,10 @@ Updated: {DATE}
     notes=ai_notes.read_text(encoding='utf-8')
     notes=re.sub(r'# 更新：.*', '# 更新：'+DATE,notes)
     notes=re.sub(r'# 碰水：.*','# 护理：按项目与实际恢复情况确认，不承诺统一无痛或即刻恢复。',notes)
+    notes=re.sub(r'# 站点面向上海本地消费者[^\n]*\n# 欢迎引用本站页面[^\n]*', '# 本站提供工作室事实、真实作品与专业设计说明。\n# 引用时请结合对应页面与更新日期。',notes)
+    # Rebuild these lines from the same owner-editable formal copy each time.
+    notes=re.sub(r'^(?:Design-Approach(?:-English)?:|# 设计理念：).*\n?', '', notes, flags=re.M)
+    notes+='\nDesign-Approach: '+BASE+'/about.html\nDesign-Approach-English: '+BASE+'/en/about.html\n# 设计理念：'+STUDIO['philosophy_summary']+'\n'
     if 'English:' not in notes: notes+='\nEnglish: '+BASE+'/en/\nEnglish-Summary: '+BASE+'/ai/en.json\n'
     ai_notes.write_text(notes,encoding='utf-8')
     feed=ROOT/'feed.xml'
@@ -361,7 +408,9 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
     schemas=[]
     if key=='home':
         business=copy.deepcopy(BUSINESS)
-        if lang: business['@type']='BeautySalon'
+        if lang:
+            business['@type']='BeautySalon'
+            business['description']=HOME['hero_intro_en']
         schemas.extend([business,PERSON,{'@context':'https://schema.org','@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':BRAND,'inLanguage':['zh-CN','en']}])
         if HOME.get('procedure_video'):
             video_schema=copy.deepcopy(VIDEO)
@@ -380,7 +429,11 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
     previous=next((s for s in old.get('schemas',[]) if s.get('@type')==kind),{})
     page={**previous,'@context':'https://schema.org','@type':kind,'@id':canonical+'#webpage','url':canonical,'name':title,'description':description,'inLanguage':'en' if lang else 'zh-CN','about':{'@id':BASE+'/#business'}}
     page['isPartOf']={'@id':BASE+'/#website'}
-    if key=='about.html': page['mainEntity']={'@id':BASE+'/#business'}
+    if key=='about.html':
+        philosophy=design_philosophy(lang)
+        page['mainEntity']={'@id':BASE+'/#business'}
+        page['abstract']=philosophy['summary']
+        page['hasPart']=[{'@type':'WebPageElement','name':part['title'],'text':'\n\n'.join(part['paragraphs'])} for part in philosophy['sections']]
     if key=='works.html':
         records=[]
         for category,zh,en in CATEGORIES:
@@ -439,7 +492,9 @@ def build():
     for lang in (0,1):
         for key,fn,titles in pages:
             body,data=fn(lang)
-            desc=text('描眉画目私人定制纹绣工作室，结合五官、原生眉和个人偏好设计。主打仪器野生眉，免费设计约30–45分钟，所有项目一年内免费补色。','A private studio for individual brow design in Pudong, Shanghai. A free 30–45 minute design consultation and free touch-ups within one year for all services.',lang)
+            desc=text('描眉画目私人定制纹绣工作室，结合五官与骨相、原生毛流和个人风格设计。主打仪器野生眉，免费设计约30–45分钟，所有项目一年内免费补色。','A private studio for brow design based on facial features, bone structure, existing hair flow and personal style. A free 30–45 minute design consultation and free touch-ups within one year for all services.',lang)
+            source={'home':(HOME,'hero_intro'),'about.html':(STUDIO,'intro'),'works.html':(WORKS_PAGE,'intro')}.get(key)
+            if source: desc=source[0][source[1]+('_en' if lang else '')]
             render(key,route(key,lang),lang,titles[lang],desc,body,data)
         for a in ARTICLES:
             body,data=article_body(a,lang)

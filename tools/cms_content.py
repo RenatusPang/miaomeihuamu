@@ -107,6 +107,19 @@ def validate():
     local_media(studio.get('image'))
     if studio.get('image') and not studio.get('image_alt', '').strip():
         raise ValueError('工作室图片须填写替代文字')
+    for suffix in ('', '_en'):
+        for key in ('design_intro','layers_intro','main_strokes','fine_strokes','layers_result'):
+            if not isinstance(home.get(key+suffix),str) or not home[key+suffix].strip():
+                raise ValueError(f'{key+suffix}: 请保留首页设计理念文字')
+        for part,minimum in (('bone',3),('strokes',4),('style',3)):
+            title=studio.get('philosophy_'+part+'_title'+suffix)
+            body=studio.get('philosophy_'+part+'_body'+suffix)
+            if not isinstance(title,str) or not title.strip() or not isinstance(body,str):
+                raise ValueError(f'{part+suffix}: 请保留正式设计理念标题与正文')
+            if len([p for p in re.split(r'\n\s*\n',body) if p.strip()]) < minimum:
+                raise ValueError(f'{part+suffix}: 段落之间留空行，保留至少{minimum}段正式理念')
+        if not isinstance(studio.get('philosophy_summary'+suffix),str) or not studio['philosophy_summary'+suffix].strip():
+            raise ValueError('请保留中英文正式设计理念总述')
     for category, _, _ in CATEGORIES:
         work_records(category)
     services = load('services.json', list)
