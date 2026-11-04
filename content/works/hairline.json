@@ -1,50 +1,43 @@
 [
   {
     "title": "纹发际线 · 局部记录",
-    "image": "/assets/works/hairline.webp",
-    "video": "",
     "alt": "纹发际线局部作品记录",
+    "image": "/assets/works/hairline.webp",
     "published": true,
     "featured": false,
-    "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "wide": false
   },
   {
     "title": "纹发际线 · 操作视频 1",
-    "image": "",
-    "video": "/assets/uploads/videos/imported/hairline/01.mp4",
+    "description_en": "CMS publication verification (hidden).",
     "alt": "纹发际线操作过程记录",
+    "video": "/assets/uploads/videos/imported/hairline/01.mp4",
     "published": false,
     "featured": false,
-    "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "wide": false
   },
   {
     "title": "纹发际线 · 操作视频 2",
-    "image": "",
-    "video": "/assets/uploads/videos/imported/hairline/02.mp4",
     "alt": "纹发际线操作过程记录",
+    "video": "/assets/uploads/videos/imported/hairline/02.mp4",
     "published": false,
     "featured": false,
-    "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "wide": false
   },
   {
     "title": "纹发际线 · 作品 3",
-    "image": "/assets/uploads/images/imported/hairline/03.jpg",
-    "video": "",
     "alt": "纹发际线真实模特作品记录",
+    "image": "/assets/uploads/images/imported/hairline/03.jpg",
     "published": true,
     "featured": false,
-    "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "wide": false
   }
 ]
