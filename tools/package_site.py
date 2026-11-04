@@ -13,6 +13,16 @@ TARGET = ROOT / '_site'
 def git(*args):
     return subprocess.check_output(['git', *args], cwd=ROOT, text=True).strip()
 
+def release_metadata():
+    try:
+        branch = os.environ.get('CMS_BRANCH') or os.environ.get('GITHUB_REF_NAME') or git('branch', '--show-current')
+        revision = os.environ.get('CMS_REVISION') or git('rev-parse', 'HEAD')
+    except subprocess.CalledProcessError:
+        branch, revision = 'local-copy', 'local-copy'
+    return {'repository': 'RenatusPang/miaomeihuamu', 'branch': branch,
+            'revision': revision, 'built_at': datetime.now(timezone.utc).isoformat(),
+            'preview': branch != 'main'}
+
 def package():
     # This tool owns only the exact generated _site directory inside this repo.
     if TARGET.exists():
@@ -28,18 +38,13 @@ def package():
         path = ROOT / name
         if path.is_file():
             shutil.copy2(path, TARGET / name)
-    branch = os.environ.get('CMS_BRANCH') or git('branch', '--show-current')
-    revision = os.environ.get('CMS_REVISION') or git('rev-parse', 'HEAD')
-    preview = branch != 'main'
-    if preview:
+    release = release_metadata()
+    if release['preview']:
         for path in TARGET.rglob('*.html'):
             source = path.read_text(encoding='utf-8')
             source = re.sub(r'<meta\s+name=["\']robots["\'][^>]*>', '', source, flags=re.I)
             path.write_text(source.replace('</head>', '<meta name="robots" content="noindex,nofollow"></head>'), encoding='utf-8')
         (TARGET / 'robots.txt').write_text('User-agent: *\nDisallow: /\n', encoding='utf-8')
-    release = {'repository': 'RenatusPang/miaomeihuamu', 'branch': branch,
-               'revision': revision, 'built_at': datetime.now(timezone.utc).isoformat(),
-               'preview': preview}
     (TARGET / 'admin/release.json').write_text(json.dumps(release, indent=2)+'\n', encoding='utf-8')
     print(json.dumps(release))
 

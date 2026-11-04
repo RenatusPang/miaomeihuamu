@@ -110,7 +110,9 @@ def main():
     for route in ('/works.html','/en/works.html'):
         source=sources[route]
         for media in published:check(media in source,route+' missing published record '+media)
-        for media in private:check(media not in source,route+' private record exposed '+media)
+        # Hiding one record does not remove an asset used by another public
+        # record. ItemList below must still match only the public records.
+        for media in set(private)-set(published):check(media not in source,route+' private record exposed '+media)
         schemas=[json.loads(s) for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S)]
         collection=next(s for s in schemas if s['@type']=='CollectionPage')
         actual=[i['item']['contentUrl'].removeprefix(BASE) for i in collection['mainEntity']['itemListElement']]

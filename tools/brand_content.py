@@ -24,4 +24,5 @@ for path in sorted((ROOT / 'content/articles').glob('*.json')):
         'title': [row['title'], row['title_en']],
         'intro': [row['intro'], row['intro_en']],
         'sections': [tuple(s.get(k, '') for k in ('title', 'title_en', 'description', 'description_en')) for s in row['sections']],
+        'section_images': [s.get('image') or '' for s in row['sections']],
     })

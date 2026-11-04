@@ -5,6 +5,7 @@ from every presentation, including curated selections and structured data.
 """
 import json
 import math
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -114,6 +115,15 @@ def validate():
         raise ValueError('请保留原有十类服务及网址标识；项目变更须先核对门店实际服务')
     if len(load('design.json', list)) != 6 or len(load('faq.json', list)) != 6:
         raise ValueError('请保留六项设计依据和六条常见问题，可修改对应中英文文字')
+    for path in (ROOT / 'content/articles').glob('*.json'):
+        article = load('articles/' + path.name)
+        slug = article.get('slug')
+        if not isinstance(slug, str) or not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', slug) or slug != path.stem:
+            raise ValueError(f'{path.name}: 文章网址标识必须与文件名一致，不能改为路径')
+        if not isinstance(article.get('sections'), list) or not article['sections']:
+            raise ValueError(f'{path.name}: 请保留文章正文段落')
+        for section in article['sections']:
+            local_media(section.get('image'), required=slug == 'wild-brow-9-steps')
     for data in (home, studio, load('works-page.json')):
         for key, value in data.items():
             if not isinstance(value, (str, type(None))):

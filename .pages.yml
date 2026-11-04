@@ -1426,6 +1426,21 @@
               "label": "正文（English）",
               "type": "text",
               "required": true
+            },
+            {
+              "name": "image",
+              "label": "本段配图（随段落一起排序）",
+              "type": "image",
+              "options": {
+                "media": "work_images",
+                "path": "assets/uploads/images",
+                "extensions": [
+                  "jpg",
+                  "jpeg",
+                  "png",
+                  "webp"
+                ]
+              }
             }
           ]
         }

@@ -6,7 +6,7 @@
   let branch = 'codex/owner-cms-20261104';
   let release;
   try {
-    const response = await fetch('./release.json', { cache: 'no-store' });
+    const response = await fetch(`./release.json?check=${Date.now()}`, { cache: 'no-store' });
     if (response.ok) release = await response.json();
     if (release?.repository === repository && typeof release.branch === 'string') branch = release.branch;
   } catch { /* Local source preview has no packaged release yet. */ }
@@ -21,6 +21,14 @@
     refresh.disabled = true;
     status.textContent = '正在读取保存与生成状态…';
     try {
+      const currentRelease = await fetch(`./release.json?check=${Date.now()}`, { cache: 'no-store' });
+      if (currentRelease.ok) {
+        const current = await currentRelease.json();
+        if (current.repository === repository && current.branch === branch) {
+          release = current;
+          document.querySelector('#version').textContent = release.revision.slice(0, 12);
+        }
+      }
       const endpoint = `https://api.github.com/repos/${repository}`;
       const response = await fetch(`${endpoint}/commits/${encodeURIComponent(branch)}`);
       if (!response.ok) throw Error('版本状态暂不可读');
@@ -34,7 +42,11 @@
       else if (run.status !== 'completed') message += '正在等待或执行生成。';
       else if (run.conclusion !== 'success') message += `生成未成功（${run.conclusion}），请查看错误并修正内容。`;
       else if (test) message += '测试预览文件已生成；未发布到正式官网。';
-      else message += '流程已完成；请打开官网确认内容与版本，单凭绿色状态不能证明发布已启用。';
+      else if (location.origin === 'https://miaomeihuamu.com' && release?.revision === commit.sha && release.preview === false) {
+        message += '正式官网已提供此版本，可打开页面核对内容。';
+      } else {
+        message += '生成流程已完成，当前页面尚未确认正式发布到此版本。请查看 deploy 发布步骤和官网版本。';
+      }
       status.textContent = message;
     } catch (error) {
       status.textContent = `${error.message}。也可能达到 GitHub 公开查询频率限制，请用下方“生成记录”核对。`;

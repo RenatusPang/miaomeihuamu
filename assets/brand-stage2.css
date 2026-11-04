@@ -237,3 +237,5 @@ html[lang=en] .footer-brand { font-size: 22px; }
 
 /* CMS-driven optional media, wide archive records and video selections. */
 .hero-text-only{grid-template-columns:1fr}.hero-text-only .hero-copy{max-width:820px;padding-top:64px;padding-bottom:64px}.case-item video{display:block;width:100%;height:auto;max-height:780px;background:#e5e0d7}.archive-grid .work-wide{grid-column:1/-1}.layer-story:has(>div:only-child){grid-template-columns:1fr}.journal-editorial:has(>.reading-list:only-child){grid-template-columns:1fr}.artist-image:empty{display:none}
+.artist-inner:has(>.artist-copy:only-child){grid-template-columns:1fr}
+.visit-process:has(>div:only-child){grid-template-columns:1fr}

@@ -27,6 +27,10 @@ class ContentFlow(unittest.TestCase):
         cls.records = json.loads(cls.path.read_text(encoding='utf-8'))
         cls.home_path = cls.root / 'content/home.json'
         cls.home = json.loads(cls.home_path.read_text(encoding='utf-8'))
+        cls.studio_path = cls.root / 'content/studio.json'
+        cls.studio = json.loads(cls.studio_path.read_text(encoding='utf-8'))
+        cls.steps_path = cls.root / 'content/articles/wild-brow-9-steps.json'
+        cls.steps = json.loads(cls.steps_path.read_text(encoding='utf-8'))
 
     @classmethod
     def tearDownClass(cls):
@@ -35,6 +39,8 @@ class ContentFlow(unittest.TestCase):
     def setUp(self):
         self.write(self.path, self.records)
         self.write(self.home_path, self.home)
+        self.write(self.studio_path, self.studio)
+        self.write(self.steps_path, self.steps)
 
     def write(self, path, value):
         path.write_text(json.dumps(value, ensure_ascii=False), encoding='utf-8')
@@ -107,7 +113,7 @@ class ContentFlow(unittest.TestCase):
             self.assertIn('CMS-TITLE<br>', source)
             # The old anchor stays for inbound links; the image itself is gone.
             self.assertIsNone(re.search(r'<img\b[^>]*id="hero-image"', source))
-            self.assertNotIn('as="image" href="/assets/hero-model.webp"', source)
+            self.assertNotIn('<link rel="preload" as="image"', source)
             self.assertNotIn('/assets/operation-brow.mp4', source)
 
     def test_untrusted_media_and_missing_cover_block_build(self):
@@ -118,6 +124,52 @@ class ContentFlow(unittest.TestCase):
         record = self.record(); record.pop('image'); record['video']='/assets/operation-brow.mp4'
         self.write(self.path, [record] + self.records)
         self.assertIn('视频须设置封面', self.build(False).stderr)
+
+    def test_optional_procedure_label_has_an_accessible_fallback(self):
+        home = dict(self.home)
+        home.pop('procedure_alt', None); home.pop('procedure_alt_en', None)
+        self.write(self.home_path, home)
+        self.build()
+        self.assertIn('aria-label="本店操作过程记录"', self.source('index.html'))
+        self.assertIn('aria-label="A studio procedure record"', self.source('en/index.html'))
+
+    def test_replaced_video_does_not_inherit_the_old_upload_date(self):
+        target = self.root / 'assets/uploads/videos/cms-new-video.mp4'
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(self.root / 'assets/operation-brow.mp4', target)
+        home = dict(self.home); home['procedure_video'] = '/assets/uploads/videos/cms-new-video.mp4'
+        self.write(self.home_path, home)
+        self.build()
+        schemas = [json.loads(item) for item in re.findall(r'<script type="application/ld\+json">(.*?)</script>', self.source('index.html'), re.S)]
+        video = next(item for item in schemas if item['@type'] == 'VideoObject')
+        self.assertTrue(video['contentUrl'].endswith('/cms-new-video.mp4'))
+        # This uncommitted fixture has no recorded upload date to publish.
+        self.assertNotIn('uploadDate', video)
+
+    def test_studio_photo_removal_updates_every_visible_use(self):
+        studio = dict(self.studio); studio.pop('image', None)
+        self.write(self.studio_path, studio)
+        self.build()
+        for page in ('index.html','about.html','area.html','en/index.html','en/about.html','en/area.html'):
+            self.assertIsNone(re.search(r'<img\b[^>]*src="/assets/env/window.jpg"', self.source(page)), page)
+
+    def test_step_images_stay_with_their_text_when_reordered(self):
+        article = json.loads(json.dumps(self.steps))
+        article['sections'][0], article['sections'][1] = article['sections'][1], article['sections'][0]
+        self.write(self.steps_path, article)
+        self.build()
+        source = self.source('posts/wild-brow-9-steps.html')
+        first = source.split('<section id="section-1">',1)[1].split('</section>',1)[0]
+        self.assertIn(article['sections'][0]['title'], first)
+        self.assertIn('/assets/9steps/step2.jpg', first)
+        schemas = [json.loads(item) for item in re.findall(r'<script type="application/ld\+json">(.*?)</script>', source, re.S)]
+        howto = next(item for item in schemas if item['@type'] == 'HowTo')
+        self.assertTrue(howto['step'][0]['image'].endswith('/step2.jpg'))
+
+    def test_article_identifiers_cannot_escape_the_article_directory(self):
+        article = dict(self.steps); article['slug'] = '../../admin/index'
+        self.write(self.steps_path, article)
+        self.assertIn('文章网址标识', self.build(False).stderr)
 
 if __name__ == '__main__':
     unittest.main(verbosity=2)

@@ -6,14 +6,17 @@ No network, package installation or deployment is performed.
 import copy
 import html
 import json
+import os
 import re
 import subprocess
+from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import urljoin
 import xml.etree.ElementTree as ET
 
 from brand_content import BRAND, BRAND_EN, DESIGN, SERVICES, FAQ, ARTICLES
 from cms_content import load, validate, CATEGORIES, work_records, selection
+from package_site import release_metadata
 
 HOME = load('home.json')
 STUDIO = load('studio.json')
@@ -22,7 +25,10 @@ WORKS_PAGE = load('works-page.json')
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://miaomeihuamu.com'
 BASELINE = 'd75e0d9'
-DATE = '2026-11-04'
+try:
+    DATE = os.environ.get('CMS_CONTENT_DATE') or subprocess.check_output(['git','log','-1','--format=%cs'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip()
+except (OSError, subprocess.CalledProcessError):
+    DATE = datetime.now(timezone.utc).date().isoformat()
 DIANPING = 'https://www.dianping.com/shop/ka17X0dd6YqQIfYc'
 MAP = 'https://map.baidu.com/bdpoiwise/index.html?uid=e14d4f6c79332f56a7c756d2'
 METADATA = ROOT / 'content/brand/original-metadata.json'
@@ -127,6 +133,14 @@ def cms_text(data, key, lang, breaks=False):
     value = data.get(key + ('_en' if lang else ''), '') or ''
     return e(value).replace('\n', '<br>') if breaks else e(value)
 
+def procedure_label(lang):
+    return HOME.get('procedure_alt_en' if lang else 'procedure_alt') or text('本店操作过程记录','A studio procedure record',lang)
+
+def media_upload_date(path):
+    revision = [os.environ['CMS_REVISION']] if os.environ.get('CMS_REVISION') else []
+    result=subprocess.run(['git','log','--follow','--diff-filter=A','-1','--format=%cI',*revision,'--',path.lstrip('/')],cwd=ROOT,capture_output=True,text=True)
+    return result.stdout.strip() if result.returncode == 0 else ''
+
 def work_title(record, lang):
     if lang:
         return record.get('title_en') or next(c[2] for c in CATEGORIES if c[0] == record['_category']) + ' · Work record'
@@ -165,7 +179,7 @@ def home(lang):
 {design_section(lang)}{layers(lang)}
 <section class="wrap section" id="services"><div class="services-layout"><div><h2 class="section-title">{text('设计在前，<br>项目随之选择。','The design comes first.<br>The method follows.',lang)}</h2><p class="service-note">{text('以仪器野生眉私人定制为主打。具体做法结合基础、底色、肤质和希望呈现的风格，不按固定眉形或项目档位套用。','Instrument hair-stroke brows are the main service. Existing brows, old pigment, skin and your preferences guide the method, rather than a fixed shape or a service tier.',lang)}</p><a class="text-link" href="{route('price.html',lang)}">{text('完整项目与护理说明','All services and care information',lang)}</a></div><div>{service_list(lang)}</div></div></section>
 <section class="wrap section artist" id="lele"><div class="artist-inner"><figure class="artist-image" id="studio">{image(STUDIO['image'],STUDIO.get('image_alt_en' if lang else 'image_alt') or STUDIO['image_alt']) if STUDIO.get('image') else ''}<figcaption>{text('工作室的一角','A corner of the studio',lang)}</figcaption></figure><div class="artist-copy"><h2>{text('乐乐老师','Meet Lele',lang)}</h2><p>{cms_text(STUDIO,'home_intro',lang,True)}</p><p>{cms_text(STUDIO,'home_history',lang,True)}</p><a class="text-link" href="{route('about.html',lang)}">{text('认识乐乐与工作室','About Lele and the studio',lang)}</a></div></div></section>
-<section class="wrap section journal" id="journal"><div class="section-heading"><h2>{text('先了解，再决定。','Understand the work<br>before deciding.',lang)}</h2><a class="text-link" href="{route('posts',lang)}">{text('浏览专业知识','Browse the journal',lang)}</a></div><div class="journal-editorial"><figure><video controls playsinline preload="none" poster="{e(HOME.get('procedure_cover') or '')}" aria-label="{cms_text(HOME,'procedure_alt',lang)}"><source src="{e(HOME.get('procedure_video') or '')}" type="{'video/webm' if (HOME.get('procedure_video') or '').endswith('.webm') else 'video/mp4'}"></video><figcaption>{cms_text(HOME,'procedure_alt',lang)}</figcaption></figure><div class="reading-list">'''
+<section class="wrap section journal" id="journal"><div class="section-heading"><h2>{text('先了解，再决定。','Understand the work<br>before deciding.',lang)}</h2><a class="text-link" href="{route('posts',lang)}">{text('浏览专业知识','Browse the journal',lang)}</a></div><div class="journal-editorial"><figure><video controls playsinline preload="none" poster="{e(HOME.get('procedure_cover') or '')}" aria-label="{e(procedure_label(lang))}"><source src="{e(HOME.get('procedure_video') or '')}" type="{'video/webm' if (HOME.get('procedure_video') or '').endswith('.webm') else 'video/mp4'}"></video><figcaption>{e(procedure_label(lang))}</figcaption></figure><div class="reading-list">'''
     for slug in ['wild-brow-9-steps','instrument-vs-dual','first-month']:
         a=next(a for a in ARTICLES if a['slug']==slug)
         body+=f'<a href="{article_route(slug,lang)}"><h3>{e(a["title"][lang])}</h3><p>{e(a["intro"][lang])}</p><span aria-hidden="true">↗</span></a>'
@@ -216,7 +230,7 @@ def about(lang):
 def area(lang):
     body=page_intro(text('来工作室，<br>先看设计，再决定。','Visit the studio.<br>See the design before deciding.',lang),text('到店设计免费，约30–45分钟。一对一接待，建议先联系确认时间。','The design consultation is free and takes about 30–45 minutes. Visits are one-to-one; contact the studio to confirm a time.',lang),lang)
     steps=[('联系确认时间','Arrange a time','微信MiaoMeiHuaMu，或致电19282182068。可以先说希望了解的项目和方便到店的时间。','Use WeChat MiaoMeiHuaMu or call +86 192 8218 2068. Mention the service you would like to discuss and when you can visit.'),('观察与设计','Discuss and design','结合五官、骨骼轮廓、原生眉与喜好，先把眉形画出来给你看。可带日常照片或喜欢的眉形作沟通参考。','Discuss facial features, contours, existing brows and preferences, then see a proposed shape. Everyday photographs or brow references can help explain what you like.'),('确认是否操作','Decide whether to proceed','你觉得合适再决定，不做也不收费。操作前说清项目、护理要求和实际安排。','Decide after seeing the design. There is no charge if you do not proceed. The service, aftercare and practical arrangements are discussed beforehand.'),('护理与复看','Aftercare and review','按本次项目说明护理，结合恢复状态复看。所有项目一年内免费补色。','Follow the aftercare for your service and arrange review according to healing. All services include free touch-ups within one year.')]
-    body+='<section class="wrap section visit-process"><div>'+''.join(f'<div><h2>{s[lang]}</h2><p>{s[2+lang]}</p></div>' for s in steps)+f'</div><figure>{image("assets/env/window.jpg",text("工作室的茶台与窗边空间","The tea table beside the studio window",lang))}<figcaption>{text("工作室真实环境","The real studio interior",lang)}</figcaption></figure></section>'
+    body+='<section class="wrap section visit-process"><div>'+''.join(f'<div><h2>{s[lang]}</h2><p>{s[2+lang]}</p></div>' for s in steps)+f'</div><figure class="studio-photo">{image(STUDIO['image'],STUDIO.get('image_alt_en' if lang else 'image_alt') or STUDIO['image_alt']) if STUDIO.get('image') else ''}<figcaption>{text("工作室真实环境","The real studio interior",lang)}</figcaption></figure></section>'
     body+=f'<section class="wrap section arrival"><h2 class="section-title">{text("怎么到店","Getting here",lang)}</h2><p>{text("上海市浦东新区三林长清路1200弄39号1613室，前滩南侧。地铁6号线灵岩南路站2号口往西步行约300米。到楼后如不确定入口，可联系工作室确认。","Room 1613, No. 39, Lane 1200 Changqing Road, Sanlin, Pudong, Shanghai, south of Qiantan. Walk about 300 metres west from Exit 2 of Lingyan South Road station on Metro Line 6. Contact the studio if you need help finding the entrance.",lang)}</p><p>{text("周一至周日10:00–20:00。门店品牌名与营业执照登记名可能不同，地图或点评长名称指向同一工作室。","Open daily 10:00–20:00. The trading name and registered business name can differ; the longer category-based name on maps or Dianping refers to the same studio.",lang)}</p></section>'
     faq,data=faqs(lang,[1,3,5]);return body+faq,data
 
@@ -238,8 +252,8 @@ def article_body(a,lang):
     for i,s in enumerate(a['sections'],1):
         title=(str(i)+'. ' if a['slug']=='wild-brow-9-steps' else '')+s[lang]
         body+=f'<section id="section-{i}"><h2>{e(title)}</h2><p>{e(s[2+lang])}</p>'
-        if a['slug']=='wild-brow-9-steps':
-            body+=f'<figure>{image(f"assets/9steps/step{i}.jpg",title)}<figcaption>{e(title)}</figcaption></figure>'
+        if a['section_images'][i-1]:
+            body+=f'<figure>{image(a["section_images"][i-1],title)}<figcaption>{e(title)}</figcaption></figure>'
         body+='</section>'
     body+=f'<nav class="article-related" aria-label="{text("相关阅读","Related reading",lang)}"><a href="{route("works.html",lang)}">{text("看真实作品","See the work",lang)}</a><a href="{route("wild-brow.html",lang)}">{text("比较野生眉做法","Compare brow methods",lang)}</a><a href="{route("area.html",lang)}">{text("到店设计与预约","Consultation and arrival",lang)}</a></nav></div></article>'
     return body,[]
@@ -336,6 +350,8 @@ Updated: {DATE}
     ET.indent(tree,space='  ');tree.write(feed,encoding='utf-8',xml_declaration=True)
 
 def render(key,path,lang,title,description,body,faq_data,article_data=None):
+    if not STUDIO.get('image'):
+        body=re.sub(r'<figure class="(?:artist-image|studio-photo)"[^>]*>.*?</figure>', '', body, flags=re.S)
     canonical=BASE+path
     other=article_route(article_data['slug'],1-lang) if article_data else route(key,1-lang)
     zh_url=BASE+(other if lang else path); en_url=BASE+(path if lang else other)
@@ -349,8 +365,16 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
         schemas.extend([business,PERSON,{'@context':'https://schema.org','@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':BRAND,'inLanguage':['zh-CN','en']}])
         if HOME.get('procedure_video'):
             video_schema=copy.deepcopy(VIDEO)
-            video_schema.update(contentUrl=BASE+HOME['procedure_video'],thumbnailUrl=BASE+HOME['procedure_cover'],name=HOME.get('procedure_alt_en' if lang else 'procedure_alt') or HOME['procedure_alt'])
+            video_schema.update(contentUrl=BASE+HOME['procedure_video'],thumbnailUrl=BASE+HOME['procedure_cover'],name=procedure_label(lang))
             video_schema.pop('embedUrl',None)
+            if video_schema['contentUrl'] != VIDEO.get('contentUrl'):
+                video_schema['description']=procedure_label(lang)
+                video_schema.pop('duration',None)
+                uploaded=media_upload_date(HOME['procedure_video'])
+                if uploaded:
+                    video_schema['uploadDate']=uploaded
+                else:
+                    video_schema.pop('uploadDate',None)
             schemas.append(video_schema)
     kind='Article' if article_data else ('CollectionPage' if key in ('works.html','posts') else 'AboutPage' if key=='about.html' else 'WebPage')
     previous=next((s for s in old.get('schemas',[]) if s.get('@type')==kind),{})
@@ -375,7 +399,7 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
         page['mainEntityOfPage']=canonical
     schemas.append(page)
     if article_data and article_data['slug']=='wild-brow-9-steps':
-        schemas.append({'@context':'https://schema.org','@type':'HowTo','name':title,'description':description,'inLanguage':'en' if lang else 'zh-CN','image':BASE+'/assets/9steps/step1.jpg','step':[{'@type':'HowToStep','position':i,'name':s[lang],'text':s[2+lang],'url':canonical+f'#section-{i}','image':BASE+f'/assets/9steps/step{i}.jpg'} for i,s in enumerate(article_data['sections'],1)]})
+        schemas.append({'@context':'https://schema.org','@type':'HowTo','name':title,'description':description,'inLanguage':'en' if lang else 'zh-CN','image':BASE+article_data['section_images'][0],'step':[{'@type':'HowToStep','position':i,'name':s[lang],'text':s[2+lang],'url':canonical+f'#section-{i}','image':BASE+article_data['section_images'][i-1]} for i,s in enumerate(article_data['sections'],1)]})
     crumbs=[{'@type':'ListItem','position':1,'name':text('首页','Home',lang),'item':BASE+route('home',lang)}]
     if key!='home': crumbs.append({'@type':'ListItem','position':2,'name':title,'item':canonical})
     schemas.append({'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':crumbs})
@@ -406,7 +430,7 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
 {footer(lang)}
 </body></html>
 '''
-    target=disk(path);target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result,encoding='utf-8')
+    target=disk(path);target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result,encoding='utf-8',newline='\n')
     GENERATED.append(path)
 
 def build():
@@ -435,6 +459,7 @@ def build():
     ET.indent(tree,space='  ');tree.write(sitemap,encoding='utf-8',xml_declaration=True)
     (ROOT/'content/brand/routes.json').write_text(json.dumps(GENERATED,indent=2)+'\n',encoding='utf-8')
     update_machine_readable()
+    (ROOT/'admin/release.json').write_text(json.dumps(release_metadata(),indent=2)+'\n',encoding='utf-8')
     print(f'Built {len(GENERATED)} static pages; existing sitemap URLs retained.')
 
 if __name__=='__main__':
