@@ -1,0 +1,33 @@
+{
+  "slug": "faq-long",
+  "title": "纹眉前常见问题：设计、恢复与补色",
+  "title_en": "Brow design, healing and touch-ups: common questions",
+  "intro": "先问清楚设计、适用情况和护理，再决定是否操作。下面把容易混在一起的问题分开说明。",
+  "intro_en": "Clarify design, suitability and aftercare before deciding. These questions separate issues that are often discussed as if they were the same thing.",
+  "sections": [
+    {
+      "title": "眉形设计怎样考虑面部比例？",
+      "title_en": "How do facial proportions inform the design?",
+      "description": "先看五官的立体度与量感、颧骨和眉眶骨，再结合原生眉与个人喜好。顺应已有结构，调整眉头、眉峰、眉尾及整体轮廓，寻找与五官协调的视觉比例。",
+      "description_en": "Lele considers facial depth and visual weight, cheekbones and the brow bone, alongside existing brows and personal preferences. The start, arch, tail and overall contour are designed around those features to seek visual balance."
+    },
+    {
+      "title": "是不是做得越浓越好？",
+      "title_en": "Are darker brows better?",
+      "description": "不是。主线条建立框架，适合的绒毛线补充层次；浓淡、间距与虚实都要结合五官量感和个人喜好。",
+      "description_en": "No. Main strokes establish a framework, with finer strokes adding layers where appropriate. Intensity, spacing and tonal variation should respond to the facial features and personal preference."
+    },
+    {
+      "title": "留色与恢复怎么理解？",
+      "title_en": "How should I interpret healing and retention estimates?",
+      "description": "手工留色常参考约1年，仪器约2–3年，都是经验参考。恢复因项目与个人状态而异，具体护理安排需结合本次项目、肤质和实际恢复情况确认。",
+      "description_en": "Around one year for manual work and two to three years for instrument work are experience-based retention estimates. Healing varies by service and person. The aftercare plan takes the treatment, skin and progress of healing into account."
+    },
+    {
+      "title": "设计、价格与补色",
+      "title_en": "Consultation, prices and touch-ups",
+      "description": "到店设计免费，约30–45分钟，不做也不收费。价格以大众点评当期门店信息为准，所有项目一年内免费补色。",
+      "description_en": "The design consultation is free and takes about 30–45 minutes, even if you decide not to proceed. Prices are available on the current Dianping listing. All services include free touch-ups within one year."
+    }
+  ]
+}

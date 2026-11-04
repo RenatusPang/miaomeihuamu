@@ -1,0 +1,27 @@
+{
+  "slug": "lip-recovery",
+  "title": "纹唇恢复与日常护理，需要确认什么",
+  "title_en": "Lip pigmentation: recovery and everyday care",
+  "intro": "不同唇部项目与个人状态，恢复表现可能不同。不要把统一天数当作恢复完成的保证。",
+  "intro_en": "Healing varies with the service and the person. A set number of days is not a guarantee that recovery is complete.",
+  "sections": [
+    {
+      "title": "刚做完的颜色",
+      "title_en": "Initial colour",
+      "description": "颜色可能比恢复后更明显，表面也可能发生代谢或结痂。避免自行撕剥，修复用品按老师针对本次项目给出的说明使用。",
+      "description_en": "Colour can initially appear stronger than it will after healing, and surface flaking may occur. Do not peel the area. Use aftercare products according to the instructions for this particular service."
+    },
+    {
+      "title": "口红、清洁与运动",
+      "title_en": "Makeup, cleaning and exercise",
+      "description": "何时涂口红、如何清洁、是否需要调整运动安排，应结合实际恢复状态确认。不把“做完马上不受影响”作为统一承诺。",
+      "description_en": "Confirm when to use lipstick, how to clean the area and whether activity needs adjusting based on actual healing. Immediate, unrestricted activity is not promised to everyone."
+    },
+    {
+      "title": "复看与补色",
+      "title_en": "Review and touch-ups",
+      "description": "观察颜色是否稳定、是否有局部差异，再讨论补色需求。所有项目一年内免费补色；如有明显不适或异常变化，及时联系老师，必要时就医。",
+      "description_en": "Review colour stability and local variation before discussing touch-ups. All services include free touch-ups within one year. Contact the practitioner about significant discomfort or unusual changes, and seek medical advice when needed."
+    }
+  ]
+}

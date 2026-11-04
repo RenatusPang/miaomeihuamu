@@ -1,0 +1,48 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>描眉画目 · 第二阶段品牌预览</title><style>
+*{box-sizing:border-box}body{margin:0;background:#e7e5df;color:#30332f;font:14px/1.6 "Microsoft YaHei",sans-serif}header{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:16px 24px;background:#f5f3ed;border-bottom:1px solid #cbc8bf}h1{font-size:17px;font-weight:500;margin:0}header p{font-size:12px;color:#666;margin:3px 0 0}.controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}button,a,select{font:inherit;color:inherit;border:1px solid #b5b2a9;background:transparent;padding:7px 14px;text-decoration:none;cursor:pointer}button[aria-pressed=true]{background:#30332f;color:white;border-color:#30332f}.canvas{padding:24px;display:grid;gap:24px;grid-template-columns:1fr}.canvas.compare{grid-template-columns:1fr 1fr}.pane{min-width:0}.label{text-align:center;margin-bottom:10px;color:#62655c}.frame{margin:auto;background:white;box-shadow:0 8px 30px #00000012;width:100%;max-width:1440px;overflow:hidden}.phone .frame{width:min(404px,100%);border:7px solid #353730;border-radius:22px;overflow:hidden}iframe{border:0;display:block;transform-origin:top left}[hidden]{display:none!important}@media(max-width:850px){.canvas.compare{grid-template-columns:1fr}.canvas{padding:15px}header{padding:14px}}
+</style></head><body><header><div><h1>描眉画目 · 第二阶段品牌预览</h1><p>本地分支预览，未合并、未上线。</p></div><div class="controls"><select id="page" aria-label="选择页面"><option value="">首页</option><option value="works.html">作品</option><option value="price.html">服务项目</option><option value="about.html">乐乐老师</option><option value="area.html">到店预约</option><option value="posts/">专业知识</option><option value="posts/instrument-vs-dual.html">做法文章</option></select><select id="language" aria-label="选择语言"><option value="">中文</option><option value="en/">English</option></select><button id="desktop" aria-pressed="true">桌面 1440</button><button id="mobile" aria-pressed="false">手机 390</button><button id="compare" aria-pressed="false">改版前后</button><a id="open-page" href="../" target="_blank" rel="noopener">单独打开新版</a></div></header><main class="canvas" id="canvas"><section class="pane" id="before" hidden><div class="label">线上旧版 · 本地基线副本</div><div class="frame"><iframe id="old-page" src="../__before/" title="改版前首页" loading="lazy"></iframe></div><p id="no-baseline" style="text-align:center;padding:35px" hidden>旧版没有对应的英文页面。</p></section><section class="pane"><div class="label">第二阶段 · 可点击体验</div><div class="frame"><iframe id="new-page" src="../" title="新版首页"></iframe></div></section></main><script>const canvas=document.querySelector('#canvas');const desk=document.querySelector('#desktop');const mobile=document.querySelector('#mobile');desk.onclick=()=>{canvas.classList.remove('phone');desk.setAttribute('aria-pressed','true');mobile.setAttribute('aria-pressed','false')};mobile.onclick=()=>{canvas.classList.add('phone');desk.setAttribute('aria-pressed','false');mobile.setAttribute('aria-pressed','true')};document.querySelector('#compare').onclick=e=>{const active=canvas.classList.toggle('compare');e.currentTarget.setAttribute('aria-pressed',String(active));document.querySelector('#before').hidden=!active};
+// Keep a real desktop viewport when two comparison panels share one screen.
+function resizeFrames() {
+  const phone = canvas.classList.contains('phone');
+  const width = phone ? 390 : 1440;
+  const height = phone ? 844 : 1000;
+  document.querySelectorAll('.frame').forEach(frame => {
+    if (!frame.clientWidth) return;
+    const scale = frame.clientWidth / width;
+    const iframe = frame.querySelector('iframe');
+    iframe.style.width = width + 'px';
+    iframe.style.height = height + 'px';
+    iframe.style.transform = `scale(${scale})`;
+    const css = getComputedStyle(frame);
+    frame.style.height = height * scale + parseFloat(css.borderTopWidth) + parseFloat(css.borderBottomWidth) + 'px';
+  });
+}
+// Defer layout writes beyond ResizeObserver delivery to avoid a resize loop.
+let resizePending = false;
+function scheduleFrameResize() {
+  if (resizePending) return;
+  resizePending = true;
+  requestAnimationFrame(() => {
+    resizePending = false;
+    resizeFrames();
+  });
+}
+const resizeObserver = new ResizeObserver(scheduleFrameResize);
+document.querySelectorAll('.frame').forEach(frame => resizeObserver.observe(frame));
+document.querySelector('.controls').addEventListener('click', scheduleFrameResize);
+resizeFrames();
+
+const pageSelect = document.querySelector('#page');
+const languageSelect = document.querySelector('#language');
+function changePage() {
+  const target = languageSelect.value + pageSelect.value;
+  document.querySelector('#new-page').src = '../' + target;
+  document.querySelector('#open-page').href = '../' + target;
+  const hasBaseline = !languageSelect.value || !pageSelect.value;
+  document.querySelector('#old-page').parentElement.hidden = !hasBaseline;
+  document.querySelector('#no-baseline').hidden = hasBaseline;
+  document.querySelector('#old-page').src = hasBaseline ? '../__before/' + target : 'about:blank';
+}
+pageSelect.addEventListener('change', changePage);
+languageSelect.addEventListener('change', changePage);
+</script></body></html>

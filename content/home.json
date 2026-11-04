@@ -1,5 +1,21 @@
 {
-  "hero_image": "/assets/hero-model.webp",
+  "hero_image": "/assets/uploads/images/微信图片_20260927190228_35_196.jpg",
   "hero_alt": "描眉画目 · 定制美学女士野生眉作品模特",
-  "hero_badge": "真实模特作品 · 上海浦东"
+  "hero_badge": "真实模特作品 · 上海浦东",
+  "hero_alt_en": "A real brow work portrait from Miaomeihuamu",
+  "hero_badge_en": "A studio work portrait",
+  "hero_title": "看见你的五官，\n再设计你的眉形。",
+  "hero_title_en": "Your features.\nYour brow design.",
+  "hero_intro": "以个人审美和专业眉形设计为核心的私人定制纹绣工作室。主打仪器野生眉，设计从你的五官、原生毛流和喜好开始。",
+  "hero_intro_en": "A private studio shaped by personal aesthetic judgement and individual brow design. Specialising in instrument hair-stroke brows, we begin with your features, existing hair and preferences.",
+  "hero_note": "上海浦东 · 前滩 / 三林\n约30–45分钟，看过眉形再决定。",
+  "hero_note_en": "Sanlin / Qiantan · Pudong, Shanghai\nAbout 30–45 minutes. See the design before deciding.",
+  "works_title": "不同的人，不同的眉形。",
+  "works_title_en": "Different people.\nIndividual designs.",
+  "works_intro": "保留每张脸自己的特点，讨论适合它的轮廓与毛流。",
+  "works_intro_en": "Keep what is individual to each face, then explore the contour and hair flow that suit it.",
+  "procedure_video": "/assets/operation-brow.mp4",
+  "procedure_cover": "/assets/operation-brow-poster.jpg",
+  "procedure_alt": "本店操作过程局部记录",
+  "procedure_alt_en": "A close-up procedure record from the studio"
 }

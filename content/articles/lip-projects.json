@@ -1,0 +1,27 @@
+{
+  "slug": "lip-projects",
+  "title": "扩唇与改乌唇：轮廓和颜色的区别",
+  "title_en": "Lip-contour refinement and colour correction",
+  "intro": "唇形轮廓与原生唇色是两件事。先说明想调整什么，再判断项目是否适合。",
+  "intro_en": "Lip outline and natural lip colour are different concerns. Start by identifying the detail you want to address.",
+  "sections": [
+    {
+      "title": "扩唇 / 唇形调整",
+      "title_en": "Lip-contour refinement",
+      "description": "主要讨论唇边轮廓、上下唇的视觉比例和局部形态，不是增加组织体积，也不是整张唇重新改色。采用电流仪操作。",
+      "description_en": "This focuses on the lip edge, visual balance between upper and lower lips and local contour. It does not add tissue volume or recolour the entire lip. The studio uses an instrument for this service."
+    },
+    {
+      "title": "改乌唇",
+      "title_en": "Dark-lip colour correction",
+      "description": "结合原生唇色，评估改色、上色及必要的轮廓调整。能否操作、如何安排，需要面诊，不保证一次达到某一种颜色。",
+      "description_en": "This involves assessing the natural lip colour, colour correction and any appropriate contour refinement. Suitability and staging need an in-person assessment; a specific colour in one session is not guaranteed."
+    },
+    {
+      "title": "恢复安排分别说明",
+      "title_en": "Different aftercare discussions",
+      "description": "两类项目都可能有结痂期。扩唇恢复约3天是经验参考；改乌唇不预设统一恢复天数。具体护理按实际项目与恢复状态执行。所有项目一年内免费补色。",
+      "description_en": "Both services may involve surface flaking. Around three days is an experience-based guide for contour work; no fixed recovery period is assigned to dark-lip correction. Follow the individual aftercare plan. All services include free touch-ups within one year."
+    }
+  ]
+}

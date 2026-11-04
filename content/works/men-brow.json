@@ -5,8 +5,11 @@
     "video": "",
     "alt": "男士野生眉前后对比记录",
     "published": true,
-    "featured": true,
-    "wide": false
+    "featured": false,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "男士野生眉 · 操作视频 1",
@@ -15,7 +18,10 @@
     "alt": "男士野生眉操作过程记录",
     "published": false,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "男士野生眉 · 作品 2",
@@ -24,16 +30,26 @@
     "alt": "男士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
-    "title": "男士野生眉 · 作品 3",
+    "title": "轮廓清楚，也保留毛流。",
     "image": "/assets/uploads/images/imported/men-brow/03.jpg",
     "video": "",
     "alt": "男士野生眉真实模特作品记录",
     "published": true,
-    "featured": false,
-    "wide": false
+    "featured": true,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": "",
+    "title_en": "A clearer outline, with visible hair direction.",
+    "description": "这张男士作品保留了整脸比例。可以观察眉头的浓淡、眉身的方向与眉尾的收束，看较清晰的眉部轮廓如何与五官相处。",
+    "description_en": "This full-face men’s brow record shows the density at the start, the direction through the body and the narrowing at the tail. It offers a view of a more defined outline in relation to the other features.",
+    "alt_en": "A men’s brow work portrait showing the full face"
   },
   {
     "title": "男士野生眉 · 作品 4",
@@ -42,7 +58,10 @@
     "alt": "男士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "男士野生眉 · 作品 5",
@@ -51,7 +70,10 @@
     "alt": "男士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "男士野生眉 · 作品 6",
@@ -60,6 +82,9 @@
     "alt": "男士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   }
 ]

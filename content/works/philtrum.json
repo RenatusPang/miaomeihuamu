@@ -6,7 +6,10 @@
     "alt": "人中窝真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "人中窝 · 作品 2",
@@ -15,6 +18,9 @@
     "alt": "人中窝真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   }
 ]
