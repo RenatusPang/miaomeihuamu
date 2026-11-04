@@ -25,7 +25,9 @@ jobs:
       - name: Validate owner content and build both languages
         run: python tools/build_brand.py
       - name: Verify links, hidden works, language pairs and structured data
-        run: python tools/verify_brand.py
+        run: |
+          python tools/verify_brand.py
+          sha256sum index.html en/index.html works.html en/works.html
       - name: Package the website from this exact content revision
         env:
           CMS_BRANCH: ${{ github.ref_name }}
