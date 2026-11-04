@@ -6,22 +6,28 @@
     {
       "name": "手工野生眉",
       "currency": "CNY",
-      "recovery": "有尴尬期",
+      "recovery": "有尴尬期，前一周颜色会偏深",
       "duration": "维持约 1 年"
     },
     {
-      "name": "画派仪器野生眉",
+      "name": "画派单仪器野生眉",
       "currency": "CNY",
       "recovery": "没有结痂期",
       "duration": "维持约 2–3 年",
-      "note": "单台机器按原生毛质选电流仪或半抛机"
+      "note": "单仪器按原生毛质选电流仪或半抛机"
     },
     {
-      "name": "画派双机器初绒野生眉",
+      "name": "画派双仪器初绒野生眉",
       "currency": "CNY",
       "recovery": "没有结痂期",
       "duration": "维持约 2–3 年",
       "note": "电流仪铺绒毛线 + 半抛机走主线结构线"
+    },
+    {
+      "name": "丝雾眉"
+    },
+    {
+      "name": "绒雾眉"
     },
     {
       "name": "扩唇",
