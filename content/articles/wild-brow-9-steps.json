@@ -1,0 +1,63 @@
+{
+  "slug": "wild-brow-9-steps",
+  "title": "从主线到绒毛层次：眉形设计的9个步骤",
+  "title_en": "From main strokes to fine layers: nine design steps",
+  "intro": "这组既有示意图说明纸上设计思路，不是顾客案例，也不是自行进行纹绣操作的教程。线条组织仍需结合每个人的骨骼、原生眉与喜好调整。",
+  "intro_en": "These existing illustrations explain a drawing sequence. They are not client cases or instructions for carrying out a pigmentation procedure. The design still needs to respond to the individual’s structure, existing brows and preferences.",
+  "sections": [
+    {
+      "title": "找出毛流线",
+      "title_en": "Find the hair-flow line",
+      "description": "先观察顺着原生长势的大弧线，作为主线排列的参考，不急着画外框。",
+      "description_en": "Observe the broad curve of the natural growth direction as a reference for the main strokes, before drawing the outline."
+    },
+    {
+      "title": "下框架主线依次向后",
+      "title_en": "Direct the lower main strokes",
+      "description": "下框架主线顺着毛流逐渐向后，以直弧线表达方向，避免机械平行。",
+      "description_en": "Let the lower framework strokes progressively follow the hair direction, using gently curved lines rather than mechanical parallel marks."
+    },
+    {
+      "title": "上框架结合眉峰",
+      "title_en": "Relate the upper framework to the arch",
+      "description": "观察眉峰前后主线的开口与方向，围绕眉峰组织上框架。",
+      "description_en": "Observe the openings and directions of strokes before and after the arch, and organise the upper framework around it."
+    },
+    {
+      "title": "眉头以扇形打开",
+      "title_en": "Open the brow start in a fan",
+      "description": "每条线有自己的角度，顺应原生眉头方向，避免所有线条同向重复。",
+      "description_en": "Give each line its own angle, following the natural brow start rather than repeating an identical direction."
+    },
+    {
+      "title": "先检查框架衔接",
+      "title_en": "Check how the framework joins",
+      "description": "看眉头与下框的承接，以及上、下框主线是否自然汇入毛流线。",
+      "description_en": "Check the transition from the brow start to the lower framework and how upper and lower strokes meet the hair-flow line."
+    },
+    {
+      "title": "补充下框辅助线",
+      "title_en": "Add supporting lower strokes",
+      "description": "在需要的空隙中安排辅助线，以“个”字形的组织方式理解衔接，而不是均匀铺满。",
+      "description_en": "Place supporting strokes where needed. The illustrated branching arrangement explains connections; it is not a direction to fill every space."
+    },
+    {
+      "title": "补充上框辅助线",
+      "title_en": "Add supporting upper strokes",
+      "description": "分配上框内部空间，结合交叉线组织层次，保留合理间距。",
+      "description_en": "Distribute detail within the upper framework, using crossing directions to organise layers while retaining space."
+    },
+    {
+      "title": "补充眉头辅助线",
+      "title_en": "Refine the brow start",
+      "description": "以交叉和人字形的组织方式讨论衔接，线条仍需服从原生毛流。",
+      "description_en": "Use crossing and branching arrangements to discuss transitions, while keeping the lines consistent with natural growth."
+    },
+    {
+      "title": "用绒毛线丰富层次",
+      "title_en": "Add finer strokes for layers",
+      "description": "轻浅补充需要的空隙，控制范围与浓淡。不是把内部涂满，而是让结构、密度和柔和过渡协调。",
+      "description_en": "Add lighter, finer detail only where needed, controlling extent and tone. The aim is coordinated structure, density and soft transitions, not a filled-in block."
+    }
+  ]
+}

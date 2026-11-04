@@ -1,0 +1,27 @@
+{
+  "slug": "sparse-brow",
+  "title": "眉毛稀、缺眉尾和局部断眉，设计有什么不同",
+  "title_en": "Sparse brows, missing tails and local gaps",
+  "intro": "看起来都像“眉毛少”，缺少的部分可能不同。先区分密度、框架与毛流方向。",
+  "intro_en": "Brows that all look sparse can have different needs. Separate questions of density, framework and hair direction.",
+  "sections": [
+    {
+      "title": "眉毛还在，缺的是密度",
+      "title_en": "Existing shape, lower density",
+      "description": "观察原有框架是否完整、毛发的浓淡和生长方向。需要补多少线条，应看整张脸的量感，而不是把所有留白填满。",
+      "description_en": "Check whether the framework is intact and how the hairs vary in density and direction. The amount of added detail should suit the whole face rather than filling every open space."
+    },
+    {
+      "title": "缺眉尾或有断点",
+      "title_en": "Missing tails or breaks",
+      "description": "这类情况还要讨论轮廓的走向、眉峰位置与衔接。需要结构线与绒毛线配合时，先建立框架，再考虑内部层次。",
+      "description_en": "These situations also call for decisions about contour direction, arch position and transitions. Where structural and fine strokes are combined, establish the framework before planning internal layers."
+    },
+    {
+      "title": "不要用稀疏程度直接选档",
+      "title_en": "Do not choose by sparsity alone",
+      "description": "肤质、旧底色、眉眶骨与个人喜好都可能影响方案。设计追求的是视觉上的协调，不会让眉毛重新生长，也不改变实际骨骼结构。",
+      "description_en": "Skin, old pigment, the brow bone and personal preference may all affect the plan. The aim is visual coordination; pigmentation does not regrow hair or alter bone structure."
+    }
+  ]
+}

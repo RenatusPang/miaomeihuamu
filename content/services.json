@@ -1,0 +1,72 @@
+[
+  {
+    "id": "single",
+    "title": "画派单仪器野生眉",
+    "title_en": "Huapai single-instrument hair-stroke brows",
+    "description": "按原生毛质选择电流仪或半抛机，结合主线与辅线调整眉形。适合想保留原生感、补充基础轮廓与毛流的需求，具体方案看眉毛基础与个人风格。",
+    "description_en": "One instrument is selected for the existing hair texture. Main and supporting strokes refine the outline and hair flow. A possible choice for subtle definition that works with existing brows; suitability depends on the individual design."
+  },
+  {
+    "id": "dual",
+    "title": "画派双仪器初绒野生眉",
+    "title_en": "Huapai dual-instrument layered hair-stroke brows",
+    "description": "电流仪铺绒毛线，半抛机走主线与结构线。主线条建立框架与主要毛流，绒毛线丰富内部层次、密度和柔和过渡；不是单纯把眉毛做浓。适合需要讨论结构与层次组合的情况，不能仅凭稀疏程度决定。",
+    "description_en": "Two instruments combine structural strokes with finer, softer strokes. Main strokes establish the shape and primary hair flow; fine strokes add internal layers, density and softer transitions. The aim is coherent structure, not simply darker brows. Sparse hair alone does not determine the choice."
+  },
+  {
+    "id": "hand",
+    "title": "手工野生眉",
+    "title_en": "Manual hair-stroke brows",
+    "description": "以手工针片走线，力度和走向由老师控制。通常需要较好的原生眉基础。前一周颜色可能偏深，恢复约7天是门店经验参考，实际护理与恢复因人而异。",
+    "description_en": "Strokes are placed with a manual blade, with pressure and direction controlled by the practitioner. Often considered when there is an established natural brow framework. Colour may look darker during the first week; about seven days is an experience-based recovery guide, not a guaranteed schedule."
+  },
+  {
+    "id": "silk",
+    "title": "丝雾眉",
+    "title_en": "Silk-shaded brows (丝雾眉)",
+    "description": "实际提供的眉部项目之一。到店结合原生眉、底色与想要的妆感讨论方案，适用情况和具体做法先确认。",
+    "description_en": "An available brow service. Discuss the existing brows, underlying pigment and desired definition in person before choosing a technique."
+  },
+  {
+    "id": "velvet",
+    "title": "绒雾眉",
+    "title_en": "Velvet-shaded brows (绒雾眉)",
+    "description": "实际提供的眉部项目之一。先明确希望呈现的轮廓与浓淡，再由乐乐老师评估是否适合。",
+    "description_en": "An available brow service. First discuss the preferred contour and colour intensity, then assess whether it suits your brows."
+  },
+  {
+    "id": "eyeline",
+    "title": "美瞳线",
+    "title_en": "Lash-line enhancement",
+    "description": "通过睫毛根部的线条与颜色增加眼部轮廓感。黑色存在感更明显，棕色更柔和；适用情况与护理要求需到店确认。",
+    "description_en": "Definition along the lash line. Black gives a stronger visual presence, while brown is softer. Suitability and aftercare are discussed before treatment."
+  },
+  {
+    "id": "lip",
+    "title": "扩唇 / 唇形调整",
+    "title_en": "Lip-contour refinement",
+    "description": "以唇形和边缘轮廓的视觉调整为主，不是增加实际组织体积，也不是整唇改色。有结痂期，约3天为门店经验参考，恢复因人而异。",
+    "description_en": "Refines the visual shape and edges of the lips. It does not add tissue volume and is distinct from full-lip colour correction. Surface flaking can occur; about three days is an experience-based guide, with individual variation."
+  },
+  {
+    "id": "dark-lip",
+    "title": "改乌唇",
+    "title_en": "Dark-lip colour correction",
+    "description": "结合原生唇色评估改色、上色及轮廓调整。有结痂期，恢复时间在评估后说明，不预设统一天数。",
+    "description_en": "Assessment-led colour correction for darker lips, with contour refinement where appropriate. Surface flaking can occur. A recovery plan is discussed after assessment rather than assigning the same timeline to everyone."
+  },
+  {
+    "id": "hairline",
+    "title": "纹发际线",
+    "title_en": "Hairline pigmentation",
+    "description": "用线条模拟原生头发的毛流方向，适用于部分边缘露白、颜色淡等视觉需求；不会让头发重新生长。大面积缺失或明显前移需求需另行评估。",
+    "description_en": "Hair-like lines follow the existing direction to address some visible gaps or faint edges. Pigmentation does not regrow hair. Large areas of hair loss or substantial repositioning need a different assessment."
+  },
+  {
+    "id": "philtrum",
+    "title": "纹人中窝",
+    "title_en": "Philtrum shading",
+    "description": "实际提供的局部纹绣项目。先沟通希望调整的视觉细节，再评估是否适合；不改变实际骨骼或组织结构。",
+    "description_en": "A localised pigmentation service for the philtrum area. Discuss the intended visual detail and suitability first; it does not change bone or tissue structure."
+  }
+]

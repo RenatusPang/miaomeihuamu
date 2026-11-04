@@ -5,8 +5,11 @@
     "video": "",
     "alt": "扩唇和唇形调整作品记录",
     "published": true,
-    "featured": true,
-    "wide": false
+    "featured": false,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "扩唇 · 作品 1",
@@ -15,7 +18,10 @@
     "alt": "扩唇真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "扩唇 · 作品 2",
@@ -24,7 +30,10 @@
     "alt": "扩唇真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "扩唇 · 作品 3",
@@ -33,7 +42,10 @@
     "alt": "扩唇真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "扩唇 · 作品 4",
@@ -42,6 +54,9 @@
     "alt": "扩唇真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   }
 ]

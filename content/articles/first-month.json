@@ -1,0 +1,27 @@
+{
+  "slug": "first-month",
+  "title": "野生眉做完第一个月，需要观察什么",
+  "title_en": "What to observe during the first month",
+  "intro": "颜色与表面状态可能分阶段变化。下面是观察思路，不是适用于所有人的固定恢复日历。",
+  "intro_en": "Colour and surface appearance may change in stages. This is a way to observe recovery, not a fixed calendar that applies to everyone.",
+  "sections": [
+    {
+      "title": "刚做完的几天",
+      "title_en": "The first few days",
+      "description": "手工野生眉前一周颜色可能偏深。按本次项目的护理说明清洁与护理，不套用其他项目的碰水、化妆或运动时间。",
+      "description_en": "Manual brows may look darker during the first week. Follow the aftercare instructions for your own service rather than borrowing another treatment’s schedule for washing, makeup or exercise."
+    },
+    {
+      "title": "颜色和表面变化",
+      "title_en": "Changes in colour and surface appearance",
+      "description": "恢复期间可能出现颜色变淡、局部差异或表面代谢。不要自行抠剥；对明显不适或异常变化，及时联系老师，必要时寻求医疗评估。",
+      "description_en": "Fading, local variation or surface flaking may occur during recovery. Do not pick the area. Contact the practitioner about marked discomfort or unusual changes, and seek medical assessment when needed."
+    },
+    {
+      "title": "什么时候看留色",
+      "title_en": "When to assess retention",
+      "description": "等恢复状态相对稳定后再评估整体留色与补色需求。所有项目一年内免费补色，复看时间根据实际状态安排。",
+      "description_en": "Assess overall retention and any need for a touch-up after the area has settled. All services include free touch-ups within one year; review timing depends on the actual recovery."
+    }
+  ]
+}

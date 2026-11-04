@@ -1,0 +1,61 @@
+name: CMS content build and preview
+
+on:
+  push:
+    branches: [main, 'codex/owner-cms-*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cms-site-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate owner content and build both languages
+        run: python tools/build_brand.py
+      - name: Verify links, hidden works, language pairs and structured data
+        run: python tools/verify_brand.py
+      - name: Package the website from this exact content revision
+        env:
+          CMS_BRANCH: ${{ github.ref_name }}
+          CMS_REVISION: ${{ github.sha }}
+        run: python tools/package_site.py
+      - name: Save an isolated preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-preview-${{ github.sha }}
+          path: _site/
+          include-hidden-files: true
+          retention-days: 14
+      # Enabling production publication is a separate, explicit release step.
+      # The current legacy main:/ website remains untouched by this test branch.
+      - name: Prepare the Pages artifact after release approval
+        if: github.ref == 'refs/heads/main' && vars.CMS_PUBLISH_ENABLED == 'true'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site/
+  deploy:
+    needs: build
+    if: github.ref == 'refs/heads/main' && vars.CMS_PUBLISH_ENABLED == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish the validated Pages artifact
+        id: deployment
+        uses: actions/deploy-pages@v4

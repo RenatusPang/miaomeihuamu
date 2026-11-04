@@ -1,96 +1,1435 @@
-media:
-  - name: work_images
-    label: 作品图片
-    input: assets/uploads/images
-    output: /assets/uploads/images
-    categories: [image]
-  - name: work_videos
-    label: 作品视频
-    input: assets/uploads/videos
-    output: /assets/uploads/videos
-    categories: [video]
-
-content:
-  - name: home
-    label: 首页封面设置
-    type: file
-    path: content/home.json
-    format: json
-    fields:
-      - name: hero_image
-        label: 首页模特封面图
-        type: image
-        required: true
-        options: { media: work_images }
-      - { name: hero_alt, label: 图片说明（给搜索和无障碍使用）, type: string, required: true }
-      - { name: hero_badge, label: 图片左下角文字, type: string, required: true }
-      - { name: hero_alt_en, label: 英文图片说明, type: string }
-      - { name: hero_badge_en, label: 英文图片说明文字, type: string }
-
-  - name: women_brow
-    label: 女士野生眉作品
-    type: file
-    path: content/works/women-brow.json
-    format: json
-    list: true
-    fields: &work_fields
-      - { name: title, label: 展示标题, type: string, required: true }
-      - { name: description, label: 作品说明（只写已确认的设计事实）, type: string }
-      - { name: title_en, label: 英文展示标题, type: string }
-      - { name: description_en, label: 英文作品说明（只写已确认的设计事实）, type: string }
-      - { name: alt_en, label: 英文图片说明, type: string }
-      - name: image
-        label: 图片（图片作品填写）
-        type: image
-        options: { media: work_images }
-      - name: video
-        label: 视频（视频作品填写）
-        type: file
-        options: { media: work_videos, extensions: [mp4, webm] }
-      - { name: alt, label: 图片说明（给搜索和无障碍使用）, type: string }
-      - { name: published, label: 允许公开展示, type: boolean, default: true }
-      - { name: featured, label: 首页展示, type: boolean, default: false }
-      - { name: wide, label: 宽版展示, type: boolean, default: false }
-
-  - name: men_brow
-    label: 男士野生眉作品
-    type: file
-    path: content/works/men-brow.json
-    format: json
-    list: true
-    fields: *work_fields
-  - name: eyeliner
-    label: 美瞳线作品
-    type: file
-    path: content/works/eyeliner.json
-    format: json
-    list: true
-    fields: *work_fields
-  - name: lip_extension
-    label: 扩唇作品
-    type: file
-    path: content/works/lip-extension.json
-    format: json
-    list: true
-    fields: *work_fields
-  - name: dark_lip_correction
-    label: 改乌唇作品
-    type: file
-    path: content/works/dark-lip-correction.json
-    format: json
-    list: true
-    fields: *work_fields
-  - name: philtrum
-    label: 人中窝作品
-    type: file
-    path: content/works/philtrum.json
-    format: json
-    list: true
-    fields: *work_fields
-  - name: hairline
-    label: 纹发际线作品
-    type: file
-    path: content/works/hairline.json
-    format: json
-    list: true
-    fields: *work_fields
+# Pages CMS configuration; JSON syntax is valid YAML.
+{
+  "media": [
+    {
+      "name": "work_images",
+      "label": "图片素材",
+      "input": "assets",
+      "output": "/assets",
+      "extensions": [
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+      ],
+      "rename": "safe"
+    },
+    {
+      "name": "work_videos",
+      "label": "作品视频",
+      "input": "assets/uploads/videos",
+      "output": "/assets/uploads/videos",
+      "extensions": [
+        "mp4",
+        "webm"
+      ],
+      "rename": "safe"
+    }
+  ],
+  "settings": {
+    "content": {
+      "merge": true
+    }
+  },
+  "content": [
+    {
+      "name": "home",
+      "label": "首页",
+      "type": "file",
+      "path": "content/home.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "hero_image",
+          "label": "首页封面（可清空移除）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "hero_alt",
+          "label": "封面替代文字（中文）",
+          "type": "string"
+        },
+        {
+          "name": "hero_alt_en",
+          "label": "封面替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "hero_badge",
+          "label": "封面图注（中文）",
+          "type": "string"
+        },
+        {
+          "name": "hero_badge_en",
+          "label": "封面图注（English）",
+          "type": "string"
+        },
+        {
+          "name": "hero_title",
+          "label": "首页主标题（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "hero_title_en",
+          "label": "首页主标题（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "hero_intro",
+          "label": "首页介绍（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "hero_intro_en",
+          "label": "首页介绍（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "hero_note",
+          "label": "预约说明（中文）",
+          "type": "text"
+        },
+        {
+          "name": "hero_note_en",
+          "label": "预约说明（English）",
+          "type": "text"
+        },
+        {
+          "name": "works_title",
+          "label": "精选区标题（中文）",
+          "type": "text"
+        },
+        {
+          "name": "works_title_en",
+          "label": "精选区标题（English）",
+          "type": "text"
+        },
+        {
+          "name": "works_intro",
+          "label": "精选区介绍（中文）",
+          "type": "text"
+        },
+        {
+          "name": "works_intro_en",
+          "label": "精选区介绍（English）",
+          "type": "text"
+        },
+        {
+          "name": "procedure_video",
+          "label": "操作过程视频（可清空移除）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "procedure_cover",
+          "label": "操作视频封面",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "procedure_alt",
+          "label": "操作视频说明（中文）",
+          "type": "string"
+        },
+        {
+          "name": "procedure_alt_en",
+          "label": "操作视频说明（English）",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "studio",
+      "label": "乐乐与工作室",
+      "type": "file",
+      "path": "content/studio.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "关于页标题（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "关于页标题（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "intro",
+          "label": "关于页介绍（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "intro_en",
+          "label": "关于页介绍（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "home_intro",
+          "label": "首页老师介绍（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "home_intro_en",
+          "label": "首页老师介绍（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "home_history",
+          "label": "首页从业简介（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "home_history_en",
+          "label": "首页从业简介（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "history",
+          "label": "从业经历（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "history_en",
+          "label": "从业经历（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "current",
+          "label": "当前工作室介绍（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "current_en",
+          "label": "当前工作室介绍（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "image",
+          "label": "工作室照片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "image_alt",
+          "label": "工作室照片替代文字（中文）",
+          "type": "string"
+        },
+        {
+          "name": "image_alt_en",
+          "label": "工作室照片替代文字（English）",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "works_page",
+      "label": "作品页介绍",
+      "type": "file",
+      "path": "content/works-page.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "标题（English）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "intro",
+          "label": "介绍（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "intro_en",
+          "label": "介绍（English）",
+          "type": "text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "women_brow",
+      "label": "女士眉形作品",
+      "type": "file",
+      "path": "content/works/women-brow.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "作品标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "作品标题（English）",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "作品说明（只写有记录依据的内容）（中文）",
+          "type": "text"
+        },
+        {
+          "name": "description_en",
+          "label": "作品说明（只写有记录依据的内容）（English）",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "label": "项目说明",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "label": "替代文字（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "alt_en",
+          "label": "替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "label": "作品图片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "thumbnail",
+          "label": "可选轻量缩略图（留空使用原图）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "video",
+          "label": "视频（有视频时优先播放）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "cover",
+          "label": "视频封面（视频必填）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "published",
+          "label": "在网站展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured",
+          "label": "首页与作品页精选",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured_order",
+          "label": "精选顺序（数字越小越靠前）",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "detail",
+          "label": "毛流细节区展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "wide",
+          "label": "图库宽幅展示",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "men_brow",
+      "label": "男士眉形作品",
+      "type": "file",
+      "path": "content/works/men-brow.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "作品标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "作品标题（English）",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "作品说明（只写有记录依据的内容）（中文）",
+          "type": "text"
+        },
+        {
+          "name": "description_en",
+          "label": "作品说明（只写有记录依据的内容）（English）",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "label": "项目说明",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "label": "替代文字（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "alt_en",
+          "label": "替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "label": "作品图片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "thumbnail",
+          "label": "可选轻量缩略图（留空使用原图）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "video",
+          "label": "视频（有视频时优先播放）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "cover",
+          "label": "视频封面（视频必填）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "published",
+          "label": "在网站展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured",
+          "label": "首页与作品页精选",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured_order",
+          "label": "精选顺序（数字越小越靠前）",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "detail",
+          "label": "毛流细节区展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "wide",
+          "label": "图库宽幅展示",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "eyeliner",
+      "label": "美瞳线作品",
+      "type": "file",
+      "path": "content/works/eyeliner.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "作品标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "作品标题（English）",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "作品说明（只写有记录依据的内容）（中文）",
+          "type": "text"
+        },
+        {
+          "name": "description_en",
+          "label": "作品说明（只写有记录依据的内容）（English）",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "label": "项目说明",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "label": "替代文字（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "alt_en",
+          "label": "替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "label": "作品图片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "thumbnail",
+          "label": "可选轻量缩略图（留空使用原图）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "video",
+          "label": "视频（有视频时优先播放）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "cover",
+          "label": "视频封面（视频必填）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "published",
+          "label": "在网站展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured",
+          "label": "首页与作品页精选",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured_order",
+          "label": "精选顺序（数字越小越靠前）",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "detail",
+          "label": "毛流细节区展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "wide",
+          "label": "图库宽幅展示",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "lip_extension",
+      "label": "扩唇作品",
+      "type": "file",
+      "path": "content/works/lip-extension.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "作品标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "作品标题（English）",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "作品说明（只写有记录依据的内容）（中文）",
+          "type": "text"
+        },
+        {
+          "name": "description_en",
+          "label": "作品说明（只写有记录依据的内容）（English）",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "label": "项目说明",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "label": "替代文字（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "alt_en",
+          "label": "替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "label": "作品图片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "thumbnail",
+          "label": "可选轻量缩略图（留空使用原图）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "video",
+          "label": "视频（有视频时优先播放）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "cover",
+          "label": "视频封面（视频必填）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "published",
+          "label": "在网站展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured",
+          "label": "首页与作品页精选",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured_order",
+          "label": "精选顺序（数字越小越靠前）",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "detail",
+          "label": "毛流细节区展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "wide",
+          "label": "图库宽幅展示",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "dark_lip_correction",
+      "label": "改乌唇作品",
+      "type": "file",
+      "path": "content/works/dark-lip-correction.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "作品标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "作品标题（English）",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "作品说明（只写有记录依据的内容）（中文）",
+          "type": "text"
+        },
+        {
+          "name": "description_en",
+          "label": "作品说明（只写有记录依据的内容）（English）",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "label": "项目说明",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "label": "替代文字（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "alt_en",
+          "label": "替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "label": "作品图片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "thumbnail",
+          "label": "可选轻量缩略图（留空使用原图）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "video",
+          "label": "视频（有视频时优先播放）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "cover",
+          "label": "视频封面（视频必填）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "published",
+          "label": "在网站展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured",
+          "label": "首页与作品页精选",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured_order",
+          "label": "精选顺序（数字越小越靠前）",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "detail",
+          "label": "毛流细节区展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "wide",
+          "label": "图库宽幅展示",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "philtrum",
+      "label": "人中窝作品",
+      "type": "file",
+      "path": "content/works/philtrum.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "作品标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "作品标题（English）",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "作品说明（只写有记录依据的内容）（中文）",
+          "type": "text"
+        },
+        {
+          "name": "description_en",
+          "label": "作品说明（只写有记录依据的内容）（English）",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "label": "项目说明",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "label": "替代文字（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "alt_en",
+          "label": "替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "label": "作品图片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "thumbnail",
+          "label": "可选轻量缩略图（留空使用原图）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "video",
+          "label": "视频（有视频时优先播放）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "cover",
+          "label": "视频封面（视频必填）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "published",
+          "label": "在网站展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured",
+          "label": "首页与作品页精选",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured_order",
+          "label": "精选顺序（数字越小越靠前）",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "detail",
+          "label": "毛流细节区展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "wide",
+          "label": "图库宽幅展示",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "hairline",
+      "label": "发际线作品",
+      "type": "file",
+      "path": "content/works/hairline.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "作品标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "作品标题（English）",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "label": "作品说明（只写有记录依据的内容）（中文）",
+          "type": "text"
+        },
+        {
+          "name": "description_en",
+          "label": "作品说明（只写有记录依据的内容）（English）",
+          "type": "text"
+        },
+        {
+          "name": "category",
+          "label": "项目说明",
+          "type": "string"
+        },
+        {
+          "name": "alt",
+          "label": "替代文字（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "alt_en",
+          "label": "替代文字（English）",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "label": "作品图片",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "thumbnail",
+          "label": "可选轻量缩略图（留空使用原图）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "video",
+          "label": "视频（有视频时优先播放）",
+          "type": "file",
+          "options": {
+            "media": "work_videos",
+            "extensions": [
+              "mp4",
+              "webm"
+            ]
+          }
+        },
+        {
+          "name": "cover",
+          "label": "视频封面（视频必填）",
+          "type": "image",
+          "options": {
+            "media": "work_images",
+            "path": "assets/uploads/images",
+            "extensions": [
+              "jpg",
+              "jpeg",
+              "png",
+              "webp"
+            ]
+          }
+        },
+        {
+          "name": "published",
+          "label": "在网站展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured",
+          "label": "首页与作品页精选",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "featured_order",
+          "label": "精选顺序（数字越小越靠前）",
+          "type": "number",
+          "default": 100
+        },
+        {
+          "name": "detail",
+          "label": "毛流细节区展示",
+          "type": "boolean",
+          "default": false
+        },
+        {
+          "name": "wide",
+          "label": "图库宽幅展示",
+          "type": "boolean",
+          "default": false
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "design",
+      "label": "设计理念（六项依据）",
+      "type": "file",
+      "path": "content/design.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "标题（English）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "label": "正文（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "description_en",
+          "label": "正文（English）",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "services",
+      "label": "服务项目说明",
+      "type": "file",
+      "path": "content/services.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "id",
+          "label": "页面锚点（保留原值）",
+          "type": "string",
+          "readonly": true
+        },
+        {
+          "name": "title",
+          "label": "标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "标题（English）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "label": "正文（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "description_en",
+          "label": "正文（English）",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "faq",
+      "label": "常见问题",
+      "type": "file",
+      "path": "content/faq.json",
+      "format": "json",
+      "fields": [
+        {
+          "name": "title",
+          "label": "标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "标题（English）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "label": "正文（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "description_en",
+          "label": "正文（English）",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "list": true
+    },
+    {
+      "name": "articles",
+      "label": "已有知识文章",
+      "type": "collection",
+      "path": "content/articles",
+      "format": "json",
+      "operations": {
+        "create": false,
+        "delete": false,
+        "rename": false
+      },
+      "view": {
+        "primary": "title"
+      },
+      "fields": [
+        {
+          "name": "slug",
+          "label": "网址标识（保留原值）",
+          "type": "string",
+          "readonly": true
+        },
+        {
+          "name": "title",
+          "label": "文章标题（中文）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "title_en",
+          "label": "文章标题（English）",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "intro",
+          "label": "文章导语（中文）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "intro_en",
+          "label": "文章导语（English）",
+          "type": "text",
+          "required": true
+        },
+        {
+          "name": "sections",
+          "label": "正文段落",
+          "type": "object",
+          "list": true,
+          "fields": [
+            {
+              "name": "title",
+              "label": "标题（中文）",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "title_en",
+              "label": "标题（English）",
+              "type": "string",
+              "required": true
+            },
+            {
+              "name": "description",
+              "label": "正文（中文）",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "description_en",
+              "label": "正文（English）",
+              "type": "text",
+              "required": true
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

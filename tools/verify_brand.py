@@ -105,7 +105,7 @@ def main():
     published=[];private=[]
     for file in (ROOT/'content/works').glob('*.json'):
         for row in json.loads(file.read_text(encoding='utf-8')):
-            media=row.get('image') or row.get('video')
+            media=row.get('video') or row.get('image')
             if media:(published if row.get('published') else private).append(media)
     for route in ('/works.html','/en/works.html'):
         source=sources[route]

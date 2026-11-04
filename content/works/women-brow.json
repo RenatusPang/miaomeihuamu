@@ -10,7 +10,10 @@
     "wide": true,
     "title_en": "Direction from brow start to tail",
     "description_en": "The existing close-up shows more upright lines at the start and a gradual inclination towards the tail.",
-    "alt_en": "Direction from brow start to tail"
+    "alt_en": "Direction from brow start to tail",
+    "featured_order": 10,
+    "detail": true,
+    "cover": ""
   },
   {
     "title": "眉峰转折较缓，眉尾逐渐收细",
@@ -23,7 +26,10 @@
     "wide": true,
     "title_en": "A gradual arch and tapering tail",
     "description_en": "This close-up shows a gradual change at the arch and a tail that narrows towards the end.",
-    "alt_en": "A gradual arch and tapering tail"
+    "alt_en": "A gradual arch and tapering tail",
+    "featured_order": 10,
+    "detail": true,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 不同角度",
@@ -32,7 +38,10 @@
     "alt": "女士野生眉不同角度作品记录",
     "published": true,
     "featured": false,
-    "wide": true
+    "wide": true,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 多组记录",
@@ -41,7 +50,10 @@
     "alt": "女士野生眉多位模特作品记录",
     "published": true,
     "featured": false,
-    "wide": true
+    "wide": true,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "有眉毛基础，也不必套固定眉型",
@@ -51,11 +63,14 @@
     "video": "",
     "alt": "描眉画目画派双仪器初绒野生眉作品，条纹衣模特的正面成品照",
     "published": true,
-    "featured": true,
+    "featured": false,
     "wide": false,
     "title_en": "Working with the existing brows",
     "description_en": "The recorded design follows the existing brows, refining the arch, tail and hair direction. The photograph shows the finished work on the striped-top model.",
-    "alt_en": "Working with the existing brows"
+    "alt_en": "Working with the existing brows",
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "顺着原生毛流，调整眉型细节",
@@ -65,11 +80,14 @@
     "video": "",
     "alt": "描眉画目画派双仪器初绒野生眉作品，棕发模特的正面成品照",
     "published": true,
-    "featured": true,
+    "featured": false,
     "wide": false,
     "title_en": "Refining shape around natural hair flow",
     "description_en": "The existing record describes retaining the natural brow foundation while refining thickness, the arch and hair direction.",
-    "alt_en": "Refining shape around natural hair flow"
+    "alt_en": "Refining shape around natural hair flow",
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "笑起来，也保留柔和的眉型",
@@ -83,7 +101,11 @@
     "wide": false,
     "title_en": "A softer arch in a smiling portrait",
     "description_en": "The documented design avoids a sharp corner at the arch and follows the existing hair direction. The portrait shows the model smiling with a white flower hair clip.",
-    "alt_en": "A softer arch in a smiling portrait"
+    "alt_en": "A softer arch in a smiling portrait",
+    "featured_order": 10,
+    "detail": false,
+    "cover": "",
+    "thumbnail": "/assets/case-d-white-clip.webp"
   },
   {
     "title": "女士野生眉 · 作品 1",
@@ -92,7 +114,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 2",
@@ -101,7 +126,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 3",
@@ -110,7 +138,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 4",
@@ -119,7 +150,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 5",
@@ -128,7 +162,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 6",
@@ -137,7 +174,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 7",
@@ -146,7 +186,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 8",
@@ -155,7 +198,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 9",
@@ -164,7 +210,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 10",
@@ -173,7 +222,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 11",
@@ -182,7 +234,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 12",
@@ -191,7 +246,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 13",
@@ -200,7 +258,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 14",
@@ -209,7 +270,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 15",
@@ -218,7 +282,10 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "女士野生眉 · 作品 16",
@@ -227,6 +294,9 @@
     "alt": "女士野生眉真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 10,
+    "detail": false,
+    "cover": ""
   }
 ]

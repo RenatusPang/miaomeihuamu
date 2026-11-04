@@ -5,8 +5,11 @@
     "video": "",
     "alt": "纹发际线局部作品记录",
     "published": true,
-    "featured": true,
-    "wide": false
+    "featured": false,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "纹发际线 · 操作视频 1",
@@ -15,7 +18,10 @@
     "alt": "纹发际线操作过程记录",
     "published": false,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "纹发际线 · 操作视频 2",
@@ -24,7 +30,10 @@
     "alt": "纹发际线操作过程记录",
     "published": false,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   },
   {
     "title": "纹发际线 · 作品 3",
@@ -33,6 +42,9 @@
     "alt": "纹发际线真实模特作品记录",
     "published": true,
     "featured": false,
-    "wide": false
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
   }
 ]

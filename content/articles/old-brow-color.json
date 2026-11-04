@@ -1,0 +1,27 @@
+{
+  "slug": "old-brow-color",
+  "title": "旧眉发红、发蓝或底色重，重做前看什么",
+  "title_en": "Working with old brow pigment",
+  "intro": "重新设计前，先评估旧底色的深浅、范围和原眉形。不能默认用新颜色就能盖住旧颜色。",
+  "intro_en": "Before redesigning, assess the depth, extent and shape of old pigment. Adding new colour does not automatically cover what is already there.",
+  "sections": [
+    {
+      "title": "底色会限制颜色与轮廓",
+      "title_en": "Colour and shape constraints",
+      "description": "旧眉宽度、眉尾位置和底色范围，会影响新的轮廓选择。红、蓝、灰等残留颜色可能与色料、操作深浅等因素有关，具体原因和处理方式需评估。",
+      "description_en": "The width, tail position and extent of old pigment can restrict a new shape. Red, blue or grey residual colour can have several contributing factors, including pigment and placement. The specific situation needs assessment."
+    },
+    {
+      "title": "必要时先咨询旧色处理",
+      "title_en": "When removal advice may be needed",
+      "description": "底色较深、已影响重新设计时，先到具备相应资质的正规机构咨询旧色处理。本店不提供去色服务，旧眉修复也不是主打项目。",
+      "description_en": "If dark residual pigment limits redesign, seek removal advice from an appropriately qualified provider. The studio does not offer pigment removal, and old-brow correction is not its main service."
+    },
+    {
+      "title": "能否直接做，要现场判断",
+      "title_en": "An in-person decision",
+      "description": "底色较浅也不意味着一定适合直接覆盖。先明确能保留什么、哪些轮廓受限制，以及是否需要分阶段安排，再讨论具体做法。",
+      "description_en": "Even faint old pigment is not an automatic indication for new work. Identify what can be retained, which contours are constrained and whether stages may be needed before selecting a technique."
+    }
+  ]
+}

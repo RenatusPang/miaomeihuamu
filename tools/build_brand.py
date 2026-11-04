@@ -13,6 +13,11 @@ from urllib.parse import urljoin
 import xml.etree.ElementTree as ET
 
 from brand_content import BRAND, BRAND_EN, DESIGN, SERVICES, FAQ, ARTICLES
+from cms_content import load, validate, CATEGORIES, work_records, selection
+
+HOME = load('home.json')
+STUDIO = load('studio.json')
+WORKS_PAGE = load('works-page.json')
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://miaomeihuamu.com'
@@ -61,7 +66,7 @@ BUSINESS = copy.deepcopy(next(s for s in HOME_SCHEMAS if s['@type']=='LocalBusin
 BUSINESS['name'] = BRAND
 if 'Miaomeihuamu Bespoke Aesthetics' not in BUSINESS['alternateName']:
     BUSINESS['alternateName'].append('Miaomeihuamu Bespoke Aesthetics')
-BUSINESS['description'] = '以个人审美和专业眉形设计为核心的私人定制纹绣工作室，主打仪器野生眉；结合五官、骨骼轮廓、原生毛流及顾客偏好设计，不局限于一种眉形风格。'
+BUSINESS['description'] = HOME['hero_intro']
 PERSON = next(s for s in HOME_SCHEMAS if s['@type']=='Person')
 VIDEO = next(s for s in HOME_SCHEMAS if s['@type']=='VideoObject')
 
@@ -114,12 +119,35 @@ def design_section(lang, compact=False):
     return f'''<section class="section approach" id="design"><div class="wrap approach-inner"><div><h2 class="section-title">{text('眉形设计，<br>先看这些关系。','The details that<br>guide a design.',lang)}</h2><p class="approach-lead">{text('尽量顺应原有骨骼结构，让眉头、眉峰、眉尾与面部比例协调。乐乐偏爱自然柔和，但设计会回应你的喜好，不限于一种眉形。','Work with the existing structure, relating the brow start, arch and tail to facial proportions. Lele favours a natural, soft look personally; each design still responds to your preferences.',lang)}</p><a class="text-link" href="{route('about.html',lang)}">{text('了解乐乐的设计思路','Lele’s approach to design',lang)}</a></div><div class="approach-items">{items}</div></div></section>'''
 
 def layers(lang):
-    return f'''<section class="wrap section layer-story"><figure><a href="/assets/works/women-brow-direction-detail.png" data-image>{image('assets/works/women-brow-direction-detail.png',text('眉头、眉身与眉尾的毛流方向近照','Close-up showing hair direction across the brow',lang))}</a><figcaption>{text('真实作品近照 · 观察毛流方向','Studio close-up · Observing hair direction',lang)}</figcaption></figure><div><h2 class="section-title">{text('有框架，也有层次。','Structure, with softer layers.',lang)}</h2><p>{text('对于适合采用主线条与绒毛线组合的项目，先建立结构，再讨论内部的疏密与过渡。','Where a combination of structural and fine strokes is appropriate, establish the framework before planning internal density and transitions.',lang)}</p><dl><dt>{text('主线条','Main strokes',lang)}</dt><dd>{text('建立眉形框架、结构与主要毛流。','Establish the framework, structure and primary hair direction.',lang)}</dd><dt>{text('绒毛线','Finer strokes',lang)}</dt><dd>{text('丰富内部层次、密度与柔和过渡。','Add internal layers, density and softer transitions.',lang)}</dd></dl><p>{text('深浅、虚实和方向共同影响视觉上的立体感。不是把眉毛做浓，也不是改变骨骼结构；最终表现因人而异。','Tone, spacing and direction contribute to visual depth. The aim is not simply darker brows, and pigmentation does not change bone structure. Results vary by person.',lang)}</p><a class="text-link" href="{article_route('instrument-vs-dual',lang)}">{text('看单仪器与双仪器的区别','Read about single and dual instruments',lang)}</a></div></section>'''
+    detail=selection('detail')
+    visual=work_figure(detail[0],lang) if detail else ''
+    return f'''<section class="wrap section layer-story">{visual}<div><h2 class="section-title">{text('有框架，也有层次。','Structure, with softer layers.',lang)}</h2><p>{text('对于适合采用主线条与绒毛线组合的项目，先建立结构，再讨论内部的疏密与过渡。','Where a combination of structural and fine strokes is appropriate, establish the framework before planning internal density and transitions.',lang)}</p><dl><dt>{text('主线条','Main strokes',lang)}</dt><dd>{text('建立眉形框架、结构与主要毛流。','Establish the framework, structure and primary hair direction.',lang)}</dd><dt>{text('绒毛线','Finer strokes',lang)}</dt><dd>{text('丰富内部层次、密度与柔和过渡。','Add internal layers, density and softer transitions.',lang)}</dd></dl><p>{text('深浅、虚实和方向共同影响视觉上的立体感。不是把眉毛做浓，也不是改变骨骼结构；最终表现因人而异。','Tone, spacing and direction contribute to visual depth. The aim is not simply darker brows, and pigmentation does not change bone structure. Results vary by person.',lang)}</p><a class="text-link" href="{article_route('instrument-vs-dual',lang)}">{text('看单仪器与双仪器的区别','Read about single and dual instruments',lang)}</a></div></section>'''
+
+def cms_text(data, key, lang, breaks=False):
+    value = data.get(key + ('_en' if lang else ''), '') or ''
+    return e(value).replace('\n', '<br>') if breaks else e(value)
+
+def work_title(record, lang):
+    if lang:
+        return record.get('title_en') or next(c[2] for c in CATEGORIES if c[0] == record['_category']) + ' · Work record'
+    return record['title']
+
+def work_media(record, lang):
+    alt = record.get('alt_en' if lang else 'alt') or work_title(record, lang)
+    if record.get('video'):
+        poster = record.get('cover') or record.get('image')
+        kind = 'video/webm' if record['video'].endswith('.webm') else 'video/mp4'
+        return f'<video controls playsinline preload="none" poster="{e(poster)}" aria-label="{e(alt)}"><source src="{e(record["video"])}" type="{kind}"></video>'
+    return f'<a href="{e(record["image"])}" data-image>{image(record.get("thumbnail") or record["image"],alt)}</a>'
+
+def work_figure(record, lang, css=''):
+    description = record.get('description_en' if lang else 'description') or ''
+    if not css and record.get('wide'):
+        css = 'work-wide'
+    return f'<figure class="{css}">{work_media(record,lang)}<figcaption><h3>{e(work_title(record,lang))}</h3>'+ (f'<p>{e(description)}</p>' if description else '')+'</figcaption></figure>'
 
 def case_pair(lang):
-    cases=[('assets/uploads/images/confirmed/case-d-white-clip.png',text('笑起来，眉形也与五官相处自然。','A softly defined arch, seen in a smile.',lang),text('既有记录：眉峰不做锐角，毛流顺着原有方向。白花发夹模特的微笑状态，可以观察眉形与表情的关系。','The existing record describes an arch without a sharp corner and strokes following the original direction. This smiling portrait shows the relationship between the brow shape and expression.',lang)),
-    ('assets/uploads/images/imported/men-brow/03.jpg',text('轮廓清楚，也保留毛流。','A clearer outline, with visible hair direction.',lang),text('这张男士作品保留了整脸比例。可以观察眉头的浓淡、眉身的方向与眉尾的收束，看较清晰的眉部轮廓如何与五官相处。','This full-face men’s brow record shows the density at the start, the direction through the body and the narrowing at the tail. It offers a view of a more defined outline in relation to the other features.',lang))]
-    return '<div class="case-pair">'+''.join(f'<figure class="case-item"><a href="/{src}" data-image>{image("assets/case-d-white-clip.webp" if src.endswith("case-d-white-clip.png") else src,title)}</a><figcaption><h3>{title}</h3><p>{desc}</p></figcaption></figure>' for src,title,desc in cases)+'</div>'
+    return '<div class="case-pair">'+''.join(work_figure(r,lang,'case-item') for r in selection('featured'))+'</div>'
 
 def service_list(lang, full=False):
     rows=[]
@@ -131,43 +159,38 @@ def service_list(lang, full=False):
     return ''.join(rows)
 
 def home(lang):
-    body=f'''<section class="wrap hero" aria-labelledby="hero-title"><figure class="hero-visual">{image('assets/hero-model.webp',text('描眉画目真实眉形作品模特','A real brow work portrait from Miaomeihuamu',lang),'hero-image',True,'hero-image')}<figcaption class="hero-caption"><span id="hero-badge">{text('描眉画目真实模特作品','A studio work portrait',lang)}</span></figcaption></figure><div class="hero-copy"><h1 id="hero-title">{text('看见你的五官，<br>再设计你的眉形。','Your features.<br>Your brow design.',lang)}</h1><p class="hero-intro">{text('以个人审美和专业眉形设计为核心的私人定制纹绣工作室。主打仪器野生眉，设计从你的五官、原生毛流和喜好开始。','A private studio shaped by personal aesthetic judgement and individual brow design. Specialising in instrument hair-stroke brows, we begin with your features, existing hair and preferences.',lang)}</p><div class="actions">{button(text('预约免费设计','Book a free design consultation',lang),lang)}<a class="text-link" href="#works">{text('看真实作品','Explore the work',lang)}</a></div><p class="hero-note">{text('上海浦东 · 前滩 / 三林<br>约30–45分钟，看过眉形再决定。','Sanlin / Qiantan · Pudong, Shanghai<br>About 30–45 minutes. See the design before deciding.',lang)}</p></div></section>
+    body=f'''<section class="wrap hero" aria-labelledby="hero-title"><figure class="hero-visual">{image(HOME['hero_image'],HOME.get('hero_alt_en' if lang else 'hero_alt') or HOME['hero_alt'],'hero-image',True,'hero-image') if HOME.get('hero_image') else ''}<figcaption class="hero-caption"><span id="hero-badge">{cms_text(HOME,'hero_badge',lang)}</span></figcaption></figure><div class="hero-copy"><h1 id="hero-title">{cms_text(HOME,'hero_title',lang,True)}</h1><p class="hero-intro">{cms_text(HOME,'hero_intro',lang,True)}</p><div class="actions">{button(text('预约免费设计','Book a free design consultation',lang),lang)}<a class="text-link" href="#works">{text('看真实作品','Explore the work',lang)}</a></div><p class="hero-note">{cms_text(HOME,'hero_note',lang,True)}</p></div></section>
 <div class="wrap studio-line">{text('乐乐老师本人一对一设计操作 · 所有项目一年内免费补色','Designed and performed personally by Lele · Free touch-ups within one year for all services',lang)}</div>
-<section class="wrap section" id="works"><div class="section-heading"><div><h2>{text('不同的人，不同的眉形。','Different people.<br>Individual designs.',lang)}</h2><p>{text('保留每张脸自己的特点，讨论适合它的轮廓与毛流。','Keep what is individual to each face, then explore the contour and hair flow that suit it.',lang)}</p></div><a class="text-link" href="{route('works.html',lang)}">{text('查看作品与设计记录','Explore work and design notes',lang)}</a></div><div id="works-grid">{case_pair(lang)}</div></section>
+<section class="wrap section" id="works"><div class="section-heading"><div><h2>{cms_text(HOME,'works_title',lang,True)}</h2><p>{cms_text(HOME,'works_intro',lang,True)}</p></div><a class="text-link" href="{route('works.html',lang)}">{text('查看作品与设计记录','Explore work and design notes',lang)}</a></div><div id="works-grid">{case_pair(lang)}</div></section>
 {design_section(lang)}{layers(lang)}
 <section class="wrap section" id="services"><div class="services-layout"><div><h2 class="section-title">{text('设计在前，<br>项目随之选择。','The design comes first.<br>The method follows.',lang)}</h2><p class="service-note">{text('以仪器野生眉私人定制为主打。具体做法结合基础、底色、肤质和希望呈现的风格，不按固定眉形或项目档位套用。','Instrument hair-stroke brows are the main service. Existing brows, old pigment, skin and your preferences guide the method, rather than a fixed shape or a service tier.',lang)}</p><a class="text-link" href="{route('price.html',lang)}">{text('完整项目与护理说明','All services and care information',lang)}</a></div><div>{service_list(lang)}</div></div></section>
-<section class="wrap section artist" id="lele"><div class="artist-inner"><figure class="artist-image" id="studio">{image('assets/env/window.jpg',text('工作室的飘窗与茶台','The studio window and tea table',lang))}<figcaption>{text('工作室的一角','A corner of the studio',lang)}</figcaption></figure><div class="artist-copy"><h2>{text('乐乐老师','Meet Lele',lang)}</h2><p>{text('个人审美偏自然柔和、原生态，但不把自己的偏好当作顾客唯一的选择。先了解你，再把眉形放回你的五官里。','Lele personally favours a soft, natural appearance, but her own preference is not the only option for a client. She starts by understanding you and considering the brows as part of your whole face.',lang)}</p><p>{text('2016年进入纹绣行业，经历连锁机构工作与培训讲师工作；2024年8月在上海浦东三林创立描眉画目。','She entered the field in 2016, worked in beauty and specialist brow chains, and gained training and teaching experience. She opened Miaomeihuamu in Sanlin, Pudong, in August 2024.',lang)}</p><a class="text-link" href="{route('about.html',lang)}">{text('认识乐乐与工作室','About Lele and the studio',lang)}</a></div></div></section>
-<section class="wrap section journal" id="journal"><div class="section-heading"><h2>{text('先了解，再决定。','Understand the work<br>before deciding.',lang)}</h2><a class="text-link" href="{route('posts',lang)}">{text('浏览专业知识','Browse the journal',lang)}</a></div><div class="journal-editorial"><figure><video controls playsinline preload="none" poster="/assets/operation-brow-poster.jpg" aria-label="{text('野生眉操作过程局部记录','A close-up record of brow work',lang)}"><source src="/assets/operation-brow.mp4" type="video/mp4"></video><figcaption>{text('本店操作过程局部记录','A close-up procedure record from the studio',lang)}</figcaption></figure><div class="reading-list">'''
+<section class="wrap section artist" id="lele"><div class="artist-inner"><figure class="artist-image" id="studio">{image(STUDIO['image'],STUDIO.get('image_alt_en' if lang else 'image_alt') or STUDIO['image_alt']) if STUDIO.get('image') else ''}<figcaption>{text('工作室的一角','A corner of the studio',lang)}</figcaption></figure><div class="artist-copy"><h2>{text('乐乐老师','Meet Lele',lang)}</h2><p>{cms_text(STUDIO,'home_intro',lang,True)}</p><p>{cms_text(STUDIO,'home_history',lang,True)}</p><a class="text-link" href="{route('about.html',lang)}">{text('认识乐乐与工作室','About Lele and the studio',lang)}</a></div></div></section>
+<section class="wrap section journal" id="journal"><div class="section-heading"><h2>{text('先了解，再决定。','Understand the work<br>before deciding.',lang)}</h2><a class="text-link" href="{route('posts',lang)}">{text('浏览专业知识','Browse the journal',lang)}</a></div><div class="journal-editorial"><figure><video controls playsinline preload="none" poster="{e(HOME.get('procedure_cover') or '')}" aria-label="{cms_text(HOME,'procedure_alt',lang)}"><source src="{e(HOME.get('procedure_video') or '')}" type="video/mp4"></video><figcaption>{cms_text(HOME,'procedure_alt',lang)}</figcaption></figure><div class="reading-list">'''
     for slug in ['wild-brow-9-steps','instrument-vs-dual','first-month']:
         a=next(a for a in ARTICLES if a['slug']==slug)
         body+=f'<a href="{article_route(slug,lang)}"><h3>{e(a["title"][lang])}</h3><p>{e(a["intro"][lang])}</p><span aria-hidden="true">↗</span></a>'
     body+='</div></div></section>'
     faq,data=faqs(lang,[0,1,2,3,5])
+    if not HOME.get('hero_image'):
+        body=re.sub(r'<figure class="hero-visual">.*?</figure>', '', body, count=1, flags=re.S)
+        body=body.replace('class="wrap hero"', 'class="wrap hero hero-text-only"')
+    if not HOME.get('procedure_video'):
+        body=re.sub(r'(<div class="journal-editorial">)<figure>.*?</figure>', r'\1', body, count=1, flags=re.S)
     return body+faq, data
 
-CATEGORIES=[('women-brow','女士眉形','Women’s brows'),('men-brow','男士眉形','Men’s brows'),('lip-extension','唇形调整','Lip-contour refinement'),('hairline','发际线','Hairline pigmentation'),('philtrum','人中窝','Philtrum shading'),('eyeliner','美瞳线','Lash-line enhancement'),('dark-lip-correction','改乌唇','Dark-lip colour correction')]
 
 def gallery_records(category,lang):
-    data=json.loads((ROOT/f'content/works/{category}.json').read_text(encoding='utf-8'))
-    records=[d for d in data if d.get('published') and (d.get('image') or d.get('video'))]
-    markup=[]
-    name=next(c[1+lang] for c in CATEGORIES if c[0]==category)
-    for i,d in enumerate(records,1):
-        title=d.get('title','作品记录') if not lang else d.get('title_en',f'{name} · Work record {i}')
-        alt=d.get('alt',title) if not lang else d.get('alt_en',title)
-        desc=d.get('description','') if not lang else d.get('description_en','')
-        if d.get('image'):
-            media=f'<a href="{e(d["image"])}" data-image>{image(d["image"],alt)}</a>'
-        else:
-            media=f'<video controls playsinline preload="none"><source src="{e(d["video"])}" type="video/mp4"></video>'
-        markup.append(f'<figure>{media}<figcaption><h3>{e(title)}</h3>'+ (f'<p>{e(desc)}</p>' if desc else '')+'</figcaption></figure>')
-    return records, ''.join(markup)
+    records=work_records(category)
+    return records, ''.join(work_figure(record,lang) for record in records)
+
 
 def works(lang):
-    intro=text('从整张脸的比例，看到一根线条的方向。这里保留真实模特与顾客作品；照片中的设计、妆容和拍摄阶段各不相同，不是对其他人的效果承诺。','From whole-face proportions to the direction of a single stroke. These are real model and client work records. Designs, makeup and recording stages vary; another person’s photograph is not a promise of your result.',lang)
-    body=page_intro(text('作品与设计记录','Work and design notes',lang),intro,lang)
+    intro=cms_text(WORKS_PAGE,'intro',lang)
+    body=page_intro(cms_text(WORKS_PAGE,'title',lang),intro,lang)
     body+=f'<section class="wrap section selected-works">{case_pair(lang)}</section>'
-    body+=f'<section class="wrap section closeup-pair"><div><h2 class="section-title">{text("近看，线条怎样衔接。","A closer look at the transitions.",lang)}</h2><p>{text("两张既有近照分别展示毛流方向与眉峰、眉尾的过渡。这里描述可见细节，不推断未记录的顾客诉求或恢复阶段。","These existing close-ups show hair direction and the transition from arch to tail. The notes describe visible detail without assigning an undocumented client brief or healing stage.",lang)}</p></div><figure><a href="/assets/works/women-brow-direction-detail.png" data-image>{image("assets/works/women-brow-direction-detail.png",text("眉头偏直立，眉身逐渐向眉尾倾斜","More upright strokes at the start, gradually inclining towards the tail",lang))}</a><figcaption>{text("眉头、眉身、眉尾，方向逐渐变化。","Direction changes gradually from the start through the body to the tail.",lang)}</figcaption></figure><figure><a href="/assets/works/women-brow-arch-detail.jpg" data-image>{image("assets/works/women-brow-arch-detail.jpg",text("较缓的眉峰转折与逐渐收细的眉尾","A gradual arch transition and a tapering tail",lang))}</a><figcaption>{text("看眉峰如何转折，也看眉尾如何收拢。","Observe both the turn at the arch and the narrowing towards the tail.",lang)}</figcaption></figure></section>'
+    details=selection('detail')
+    if details:
+        body+='<section class="wrap section closeup-pair"><div><h2 class="section-title">'+text('近看，线条怎样衔接。','A closer look at the transitions.',lang)+'</h2></div>'+''.join(work_figure(r,lang) for r in details)+'</section>'
     body+=f'<section class="wrap section archive" id="archive"><h2 class="section-title">{text("按项目浏览全部记录","Browse all work records",lang)}</h2><p class="archive-note">{text("展开项目查看照片，点击图片可放大。未标注恢复时间的记录，不用于判断长期留色。","Open a category and select an image to enlarge it. Images without a documented healing stage do not establish long-term pigment retention.",lang)}</p>'
     for cat,zh,en in CATEGORIES:
         records,markup=gallery_records(cat,lang)
@@ -184,8 +207,8 @@ def services(lang):
     faq,data=faqs(lang,[1,2,3,4]);return body+faq,data
 
 def about(lang):
-    body=page_intro(text('乐乐老师，<br>把眉形放回五官里看。','Lele.<br>Brows considered with the whole face.',lang),text('自然柔和、原生态，是乐乐偏爱的审美方向；它不是限制顾客的固定答案。每一次设计，都从具体的人和具体的喜好开始。','A soft, natural appearance is Lele’s personal preference, not a fixed answer for every client. Each design begins with the individual and their preferences.',lang),lang)
-    body+=f'<section class="wrap section artist"><div class="artist-inner"><figure class="artist-image">{image("assets/env/window.jpg",text("描眉画目工作室飘窗与茶台","The studio window and tea table",lang))}<figcaption>{text("真实工作室环境","Inside the studio",lang)}</figcaption></figure><div class="artist-copy"><h2>{text("从从业经验，到个人工作室。","From professional experience<br>to a private studio.",lang)}</h2><p>{text("2016年进入纹绣行业，曾在大型连锁美容院担任外聘纹绣师，在专业纹绣连锁机构从事纹绣工作，也有培训和纹绣讲师经历。","Lele entered the field in 2016, worked as an external practitioner for a large beauty chain and within a specialist brow chain, and gained training and teaching experience.",lang)}</p><p>{text("2024年8月，在上海浦东三林创立描眉画目·定制美学。如今由本人一对一设计操作，同一时段只接待一位顾客。","In August 2024 she opened Miaomeihuamu in Sanlin, Pudong. She now personally handles design and treatment, seeing one client at a time.",lang)}</p></div></div></section>'
+    body=page_intro(cms_text(STUDIO,'title',lang,True),cms_text(STUDIO,'intro',lang),lang)
+    body+=f'<section class="wrap section artist"><div class="artist-inner"><figure class="artist-image">{image(STUDIO['image'],STUDIO.get('image_alt_en' if lang else 'image_alt') or STUDIO['image_alt']) if STUDIO.get('image') else ''}<figcaption>{text("真实工作室环境","Inside the studio",lang)}</figcaption></figure><div class="artist-copy"><h2>{text("从从业经验，到个人工作室。","From professional experience<br>to a private studio.",lang)}</h2><p>{cms_text(STUDIO,'history',lang)}</p><p>{cms_text(STUDIO,'current',lang)}</p></div></div></section>'
     body+=design_section(lang)+layers(lang)
     body+=f'<section class="wrap section personal-note"><h2>{text("你的风格，也在设计里。","Your preferences belong in the design.",lang)}</h2><p>{text("喜欢柔和、利落，或希望眉形更有存在感，都可以说清楚。设计尽量顺应原有骨骼结构，通过眉头、眉峰、眉尾与整体轮廓的调整，追求视觉上的面部流畅度、比例协调和立体感。","Whether you prefer softness, definition or a stronger brow presence, say so. The design works with existing bone structure, adjusting the start, arch, tail and contour to seek visual flow, balanced proportions and depth.",lang)}</p><p>{text("这些是设计目标，不是必然发生的效果，也不是改变实际骨骼结构。","These are design aims, not guaranteed outcomes or changes to actual bone structure.",lang)}</p></section>'
     return body,[]
@@ -323,7 +346,12 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
     if key=='home':
         business=copy.deepcopy(BUSINESS)
         if lang: business['@type']='BeautySalon'
-        schemas.extend([business,PERSON,{'@context':'https://schema.org','@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':BRAND,'inLanguage':['zh-CN','en']},VIDEO])
+        schemas.extend([business,PERSON,{'@context':'https://schema.org','@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':BRAND,'inLanguage':['zh-CN','en']}])
+        if HOME.get('procedure_video'):
+            video_schema=copy.deepcopy(VIDEO)
+            video_schema.update(contentUrl=BASE+HOME['procedure_video'],thumbnailUrl=BASE+HOME['procedure_cover'],name=HOME.get('procedure_alt_en' if lang else 'procedure_alt') or HOME['procedure_alt'])
+            video_schema.pop('embedUrl',None)
+            schemas.append(video_schema)
     kind='Article' if article_data else ('CollectionPage' if key in ('works.html','posts') else 'AboutPage' if key=='about.html' else 'WebPage')
     previous=next((s for s in old.get('schemas',[]) if s.get('@type')==kind),{})
     page={**previous,'@context':'https://schema.org','@type':kind,'@id':canonical+'#webpage','url':canonical,'name':title,'description':description,'inLanguage':'en' if lang else 'zh-CN','about':{'@id':BASE+'/#business'}}
@@ -335,8 +363,9 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
             data,_=gallery_records(category,lang)
             for i,record in enumerate(data,1):
                 record_title=record.get('title','作品记录') if not lang else record.get('title_en',f'{en} · Work record {i}')
-                item={'@type':'ImageObject' if record.get('image') else 'VideoObject','name':record_title,'contentUrl':BASE+(record.get('image') or record['video'])}
+                item={'@type':'VideoObject' if record.get('video') else 'ImageObject','name':record_title,'contentUrl':BASE+(record.get('video') or record['image'])}
                 record_description=record.get('description','') if not lang else record.get('description_en','')
+                if record.get('video'):item['thumbnailUrl']=BASE+(record.get('cover') or record['image'])
                 if record_description:item['description']=record_description
                 records.append({'@type':'ListItem','position':len(records)+1,'item':item})
         page['mainEntity']={'@type':'ItemList','numberOfItems':len(records),'itemListElement':records}
@@ -366,10 +395,10 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
 <link rel="canonical" href="{canonical}">
 <link rel="alternate" hreflang="zh-CN" href="{zh_url}"><link rel="alternate" hreflang="en" href="{en_url}"><link rel="alternate" hreflang="x-default" href="{zh_url}">
 <link rel="alternate" type="application/rss+xml" title="{BRAND}" href="{BASE}/feed.xml">
-<meta property="og:type" content="{'article' if article_data else 'website'}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{BASE}/assets/hero-model.webp">
+<meta property="og:type" content="{'article' if article_data else 'website'}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:url" content="{canonical}">{('<meta property="og:image" content="'+BASE+e(HOME['hero_image'])+'">') if HOME.get('hero_image') else ''}
 <meta name="theme-color" content="#f5f3ed"><meta name="color-scheme" content="light">
 <link rel="stylesheet" href="/assets/brand-home.css"><link rel="stylesheet" href="/assets/brand-stage2.css">
-{'<link rel="preload" as="image" href="/assets/hero-model.webp">' if key=='home' else ''}
+{('<link rel="preload" as="image" href="'+e(HOME['hero_image'])+'">') if key=='home' and HOME.get('hero_image') else ''}
 {structured}
 </head><body class="{'home-page' if key=='home' else 'inner-page'}">
 {header(key,lang)}
@@ -381,6 +410,7 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
     GENERATED.append(path)
 
 def build():
+    validate()
     pages=[('home',home,['仪器野生眉与私人眉形设计','Individual brow design and hair-stroke brows']),('works.html',works,['真实作品与设计记录','Real work and design notes']),('price.html',services,['服务项目与护理说明','Services and aftercare']),('about.html',about,['乐乐老师与设计理念','Lele and her design approach']),('area.html',area,['免费到店设计与预约','Free design consultation and arrival']),('wild-brow.html',methods,['手工、单仪器与双仪器野生眉','Manual, single- and dual-instrument brows']),('posts',journal,['眉形设计与纹绣专业知识','Brow design and pigmentation journal'])]
     for lang in (0,1):
         for key,fn,titles in pages:

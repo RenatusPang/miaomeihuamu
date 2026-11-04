@@ -1,0 +1,27 @@
+{
+  "slug": "hand-vs-machine",
+  "title": "手工与单仪器野生眉，各自怎么做",
+  "title_en": "Manual and single-instrument brows",
+  "intro": "工具影响操作方式，具体效果仍取决于原生眉、设计与老师的操作。不能只根据项目名称判断适不适合。",
+  "intro_en": "Tools change how strokes are placed. Existing brows, the design and the practitioner’s technique still determine suitability.",
+  "sections": [
+    {
+      "title": "手工针片走线",
+      "title_en": "Manual strokes",
+      "description": "以手工针片逐条走线，力度和走向由老师控制。通常在原生眉框架比较完整、希望调整轮廓或补充毛流时讨论。",
+      "description_en": "Individual strokes are placed with a manual blade. Pressure and direction are controlled by the practitioner. This may be considered when the natural framework is relatively complete and the brief is to refine the outline or add hair-like detail."
+    },
+    {
+      "title": "单仪器的选择依据",
+      "title_en": "Selecting one instrument",
+      "description": "原生毛发细软色浅或粗硬色深，会影响电流仪与半抛机的选择。仪器数量不能替代对眉形、线条间距和毛流方向的设计。",
+      "description_en": "The texture and colour of existing hair inform instrument choice. The number of instruments does not replace decisions about shape, spacing and direction."
+    },
+    {
+      "title": "恢复与留色分别讨论",
+      "title_en": "Discuss healing and retention separately",
+      "description": "手工前一周颜色可能偏深，恢复约7天是经验参考；仪器类的恢复表现也需结合实际情况。手工留色通常参考约1年，仪器约2–3年，都不是保证期限。",
+      "description_en": "Manual work may look darker during the first week; around seven days is a recovery guide. Instrument work also requires an individual aftercare plan. Retention is commonly discussed as about one year for manual work and two to three for instrument work, with individual variation."
+    }
+  ]
+}
