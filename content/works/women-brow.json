@@ -252,19 +252,5 @@
     "featured_order": 10,
     "detail": false,
     "wide": false
-  },
-  {
-    "title": "CMS-ACCEPTANCE-20261104",
-    "title_en": "CMS acceptance test",
-    "description": "仅用于后台验证（邮箱保存已验证）",
-    "description_en": "Gmail save verified; test only.",
-    "alt": "独立后台测试色块",
-    "alt_en": "Isolated CMS test pattern",
-    "image": "/assets/uploads/images/cms-acceptance-test.png",
-    "published": false,
-    "featured": true,
-    "featured_order": -100,
-    "detail": false,
-    "wide": false
   }
 ]
