@@ -7,21 +7,26 @@
       "name": "手工野生眉",
       "currency": "CNY",
       "recovery": "有尴尬期，前一周颜色会偏深",
-      "duration": "维持约 1 年"
+      "duration": "维持约 1 年",
+      "recovery_period": "7天左右"
     },
     {
       "name": "画派单仪器野生眉",
       "currency": "CNY",
       "recovery": "没有结痂期",
       "duration": "维持约 2–3 年",
-      "note": "单仪器按原生毛质选电流仪或半抛机"
+      "note": "单仪器按原生毛质选电流仪或半抛机",
+      "daily_life": "做完即刻可洗脸化妆，游泳运动都不影响，无痛感。",
+      "effect": "只想做基础眉形，效果接近原生，没有妆感。"
     },
     {
       "name": "画派双仪器初绒野生眉",
       "currency": "CNY",
       "recovery": "没有结痂期",
       "duration": "维持约 2–3 年",
-      "note": "电流仪铺绒毛线 + 半抛机走主线结构线"
+      "note": "电流仪铺绒毛线 + 半抛机走主线结构线",
+      "daily_life": "做完即刻可洗脸化妆，游泳运动都不影响，无痛感。",
+      "effect": "绒毛感更强，立体度更高，毛流感更明显，有轻微妆感。"
     },
     {
       "name": "丝雾眉"
@@ -31,7 +36,10 @@
     },
     {
       "name": "扩唇",
-      "currency": "CNY"
+      "currency": "CNY",
+      "recovery": "有结痂期",
+      "recovery_period": "3天左右",
+      "duration": "约2–3年"
     },
     {
       "name": "纹人中窝",
@@ -39,15 +47,18 @@
     },
     {
       "name": "改乌唇",
-      "currency": "CNY"
+      "currency": "CNY",
+      "recovery": "有结痂期"
     },
     {
       "name": "美瞳线",
-      "currency": "CNY"
+      "currency": "CNY",
+      "daily_life": "做完即刻可洗脸化妆，游泳运动都不影响，无痛感。"
     },
     {
       "name": "纹发际线",
-      "currency": "CNY"
+      "currency": "CNY",
+      "daily_life": "做完即刻可洗脸化妆，游泳运动都不影响，无痛感。"
     }
   ],
   "eligibility": "旧眉修复（红眉、蓝眉、高低眉）需先到店评估底色，适合做才接；这不是门店主打项目。",
