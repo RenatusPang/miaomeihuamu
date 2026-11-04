@@ -381,7 +381,7 @@ Updated: {DATE}
     notes=re.sub(r'# 站点面向上海本地消费者[^\n]*\n# 欢迎引用本站页面[^\n]*', '# 本站提供工作室事实、真实作品与专业设计说明。\n# 引用时请结合对应页面与更新日期。',notes)
     # Rebuild these lines from the same owner-editable formal copy each time.
     notes=re.sub(r'^(?:Design-Approach(?:-English)?:|# 设计理念：).*\n?', '', notes, flags=re.M)
-    notes+='\nDesign-Approach: '+BASE+'/about.html\nDesign-Approach-English: '+BASE+'/en/about.html\n# 设计理念：'+STUDIO['philosophy_summary']+'\n'
+    notes=notes.rstrip()+'\n\nDesign-Approach: '+BASE+'/about.html\nDesign-Approach-English: '+BASE+'/en/about.html\n# 设计理念：'+STUDIO['philosophy_summary']+'\n'
     if 'English:' not in notes: notes+='\nEnglish: '+BASE+'/en/\nEnglish-Summary: '+BASE+'/ai/en.json\n'
     ai_notes.write_text(notes,encoding='utf-8')
     feed=ROOT/'feed.xml'

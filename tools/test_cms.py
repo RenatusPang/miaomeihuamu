@@ -88,6 +88,16 @@ class ContentFlow(unittest.TestCase):
         result=self.build(success=False)
         self.assertIn('strokes',result.stderr)
 
+    def test_repeated_build_preserves_generated_content(self):
+        self.build()
+        paths=[self.root / (route.lstrip('/') + ('index.html' if route.endswith('/') else ''))
+               for route in json.loads(self.source('content/brand/routes.json'))]
+        paths += list((self.root/'ai').glob('*.json'))
+        paths += [self.root/path for path in ('.well-known/ai.txt','llms.txt','sitemap.xml','feed.xml')]
+        before={path:path.read_bytes() for path in paths}
+        self.build()
+        self.assertEqual(before,{path:path.read_bytes() for path in paths})
+
     def test_publish_hide_and_delete_across_static_pages(self):
         record = self.record()
         self.write(self.path, [record] + self.records)
