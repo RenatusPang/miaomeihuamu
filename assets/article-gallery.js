@@ -48,6 +48,7 @@
   controls.querySelector('[data-gallery-next]').addEventListener('click', () => select(current + 1));
   dialog.addEventListener('keydown', event => {
     if (!dialog.open || current < 0 || event.altKey || event.ctrlKey || event.metaKey) return;
+    if (zoomed && viewport.contains(event.target)) return;
     if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
       event.preventDefault();
       select(current + (event.key === 'ArrowRight' ? 1 : -1));
