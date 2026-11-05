@@ -199,10 +199,30 @@ class ContentFlow(unittest.TestCase):
         source = self.source('posts/wild-brow-9-steps.html')
         first = source.split('<section id="section-1">',1)[1].split('</section>',1)[0]
         self.assertIn(article['sections'][0]['title'], first)
-        self.assertIn('/assets/9steps/step2.jpg', first)
+        self.assertIn(article['sections'][0]['image'], first)
         schemas = [json.loads(item) for item in re.findall(r'<script type="application/ld\+json">(.*?)</script>', source, re.S)]
         howto = next(item for item in schemas if item['@type'] == 'HowTo')
-        self.assertTrue(howto['step'][0]['image'].endswith('/step2.jpg'))
+        self.assertTrue(howto['step'][0]['image'].endswith(article['sections'][0]['image']))
+
+    def test_nine_step_conclusion_and_full_paragraphs_survive_cms_build(self):
+        article=json.loads(json.dumps(self.steps))
+        for suffix in ('','_en'):
+            article['sections'][-1]['description'+suffix]+='\n\nCMS conclusion paragraph'+suffix
+        self.write(self.steps_path,article)
+        self.build()
+        for suffix,page in (('', 'posts/wild-brow-9-steps.html'),('_en','en/posts/wild-brow-9-steps.html')):
+            source=self.source(page)
+            visible=re.sub(r'<script.*?</script>','',source,flags=re.S)
+            self.assertEqual(visible.count(' data-image>'),9)
+            self.assertIn('CMS conclusion paragraph'+suffix,visible)
+            self.assertNotIn('/assets/9steps/step',source)
+            schemas=[json.loads(s) for s in re.findall(r'<script type="application/ld\+json">(.*?)</script>',source,re.S)]
+            howto=next(s for s in schemas if s['@type']=='HowTo')
+            self.assertEqual(len(howto['step']),9)
+            self.assertNotIn('CMS conclusion',json.dumps(howto))
+            structured_article=next(s for s in schemas if s['@type']=='Article')
+            self.assertIn('CMS conclusion paragraph'+suffix,structured_article['articleBody'])
+            self.assertEqual(len(structured_article['image']),9)
 
     def test_article_identifiers_cannot_escape_the_article_directory(self):
         article = dict(self.steps); article['slug'] = '../../admin/index'

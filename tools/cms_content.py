@@ -135,8 +135,10 @@ def validate():
             raise ValueError(f'{path.name}: 文章网址标识必须与文件名一致，不能改为路径')
         if not isinstance(article.get('sections'), list) or not article['sections']:
             raise ValueError(f'{path.name}: 请保留文章正文段落')
-        for section in article['sections']:
-            local_media(section.get('image'), required=slug == 'wild-brow-9-steps')
+        for index, section in enumerate(article['sections']):
+            local_media(section.get('image'), required=slug == 'wild-brow-9-steps' and index < 9)
+        if slug == 'wild-brow-9-steps' and sum(bool(s.get('image')) for s in article['sections']) != 9:
+            raise ValueError('九步设计文章须保留前九节配图；结语不另配步骤图')
     for data in (home, studio, load('works-page.json')):
         for key, value in data.items():
             if not isinstance(value, (str, type(None))):

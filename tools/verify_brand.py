@@ -101,7 +101,11 @@ def main():
                 check('availableLanguage' not in schema,route+' unverified reception language')
             if schema.get('@type')=='HowTo':
                 check(len(schema['step'])==9,route+' nine design steps')
-                for step in schema['step']:check(step['name'] in visible and step['text'] in visible,route+' HowTo content mismatch')
+                # Paragraph tags separate visible prose; compare its words without
+                # depending on the source JSON's blank-line formatting.
+                compact=lambda value: re.sub(r'\s+','',value)
+                for step in schema['step']:
+                    check(compact(step['name']) in compact(visible) and compact(step['text']) in compact(visible),route+' HowTo content mismatch')
     published=[];private=[]
     for file in (ROOT/'content/works').glob('*.json'):
         for row in json.loads(file.read_text(encoding='utf-8')):
