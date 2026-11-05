@@ -107,11 +107,18 @@ def header(key, lang):
 def contact(lang):
     return f'''<section class="visit" id="contact"><div class="wrap visit-inner"><div><h2>{text('到店设计与预约','Design consultation and appointments',lang)}</h2><p class="visit-intro">{text('到店设计免费，约30–45分钟。<br>看过方案，再决定做不做。','A free design consultation, about 30–45 minutes.<br>See the proposed shape before deciding.',lang)}</p><div class="actions">{button(text('微信预约','Contact on WeChat',lang),lang)}<a class="text-link" href="tel:+8619282182068">{text('电话咨询','Call the studio',lang)}</a></div></div><div id="contact-details"><address>{text(BRAND+'<br>上海市浦东新区三林长清路<br>1200弄39号1613室',BRAND_EN+'<br>Room 1613, No. 39, Lane 1200 Changqing Road<br>Sanlin, Pudong, Shanghai',lang)}</address><p class="visit-meta">{text('前滩南侧 · 灵岩南路站2号口往西步行约300米<br>周一至周日 10:00–20:00','South of Qiantan · About 300 m west of Lingyan South Road, Exit 2<br>Daily 10:00–20:00',lang)}</p><div class="visit-links"><a class="text-link" href="{MAP}" target="_blank" rel="noopener noreferrer">{text('打开门店地图','Open the map',lang)}</a><a class="text-link" href="{route('area.html',lang)}">{text('到店路线','Arrival details',lang)}</a></div><p class="visit-small">WeChat: MiaoMeiHuaMu<br>{text('电话：19282182068','Phone: +86 192 8218 2068',lang)}</p></div></div></section>'''
 
-def footer(lang):
+def footer(lang, article_gallery=False):
+    controls = ''
+    lightbox_class = ''
+    lightbox_image = '<img id="enlarged-image" alt="">'
+    if article_gallery:
+        lightbox_class = ' article-image-dialog'
+        lightbox_image = f'<div class="article-image-viewport" tabindex="0" role="region" aria-label="{text("图片，可放大后滚动查看","Image; scroll to explore when zoomed in",lang)}">{lightbox_image}</div>'
+        controls = f'<nav class="article-gallery-controls" aria-label="{text("步骤图片切换","Step image navigation",lang)}"><button type="button" data-gallery-previous aria-label="{text("上一张图片","Previous image",lang)}">{text("上一张","Previous",lang)}</button><span class="article-gallery-tools"><button type="button" data-gallery-zoom aria-pressed="false" data-zoom-label="{text("查看原图","Zoom in",lang)}" data-fit-label="{text("适应屏幕","Fit image",lang)}">{text("查看原图","Zoom in",lang)}</button><span data-gallery-position role="status" aria-live="polite"></span></span><button type="button" data-gallery-next aria-label="{text("下一张图片","Next image",lang)}">{text("下一张","Next",lang)}</button></nav>'
     return f'''<footer class="site-footer"><div class="wrap"><div class="footer-top"><div class="footer-brand">{text(BRAND,BRAND_EN,lang)}</div><div class="footer-links"><a href="{route('works.html',lang)}">{text('作品记录','Work records',lang)}</a><a href="{route('price.html',lang)}">{text('全部项目','All services',lang)}</a><a href="{route('posts',lang)}">{text('专业知识','Journal',lang)}</a><a id="reviews" href="{DIANPING}" target="_blank" rel="noopener noreferrer">{text('大众点评门店信息','Current Dianping listing',lang)}</a></div></div><div class="footer-bottom"><span>{text('上海市浦东新区三林镇描眉画目美容店 · 2024年8月开业','Opened August 2024 · Private studio in Pudong, Shanghai',lang)}</span><span>© {text(BRAND,BRAND_EN,lang)}</span></div></div></footer>
 <div class="mobile-contact" aria-label="{text('快捷预约','Contact options',lang)}"><a href="tel:+8619282182068">{text('电话咨询','Call',lang)}</a>{button(text('预约免费设计','Free design consultation',lang),lang)}</div>
 <dialog class="dialog" id="booking-dialog" aria-labelledby="booking-title"><div class="dialog-content"><button class="close-dialog" type="button" data-close aria-label="{text('关闭预约窗口','Close contact window',lang)}">×</button><h2 id="booking-title">{text('咨询项目与预约到店','Service enquiries and appointments',lang)}</h2><p>{text('添加微信，说明想了解的项目与方便到店的时间。具体预约时间以老师回复确认为准。','Add the studio on WeChat and mention the service you would like to discuss and a suitable time. Your appointment is confirmed by the studio’s reply.',lang)}</p>{image('assets/wechat-miaomeihuamu.jpg',text('描眉画目微信二维码','Studio WeChat QR code',lang),'qr')}<div class="wechat-line"><strong id="wechat-id">MiaoMeiHuaMu</strong><button type="button" id="copy-wechat">{text('复制微信号','Copy WeChat ID',lang)}</button></div><p class="copy-status" id="copy-wechat-status" role="status" aria-live="polite">{text('也可以长按微信号手动复制。','You can also select and copy the ID manually.',lang)}</p><a class="dialog-phone" href="tel:+8619282182068">{text('电话：19282182068','Phone: +86 192 8218 2068',lang)}</a></div></dialog>
-<dialog class="dialog image-dialog" id="image-dialog" aria-label="{text('作品大图','Enlarged work photograph',lang)}"><div class="dialog-content"><button class="close-dialog" type="button" data-close aria-label="{text('关闭大图','Close image',lang)}">×</button><img id="enlarged-image" alt=""><p id="image-caption"></p></div></dialog>
+<dialog class="dialog image-dialog{lightbox_class}" id="image-dialog" aria-label="{text('作品大图','Enlarged work photograph',lang)}"><div class="dialog-content"><button class="close-dialog" type="button" data-close aria-label="{text('关闭大图','Close image',lang)}">×</button>{lightbox_image}<p id="image-caption"></p>{controls}</div></dialog>
 <noscript><style>.menu-button{{display:none}}.nav{{display:flex;position:static;flex-wrap:wrap;flex-direction:row;font-size:13px;padding:0}}.header-inner{{flex-wrap:wrap}}.site-header{{position:static}}</style></noscript>
 <script src="/assets/brand-home.js" defer></script>'''
 
@@ -218,7 +225,7 @@ def home(lang):
 <section class="wrap section journal" id="journal"><div class="section-heading"><h2>{text('眉形设计与纹绣知识','Brow design and permanent makeup',lang)}</h2><a class="text-link" href="{route('posts',lang)}">{text('浏览专业知识','Browse the journal',lang)}</a></div><div class="journal-editorial"><figure><video controls playsinline preload="none" poster="{e(HOME.get('procedure_cover') or '')}" aria-label="{e(procedure_label(lang))}"><source src="{e(HOME.get('procedure_video') or '')}" type="{'video/webm' if (HOME.get('procedure_video') or '').endswith('.webm') else 'video/mp4'}"></video><figcaption>{e(procedure_label(lang))}</figcaption></figure><div class="reading-list">'''
     for slug in ['wild-brow-9-steps','instrument-vs-dual','first-month']:
         a=next(a for a in ARTICLES if a['slug']==slug)
-        body+=f'<a href="{article_route(slug,lang)}"><h3>{e(a["title"][lang])}</h3><p>{e(a["intro"][lang])}</p><span aria-hidden="true">↗</span></a>'
+        body+=f'<a href="{article_route(slug,lang)}"><h3>{e(a["title"][lang])}</h3><p>{e(article_excerpt(a,lang))}</p><span aria-hidden="true">↗</span></a>'
     body+='</div></div></section>'
     faq,data=faqs(lang,[0,1,2,3,5])
     if not HOME.get('hero_image'):
@@ -280,16 +287,42 @@ def journal(lang):
     body+='<section class="wrap section article-index">'
     ordered=sorted(ARTICLES,key=lambda a:0 if a['slug']=='wild-brow-9-steps' else 1)
     for a in ordered:
-        body+=f'<a href="{article_route(a["slug"],lang)}"><h2>{e(a["title"][lang])}</h2><p>{e(a["intro"][lang])}</p><span aria-hidden="true">↗</span></a>'
+        body+=f'<a href="{article_route(a["slug"],lang)}"><h2>{e(a["title"][lang])}</h2><p>{e(article_excerpt(a,lang))}</p><span aria-hidden="true">↗</span></a>'
     return body+'</section>',[]
 
+def article_excerpt(a,lang):
+    if a['slug'] != 'wild-brow-9-steps':
+        return a['intro'][lang]
+    paragraphs=re.split(r'\n\s*\n',a['intro'][lang].strip())
+    return ' '.join([paragraphs[0],paragraphs[-1]]) if len(paragraphs)>1 else paragraphs[0]
+
+
+def article_paragraphs(value, css=''):
+    paragraphs=[]
+    for part in re.split(r'\n\s*\n',value.strip()):
+        formatted='<strong>'+e(part[2:-2])+'</strong>' if part.startswith('**') and part.endswith('**') else e(part)
+        paragraphs.append(('<p class="'+css+'">' if css else '<p>')+formatted+'</p>')
+    return ''.join(paragraphs)
+
+
 def article_body(a,lang):
-    body=f'<article class="wrap article-page"><header class="article-heading"><a class="text-link" href="{route("posts",lang)}">{text("全部专业知识","All journal articles",lang)}</a><h1>{e(a["title"][lang])}</h1><p class="article-lead">{e(a["intro"][lang])}</p></header><div class="article-body">'
+    illustrated=a['slug']=='wild-brow-9-steps'
+    lead=article_paragraphs(a['intro'][lang],'article-lead') if illustrated else '<p class="article-lead">'+e(a['intro'][lang])+'</p>'
+    gallery=' data-article-gallery' if illustrated else ''
+    body=f'<article class="wrap article-page"><header class="article-heading"><a class="text-link" href="{route("posts",lang)}">{text("全部专业知识","All journal articles",lang)}</a><h1>{e(a["title"][lang])}</h1>{lead}</header><div class="article-body"{gallery}>'
     for i,s in enumerate(a['sections'],1):
-        title=(str(i)+'. ' if a['slug']=='wild-brow-9-steps' else '')+s[lang]
-        body+=f'<section id="section-{i}"><h2>{e(title)}</h2><p>{e(s[2+lang])}</p>'
-        if a['section_images'][i-1]:
-            body+=f'<figure>{image(a["section_images"][i-1],title)}<figcaption>{e(title)}</figcaption></figure>'
+        picture=a['section_images'][i-1]
+        title=(f'{i:02d}｜' if illustrated and picture else '')+s[lang]
+        body+=f'<section id="section-{i}"><h2>{e(title)}</h2>'
+        if illustrated:
+            if picture:
+                alt=text('纸上野生眉排线示意：','Brow stroke arrangement on paper: ',lang)+s[lang]
+                body+=f'<figure><a href="{e(picture)}" data-image>{image(picture,alt)}</a></figure>'
+            body+=article_paragraphs(s[2+lang])
+        else:
+            body+=f'<p>{e(s[2+lang])}</p>'
+            if picture:
+                body+=f'<figure>{image(picture,title)}<figcaption>{e(title)}</figcaption></figure>'
         body+='</section>'
     body+=f'<nav class="article-related" aria-label="{text("相关阅读","Related reading",lang)}"><a href="{route("works.html",lang)}">{text("看真实作品","See the work",lang)}</a><a href="{route("wild-brow.html",lang)}">{text("比较野生眉做法","Compare brow methods",lang)}</a><a href="{route("area.html",lang)}">{text("到店设计与预约","Consultation and arrival",lang)}</a></nav></div></article>'
     return body,[]
@@ -390,7 +423,7 @@ Updated: {DATE}
         link=item.findtext('link','')
         for a in ARTICLES:
             if link==BASE+article_route(a['slug'],0):
-                for tag,value in [('title',a['title'][0]),('description',a['intro'][0])]:
+                for tag,value in [('title',a['title'][0]),('description',article_excerpt(a,0))]:
                     node=item.find(tag)
                     if node is None: node=ET.SubElement(item,tag)
                     node.text=value
@@ -450,9 +483,12 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
         page.update(headline=title,dateModified=DATE,author={'@type':'Person','name':'乐乐老师','url':BASE+'/about.html'})
         page.pop('articleBody',None)
         page['mainEntityOfPage']=canonical
+        if article_data['slug']=='wild-brow-9-steps':
+            page['articleBody']='\n\n'.join([article_data['intro'][lang]]+[section[lang]+'\n'+section[2+lang].replace('**','') for section in article_data['sections']])
+            page['image']=[BASE+src for src in article_data['section_images'] if src]
     schemas.append(page)
     if article_data and article_data['slug']=='wild-brow-9-steps':
-        schemas.append({'@context':'https://schema.org','@type':'HowTo','name':title,'description':description,'inLanguage':'en' if lang else 'zh-CN','image':BASE+article_data['section_images'][0],'step':[{'@type':'HowToStep','position':i,'name':s[lang],'text':s[2+lang],'url':canonical+f'#section-{i}','image':BASE+article_data['section_images'][i-1]} for i,s in enumerate(article_data['sections'],1)]})
+        schemas.append({'@context':'https://schema.org','@type':'HowTo','name':title,'description':description,'inLanguage':'en' if lang else 'zh-CN','image':BASE+article_data['section_images'][0],'step':[{'@type':'HowToStep','position':i,'name':s[lang],'text':s[2+lang],'url':canonical+f'#section-{i}','image':BASE+article_data['section_images'][i-1]} for i,s in enumerate(article_data['sections'],1) if article_data['section_images'][i-1]]})
     crumbs=[{'@type':'ListItem','position':1,'name':text('首页','Home',lang),'item':BASE+route('home',lang)}]
     if key!='home': crumbs.append({'@type':'ListItem','position':2,'name':title,'item':canonical})
     schemas.append({'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':crumbs})
@@ -461,6 +497,7 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
     structured='\n'.join('<script type="application/ld+json">'+json.dumps(s,ensure_ascii=False,indent=2).replace('</',r'<\/')+'</script>' for s in schemas)
     existing_ids=set(re.findall(r'\bid="([^"]+)"',header(key,lang)+body+contact(lang)+footer(lang)))|{'main'}
     legacy=''.join(f'<span class="legacy-anchor" id="{e(anchor)}" aria-hidden="true"></span>' for anchor in old.get('ids',[]) if anchor not in existing_ids)
+    article_gallery=bool(article_data and article_data['slug']=='wild-brow-9-steps')
     result=f'''<!doctype html>
 <html lang="{'en' if lang else 'zh-CN'}">
 <head>
@@ -474,13 +511,13 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
 <link rel="alternate" type="application/rss+xml" title="{BRAND}" href="{BASE}/feed.xml">
 <meta property="og:type" content="{'article' if article_data else 'website'}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(description)}"><meta property="og:url" content="{canonical}">{('<meta property="og:image" content="'+BASE+e(HOME['hero_image'])+'">') if HOME.get('hero_image') else ''}
 <meta name="theme-color" content="#f5f3ed"><meta name="color-scheme" content="light">
-<link rel="stylesheet" href="/assets/brand-home.css"><link rel="stylesheet" href="/assets/brand-stage2.css">
+<link rel="stylesheet" href="/assets/brand-home.css"><link rel="stylesheet" href="/assets/brand-stage2.css">{'<link rel="stylesheet" href="/assets/article-gallery.css">' if article_gallery else ''}
 {('<link rel="preload" as="image" href="'+e(HOME['hero_image'])+'">') if key=='home' and HOME.get('hero_image') else ''}
 {structured}
 </head><body class="{'home-page' if key=='home' else 'inner-page'}">
 {header(key,lang)}
 <main id="main">{legacy}{body}{contact(lang)}</main>
-{footer(lang)}
+{footer(lang,article_gallery)}{'<script src="/assets/article-gallery.js" defer></script>' if article_gallery else ''}
 </body></html>
 '''
     target=disk(path);target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result,encoding='utf-8',newline='\n')
@@ -499,7 +536,7 @@ def build():
         for a in ARTICLES:
             body,data=article_body(a,lang)
             key='guide' if a['slug']=='eyebrow-tattoo-shanghai-guide' else 'posts/'+a['slug']+'.html'
-            render(key,article_route(a['slug'],lang),lang,a['title'][lang],a['intro'][lang],body,data,a)
+            render(key,article_route(a['slug'],lang),lang,a['title'][lang],article_excerpt(a,lang),body,data,a)
     ns='http://www.sitemaps.org/schemas/sitemap/0.9';ET.register_namespace('',ns)
     sitemap=ROOT/'sitemap.xml';tree=ET.parse(sitemap);root=tree.getroot()
     known={n.find('{'+ns+'}loc').text:n for n in root.findall('{'+ns+'}url')}

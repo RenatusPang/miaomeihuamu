@@ -1,0 +1,34 @@
+/* Article-only controls. Existing site typography, colours and motion remain. */
+[data-article-gallery] a[data-image] img { transform: none; }
+.article-image-dialog { width: min(1240px, calc(100% - 32px)); }
+.article-image-viewport { overflow: auto; max-height: 55dvh; }
+.article-image-viewport img { display: block; height: auto; max-height: 55dvh; }
+.article-image-viewport.is-zoomed { height: 55dvh; }
+.article-image-viewport.is-zoomed img {
+  width: var(--article-image-width);
+  max-width: none;
+  max-height: none;
+}
+.article-gallery-tools { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.article-gallery-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+  font-size: 14px;
+}
+.article-gallery-controls button {
+  min-height: 44px;
+  padding: 8px;
+  white-space: nowrap;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--line);
+  font: inherit;
+  cursor: pointer;
+}
+.article-gallery-controls button:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
