@@ -351,3 +351,7 @@ a[data-image] img { transition: transform 650ms var(--motion-ease); }
 @media print {
   *, *::before, *::after, *::backdrop { animation: none !important; transition: none !important; }
 }
+
+/* 2026-11-07 视觉验收：项目区块标题避免中文末字孤行 */
+.services-layout h2 { text-wrap: balance; }
+@media (max-width: 720px) { .services-layout h2 { text-wrap: balance; } }
