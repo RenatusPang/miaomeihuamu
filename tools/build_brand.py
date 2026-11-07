@@ -73,7 +73,13 @@ BUSINESS['name'] = BRAND
 if 'Miaomeihuamu Bespoke Aesthetics' not in BUSINESS['alternateName']:
     BUSINESS['alternateName'].append('Miaomeihuamu Bespoke Aesthetics')
 BUSINESS['description'] = HOME['hero_intro']
-PERSON = next(s for s in HOME_SCHEMAS if s['@type']=='Person')
+# Normalize legacy metadata to Shanghai's municipality/district hierarchy.
+BUSINESS['address'].update(
+    streetAddress='浦东新区三林镇长清路 1200 弄 39 号 1613 室',
+    addressLocality='上海市', addressRegion='上海市')
+PERSON = copy.deepcopy(next(s for s in HOME_SCHEMAS if s['@type']=='Person'))
+# The legacy quote is neither a Schema.org Person property nor visible copy.
+PERSON.pop('quote', None)
 VIDEO = next(s for s in HOME_SCHEMAS if s['@type']=='VideoObject')
 
 DIMENSIONS = {'assets/hero-model.webp':(702,996), 'assets/env/window.jpg':(810,1216),
@@ -490,8 +496,9 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
     if article_data and article_data['slug']=='wild-brow-9-steps':
         schemas.append({'@context':'https://schema.org','@type':'HowTo','name':title,'description':description,'inLanguage':'en' if lang else 'zh-CN','image':BASE+article_data['section_images'][0],'step':[{'@type':'HowToStep','position':i,'name':s[lang],'text':s[2+lang],'url':canonical+f'#section-{i}','image':BASE+article_data['section_images'][i-1]} for i,s in enumerate(article_data['sections'],1) if article_data['section_images'][i-1]]})
     crumbs=[{'@type':'ListItem','position':1,'name':text('首页','Home',lang),'item':BASE+route('home',lang)}]
-    if key!='home': crumbs.append({'@type':'ListItem','position':2,'name':title,'item':canonical})
-    schemas.append({'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':crumbs})
+    if key!='home':
+        crumbs.append({'@type':'ListItem','position':2,'name':title,'item':canonical})
+        schemas.append({'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':crumbs})
     if faq_data:
         schemas.append({'@context':'https://schema.org','@type':'FAQPage','mainEntity':[{'@type':'Question','name':q[lang],'acceptedAnswer':{'@type':'Answer','text':q[2+lang]}} for q in faq_data]})
     structured='\n'.join('<script type="application/ld+json">'+json.dumps(s,ensure_ascii=False,indent=2).replace('</',r'<\/')+'</script>' for s in schemas)
