@@ -352,7 +352,7 @@ def update_machine_readable():
     services['services']=[{'name':s[1],'english_name':s[2],'description':s[3],'touch_up':'一年内免费补色'} for s in SERVICES]
     for row in services['services']:
         if row['name']=='手工野生眉': row.update(duration='留色通常参考约1年，实际因人而异',recovery_period='约7天为经验参考，实际因人而异')
-        if row['name'] in ('画派单仪器野生眉','画派双仪器初绒野生眉'): row['duration']='留色通常参考约2–3年，实际因人而异'
+        if row['name'] in ('画派仪器野生眉','画派双仪器初绒野生眉'): row['duration']='留色通常参考约2–3年，实际因人而异'
         if row['name']=='扩唇 / 唇形调整': row.update(recovery='可能有结痂期',recovery_period='约3天为经验参考，实际因人而异')
         if row['name']=='改乌唇': row['recovery']='可能有结痂期；恢复时间按评估说明'
     services['booking']['mode']='预约制，乐乐老师本人一对一设计操作，时间以联系确认为准。'
