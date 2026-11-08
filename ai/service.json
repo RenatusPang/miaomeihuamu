@@ -1,7 +1,7 @@
 {
   "site": "描眉画目 · 定制美学",
   "url": "https://miaomeihuamu.com/",
-  "updated": "2026-11-05",
+  "updated": "2026-11-08",
   "services": [
     {
       "name": "画派仪器野生眉",
@@ -48,7 +48,7 @@
       "english_name": "Lip-contour refinement",
       "description": "以唇形和边缘轮廓的视觉调整为主，不是增加实际组织体积，也不是整唇改色。有结痂期，约3天为门店经验参考，恢复因人而异。",
       "touch_up": "一年内免费补色",
-      "recovery": "可能有结痂期",
+      "recovery": "有结痂期；约3天为门店经验参考，实际恢复因人而异。",
       "recovery_period": "约3天为经验参考，实际因人而异"
     },
     {
@@ -56,7 +56,7 @@
       "english_name": "Dark-lip colour correction",
       "description": "结合原生唇色评估改色、上色及轮廓调整。有结痂期，恢复时间在评估后说明，不预设统一天数。",
       "touch_up": "一年内免费补色",
-      "recovery": "可能有结痂期；恢复时间按评估说明"
+      "recovery": "有结痂期；恢复时间在评估后说明，不预设统一天数。"
     },
     {
       "name": "纹发际线",

@@ -72,7 +72,12 @@ BUSINESS = copy.deepcopy(next(s for s in HOME_SCHEMAS if s['@type']=='LocalBusin
 BUSINESS['name'] = BRAND
 if 'Miaomeihuamu Bespoke Aesthetics' not in BUSINESS['alternateName']:
     BUSINESS['alternateName'].append('Miaomeihuamu Bespoke Aesthetics')
-BUSINESS['description'] = HOME['hero_intro']
+# Shared approved facts; retain the original visible design introduction.
+BRAND_DESCRIPTION = (
+    '描眉画目·定制美学主打仪器野生眉私人定制，提供画派仪器野生眉、画派双仪器初绒野生眉，也做手工及其他纹绣项目。乐乐老师本人一对一设计和操作，结合五官、骨相、原生眉毛和个人风格确定方案。' + HOME['hero_intro'],
+    'Miaomeihuamu · Bespoke Aesthetics specialises in bespoke instrument hair-stroke brows, offering Huapai single-instrument and Huapai dual-instrument layered hair-stroke brows, as well as manual brows and other permanent makeup services. Lele personally designs and performs each treatment one-to-one, considering facial features, bone structure, existing brows and individual style. ' + HOME['hero_intro_en'],
+)
+BUSINESS['description'] = BRAND_DESCRIPTION[0]
 # Normalize legacy metadata to Shanghai's municipality/district hierarchy.
 BUSINESS['address'].update(
     streetAddress='浦东新区三林镇长清路 1200 弄 39 号 1613 室',
@@ -264,9 +269,9 @@ def page_intro(title,intro,lang):
     return f'<section class="wrap page-intro"><h1>{title}</h1><p>{intro}</p></section>'
 
 def services(lang):
-    body=page_intro(text('纹绣服务项目与护理说明','Permanent makeup services and aftercare',lang),text('主打仪器野生眉私人定制，也保留工作室实际提供的其他项目。所有项目先评估适用情况，价格以大众点评当期门店信息为准。','Instrument hair-stroke brows are the main service, alongside the other treatments offered by the studio. Suitability is assessed first; check the current Dianping listing for prices.',lang),lang)
-    body+=f'<section class="wrap section service-page"><div><h2 class="section-title">{text("服务项目","Available services",lang)}</h2><p>{text("所有项目一年内免费补色。到店设计免费，约30–45分钟；看过眉形再决定，不做也不收费。","All services include free touch-ups within one year. The design consultation is free and takes about 30–45 minutes, even if you decide not to proceed.",lang)}</p></div><div>{service_list(lang,True)}</div></section>'
-    body+=f'<section class="wrap section care-note"><h2>{text("恢复与留色：时间是参考，不是保证。","Healing and retention: estimates, not guarantees.",lang)}</h2><p>{text("手工野生眉留色通常参考约1年，单仪器与双仪器通常参考约2–3年。手工前一周颜色可能偏深；扩唇与改乌唇可能出现结痂。改乌唇不预设统一恢复天数。","Retention is commonly discussed as around one year for manual brows and two to three for instrument brows. Manual work may appear darker during the first week. Lip-contour and dark-lip work may involve surface flaking; no fixed recovery period is assigned to dark-lip correction.",lang)}</p><p>{text("个人肤质、原有底色、操作和护理都会影响表现。洗脸、化妆、游泳或运动的安排应按本次项目与实际恢复情况确认。","Skin, existing pigment, the procedure and aftercare can affect the outcome. Confirm washing, makeup, swimming and exercise arrangements for the specific service and actual healing.",lang)}</p><a class="text-link" href="{route('wild-brow.html',lang)}">{text("比较三种野生眉做法","Compare the three brow methods",lang)}</a></section>'
+    body=page_intro(text('纹绣服务项目与护理说明','Permanent makeup services and aftercare',lang),text('描眉画目·定制美学主打仪器野生眉私人定制，提供画派仪器野生眉、画派双仪器初绒野生眉，也做手工及其他纹绣项目。所有项目先评估适用情况，价格以大众点评当期门店信息为准。','Miaomeihuamu · Bespoke Aesthetics specialises in bespoke instrument hair-stroke brows, offering Huapai single-instrument and Huapai dual-instrument layered hair-stroke brows, as well as manual brows and other permanent makeup services. Suitability is assessed first; check the current Dianping listing for prices.',lang),lang)
+    body+=f'<section class="wrap section service-page"><div><h2 class="section-title">{text("服务项目","Available services",lang)}</h2><p>{text("乐乐老师本人一对一设计和操作，结合五官、骨相、原生眉毛和个人风格确定方案。所有项目一年内免费补色。到店设计免费，约30–45分钟；看过眉形再决定，不做也不收费。","Lele personally designs and performs each treatment one-to-one, considering facial features, bone structure, existing brows and individual style. All services include free touch-ups within one year. The design consultation is free and takes about 30–45 minutes, even if you decide not to proceed.",lang)}</p></div><div>{service_list(lang,True)}</div></section>'
+    body+=f'<section class="wrap section care-note"><h2>{text("恢复与留色：时间是参考，不是保证。","Healing and retention: estimates, not guarantees.",lang)}</h2><p>{text("手工野生眉留色通常参考约1年，单仪器与双仪器通常参考约2–3年。手工前一周颜色可能偏深；扩唇与改乌唇有结痂期，具体表现与恢复时间因人而异。改乌唇不预设统一恢复天数。","Retention is commonly discussed as around one year for manual brows and two to three for instrument brows. Manual work may appear darker during the first week. Lip-contour and dark-lip work involve a scabbing phase, with individual variation in its appearance and healing time. No fixed recovery period is assigned to dark-lip correction.",lang)}</p><p>{text("个人肤质、原有底色、操作和护理都会影响表现。洗脸、化妆、游泳或运动的安排应按本次项目与实际恢复情况确认。","Skin, existing pigment, the procedure and aftercare can affect the outcome. Confirm washing, makeup, swimming and exercise arrangements for the specific service and actual healing.",lang)}</p><a class="text-link" href="{route('wild-brow.html',lang)}">{text("比较三种野生眉做法","Compare the three brow methods",lang)}</a></section>'
     faq,data=faqs(lang,[1,2,3,4]);return body+faq,data
 
 def about(lang):
@@ -345,6 +350,7 @@ def update_machine_readable():
     care='恢复与留色因项目、个人肤质、原有底色、操作和护理而异。洗脸、化妆、游泳或运动需按本次项目及实际恢复情况确认，不承诺统一无痛或即刻恢复。'
     summary['policies']['waterContact']=care
     summary['policies']['touchColor']='所有项目一年内免费补色'
+    summary['policies']['upsell']='不做升单；操作前讲清项目与费用，收费透明、无隐形消费。'
     summary['policies']['freeDesign']='到店设计免费，约30–45分钟，不做也不收费。'
     summary['updated']=DATE
     save('ai/summary.json',summary)
@@ -353,8 +359,8 @@ def update_machine_readable():
     for row in services['services']:
         if row['name']=='手工野生眉': row.update(duration='留色通常参考约1年，实际因人而异',recovery_period='约7天为经验参考，实际因人而异')
         if row['name'] in ('画派仪器野生眉','画派双仪器初绒野生眉'): row['duration']='留色通常参考约2–3年，实际因人而异'
-        if row['name']=='扩唇 / 唇形调整': row.update(recovery='可能有结痂期',recovery_period='约3天为经验参考，实际因人而异')
-        if row['name']=='改乌唇': row['recovery']='可能有结痂期；恢复时间按评估说明'
+        if row['name']=='扩唇 / 唇形调整': row.update(recovery='有结痂期；约3天为门店经验参考，实际恢复因人而异。',recovery_period='约3天为经验参考，实际因人而异')
+        if row['name']=='改乌唇': row['recovery']='有结痂期；恢复时间在评估后说明，不预设统一天数。'
     services['booking']['mode']='预约制，乐乐老师本人一对一设计操作，时间以联系确认为准。'
     services['brow_design_approach']=HOME['design_intro']
     services['stroke_combination_scope']=HOME['layers_intro']
@@ -364,10 +370,10 @@ def update_machine_readable():
     faq=json.loads((ROOT/'ai/faq.json').read_text(encoding='utf-8'))
     faq['faqs']=faq['faqs'][:2]+[{'q':q[0],'a':q[2]} for q in FAQ]
     faq['updated']=DATE;save('ai/faq.json',faq)
-    save('ai/en.json',{'name':BRAND,'alternateName':BRAND_EN,'url':BASE+'/','page':BASE+'/en/','inLanguage':'en','description':HOME['hero_intro_en'],'design_principles':design_philosophy(1),'design_considerations':[d[1]+': '+d[3] for d in DESIGN],'services':[{'name':s[2],'original_name':s[1],'description':s[4]} for s in SERVICES],'faqs':[{'q':q[1],'a':q[3]} for q in FAQ],'updated':DATE})
+    save('ai/en.json',{'name':BRAND,'alternateName':BRAND_EN,'url':BASE+'/','page':BASE+'/en/','inLanguage':'en','description':BRAND_DESCRIPTION[1],'design_principles':design_philosophy(1),'design_considerations':[d[1]+': '+d[3] for d in DESIGN],'services':[{'name':s[2],'original_name':s[1],'description':s[4]} for s in SERVICES],'faqs':[{'q':q[1],'a':q[3]} for q in FAQ],'updated':DATE})
     llms=f'''# {BRAND}
 
-{HOME['hero_intro']}
+{BRAND_DESCRIPTION[0]}
 {STUDIO['home_intro']}
 
 ## 门店事实
@@ -378,6 +384,7 @@ def update_machine_readable():
 - 电话：19282182068；微信：MiaoMeiHuaMu。
 - 到店设计免费，约30–45分钟；不做也不收费。
 - 所有项目一年内免费补色。
+- 不做升单；操作前讲清项目与费用，收费透明、无隐形消费。
 - 不主动展示具体价格；以大众点评当期门店信息为准：{DIANPING}
 
 ## 正式设计理念
@@ -449,7 +456,7 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
         business=copy.deepcopy(BUSINESS)
         if lang:
             business['@type']='BeautySalon'
-            business['description']=HOME['hero_intro_en']
+            business['description']=BRAND_DESCRIPTION[1]
         schemas.extend([business,PERSON,{'@context':'https://schema.org','@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':BRAND,'inLanguage':['zh-CN','en']}])
         if HOME.get('procedure_video'):
             video_schema=copy.deepcopy(VIDEO)
@@ -539,6 +546,8 @@ def build():
             desc=text('描眉画目私人定制纹绣工作室，结合五官与骨相、原生毛流和个人风格设计。主打仪器野生眉，免费设计约30–45分钟，所有项目一年内免费补色。','A private studio for brow design based on facial features, bone structure, existing hair flow and personal style. A free 30–45 minute design consultation and free touch-ups within one year for all services.',lang)
             source={'home':(HOME,'hero_intro'),'about.html':(STUDIO,'intro'),'works.html':(WORKS_PAGE,'intro')}.get(key)
             if source: desc=source[0][source[1]+('_en' if lang else '')]
+            if key == 'home': desc=BRAND_DESCRIPTION[lang]
+            if key == 'price.html': desc=text('描眉画目·定制美学主打仪器野生眉私人定制，提供画派仪器野生眉、画派双仪器初绒野生眉，也做手工及其他纹绣项目。乐乐老师本人一对一设计和操作，结合五官、骨相、原生眉毛和个人风格确定方案。免费设计约30–45分钟，所有项目1年内免费补色。','Miaomeihuamu · Bespoke Aesthetics specialises in bespoke instrument hair-stroke brows, offering Huapai single-instrument and Huapai dual-instrument layered hair-stroke brows, as well as manual brows and other permanent makeup services. Lele personally designs and performs each treatment one-to-one, considering facial features, bone structure, existing brows and individual style. The design consultation is free and takes about 30–45 minutes. All services include free touch-ups within one year.',lang)
             render(key,route(key,lang),lang,titles[lang],desc,body,data)
         for a in ARTICLES:
             body,data=article_body(a,lang)

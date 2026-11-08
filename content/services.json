@@ -46,14 +46,14 @@
     "title": "扩唇 / 唇形调整",
     "title_en": "Lip-contour refinement",
     "description": "以唇形和边缘轮廓的视觉调整为主，不是增加实际组织体积，也不是整唇改色。有结痂期，约3天为门店经验参考，恢复因人而异。",
-    "description_en": "Refines the visual shape and edges of the lips. It does not add tissue volume and is distinct from full-lip colour correction. Surface flaking can occur; about three days is an experience-based guide, with individual variation."
+    "description_en": "Refines the visual shape and edges of the lips. It does not add tissue volume and is distinct from full-lip colour correction. There is a scabbing phase; about three days is an experience-based guide, with individual variation."
   },
   {
     "id": "dark-lip",
     "title": "改乌唇",
     "title_en": "Dark-lip colour correction",
     "description": "结合原生唇色评估改色、上色及轮廓调整。有结痂期，恢复时间在评估后说明，不预设统一天数。",
-    "description_en": "Assessment-led colour correction for darker lips, with contour refinement where appropriate. Surface flaking can occur. A recovery plan is discussed after assessment rather than assigning the same timeline to everyone."
+    "description_en": "Assessment-led colour correction for darker lips, with contour refinement where appropriate. There is a scabbing phase. A recovery plan is discussed after assessment rather than assigning the same timeline to everyone."
   },
   {
     "id": "hairline",
