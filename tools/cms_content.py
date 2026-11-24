@@ -137,6 +137,14 @@ def validate():
             raise ValueError(f'{path.name}: 请保留文章正文段落')
         for index, section in enumerate(article['sections']):
             local_media(section.get('image'), required=slug == 'wild-brow-9-steps' and index < 9)
+            case_photo = section.get('case_photo_zh') or {}
+            if case_photo.get('image'):
+                local_media(case_photo['image'], required=True)
+                if not all(isinstance(case_photo.get(key), str) and case_photo[key].strip()
+                           for key in ('alt', 'source_label', 'source_url')):
+                    raise ValueError(f'{path.name}: 中文案例图须填写替代文字和出处')
+                if not re.fullmatch(r'https://[^/\s]+/[^\s]+', case_photo['source_url']):
+                    raise ValueError(f'{path.name}: 中文案例图出处须为完整 HTTPS 链接')
         if slug == 'wild-brow-9-steps' and sum(bool(s.get('image')) for s in article['sections']) != 9:
             raise ValueError('九步设计文章须保留前九节配图；结语不另配步骤图')
     for data in (home, studio, load('works-page.json')):

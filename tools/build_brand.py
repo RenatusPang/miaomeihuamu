@@ -109,6 +109,7 @@ DIMENSIONS = {'assets/hero-model.webp':(702,996), 'assets/env/window.jpg':(810,1
  'assets/uploads/images/imported/men-brow/03.jpg':(1179,1129),
  'assets/works/women-brow-direction-detail.png':(867,1156),'assets/works/women-brow-arch-detail.jpg':(1079,1293),
  'assets/uploads/images/confirmed/case-d-white-clip.png':(750,1125),'assets/uploads/images/imported/women-brow/07.jpg':(1080,1620),
+ 'assets/uploads/images/confirmed/xhs-short-brow-tail.png':(661,992),
  'assets/wechat-miaomeihuamu.jpg':(960,960)}
 
 def image(src, alt, css='', eager=False, img_id=''):
@@ -364,6 +365,10 @@ def article_body(a,lang):
             body+=f'<p>{e(s[2+lang])}</p>'
             if picture:
                 body+=f'<figure>{image(picture,title)}<figcaption>{e(title)}</figcaption></figure>'
+        case_photo=a['section_case_photos_zh'][i-1]
+        if not lang and case_photo.get('image'):
+            credit=f'<a class="text-link" href="{e(case_photo["source_url"])}">{e(case_photo["source_label"])}</a>'
+            body+=f'<figure>{image(case_photo["image"],case_photo["alt"])}<figcaption>作品图片取自{credit}。</figcaption></figure>'
         body+='</section>'
     body+=f'<nav class="article-related" aria-label="{text("相关阅读","Related reading",lang)}"><a href="{route("works.html",lang)}">{text("看真实作品","See the work",lang)}</a><a href="{route("wild-brow.html",lang)}">{text("比较野生眉做法","Compare brow methods",lang)}</a><a href="{route("area.html",lang)}">{text("到店设计与预约","Consultation and arrival",lang)}</a></nav></div></article>'
     return body,[]

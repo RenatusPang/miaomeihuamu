@@ -1591,6 +1591,43 @@
                   "webp"
                 ]
               }
+            },
+            {
+              "name": "case_photo_zh",
+              "label": "中文案例图与出处",
+              "type": "object",
+              "fields": [
+                {
+                  "name": "image",
+                  "label": "案例照片",
+                  "type": "image",
+                  "options": {
+                    "media": "work_images",
+                    "path": "assets/uploads/images",
+                    "extensions": [
+                      "jpg",
+                      "jpeg",
+                      "png",
+                      "webp"
+                    ]
+                  }
+                },
+                {
+                  "name": "alt",
+                  "label": "图片替代文字",
+                  "type": "string"
+                },
+                {
+                  "name": "source_url",
+                  "label": "出处链接",
+                  "type": "string"
+                },
+                {
+                  "name": "source_label",
+                  "label": "出处名称",
+                  "type": "string"
+                }
+              ]
             }
           ]
         }
