@@ -1,7 +1,7 @@
 {
   "site": "描眉画目 · 定制美学",
   "url": "https://miaomeihuamu.com/",
-  "updated": "2026-11-08",
+  "updated": "2026-11-24",
   "services": [
     {
       "name": "画派仪器野生眉",
@@ -52,22 +52,34 @@
       "recovery_period": "约3天为经验参考，实际因人而异"
     },
     {
-      "name": "改乌唇",
-      "english_name": "Dark-lip colour correction",
-      "description": "结合原生唇色评估改色、上色及轮廓调整。有结痂期，恢复时间在评估后说明，不预设统一天数。",
+      "name": "改乌唇 / 深唇分层转色",
+      "english_name": "Dark-lip colour correction & neutralization",
+      "description": "针对深唇底色、色素沉着与乌唇问题，先通过互补色乳进行底层转色中和，再做自然通透过渡，避免直接上重色导致发暗反黑。呈现健康妈生裸粉感。",
       "touch_up": "一年内免费补色",
       "recovery": "有结痂期；恢复时间在评估后说明，不预设统一天数。"
     },
     {
       "name": "纹发际线",
       "english_name": "Hairline pigmentation",
-      "description": "用线条模拟原生头发的毛流方向，适用于部分边缘露白、颜色淡等视觉需求；不会让头发重新生长。大面积缺失或明显前移需求需另行评估。",
+      "description": "用线条模拟原生头发的毛流方向，适用于部分边缘露白、发缝稀疏等视觉需求；不会让头发重新生长。大面积缺失或明显前移需求需另行评估。",
       "touch_up": "一年内免费补色"
     },
     {
-      "name": "纹人中窝",
-      "english_name": "Philtrum shading",
-      "description": "实际提供的局部纹绣项目。先沟通希望调整的视觉细节，再评估是否适合；不改变实际骨骼或组织结构。",
+      "name": "纹人中窝 / 视觉缩短中庭",
+      "english_name": "Philtrum shading & midface visual contouring",
+      "description": "局部光影美学微调项目。在上唇边缘微扩（扩唇）配合人中窝凹陷处做微阴影光影过渡，在视觉上缩短过长中庭、增加面部立体折叠度与幼态感；不涉及手术或填充注射。",
+      "touch_up": "一年内免费补色"
+    },
+    {
+      "name": "男士骨相野生眉",
+      "english_name": "Men's bespoke hair-stroke brows",
+      "description": "专为男士打造的原生英气野生眉。不刻意勾勒死板眉框，顺着原生毛流生长方向补足断眉、缺眉与稀疏，强调眉骨立体感与干净利落感，自然隐形不突兀。",
+      "touch_up": "一年内免费补色"
+    },
+    {
+      "name": "老式红蓝眉转色覆盖",
+      "english_name": "Red/blue brow colour correction",
+      "description": "针对老式半永久发红、发蓝的底色，先评估底色深浅。轻中度底色使用对冲色乳做底层中和转色，再用仪器野生眉毛流做自然覆盖，避免轻易激光洗眉的创伤。",
       "touch_up": "一年内免费补色"
     }
   ],
