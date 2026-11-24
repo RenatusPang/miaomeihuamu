@@ -25,10 +25,27 @@ WORKS_PAGE = load('works-page.json')
 ROOT = Path(__file__).resolve().parents[1]
 BASE = 'https://miaomeihuamu.com'
 BASELINE = 'd75e0d9'
-try:
-    DATE = os.environ.get('CMS_CONTENT_DATE') or subprocess.check_output(['git','log','-1','--format=%cs'],cwd=ROOT,text=True,stderr=subprocess.DEVNULL).strip()
-except (OSError, subprocess.CalledProcessError):
-    DATE = datetime.now(timezone.utc).date().isoformat()
+def content_date():
+    override = os.environ.get('CMS_CONTENT_DATE')
+    if override:
+        return override
+    try:
+        history = subprocess.check_output(
+            ['git', 'log', '-1', '--format=%cs%n%(trailers:key=CMS-Content-Date,valueonly)'],
+            cwd=ROOT, text=True, stderr=subprocess.DEVNULL,
+        )
+    except (OSError, subprocess.CalledProcessError):
+        return datetime.now(timezone.utc).date().isoformat()
+    commit_date, *overrides = history.strip().splitlines()
+    if not overrides:
+        return commit_date
+    if len(overrides) != 1:
+        raise ValueError('A release can specify only one CMS-Content-Date trailer')
+    # Keep existing editorial dates for link-only or other non-editorial releases.
+    return datetime.strptime(overrides[0].strip(), '%Y-%m-%d').date().isoformat()
+
+
+DATE = content_date()
 DIANPING = 'https://www.dianping.com/shop/ka17X0dd6YqQIfYc'
 MAP = 'https://map.baidu.com/bdpoiwise/index.html?uid=e14d4f6c79332f56a7c756d2'
 METADATA = ROOT / 'content/brand/original-metadata.json'
@@ -217,10 +234,23 @@ def work_figure(record, lang, css=''):
 def case_pair(lang):
     return '<div class="case-pair">'+''.join(work_figure(r,lang,'case-item') for r in selection('featured'))+'</div>'
 
+SERVICE_ARTICLE_LINKS = {
+    'eyeline': ('eyeline', '美瞳线黑色与棕色怎么选', 'Choose between black and brown eyeliner'),
+    'lip': ('lip-projects', '看唇形调整与改乌唇的区别', 'Compare lip contour and dark-lip correction'),
+    'dark-lip': ('lip-projects', '看改乌唇与唇形调整的区别', 'Compare dark-lip correction and lip contour'),
+    'hairline': ('hairline', '了解纹发际线的适用范围', 'See what hairline pigmentation can address'),
+}
+
+
 def service_list(lang, full=False):
     rows=[]
     for i,s in enumerate(SERVICES if full else SERVICES[:3]):
-        rows.append(f'<details class="service" id="{s[0]}"'+(' open' if i==0 else '')+f'><summary><span class="service-name">{e(s[1+lang])}</span></summary><div class="service-content"><p>{e(s[3+lang])}</p></div></details>')
+        article_link = ''
+        article = SERVICE_ARTICLE_LINKS.get(s[0]) if full else None
+        if article:
+            slug, zh, en = article
+            article_link = f'<a class="text-link" href="{article_route(slug, lang)}">{text(zh, en, lang)}</a>'
+        rows.append(f'<details class="service" id="{s[0]}"'+(' open' if i==0 else '')+f'><summary><span class="service-name">{e(s[1+lang])}</span></summary><div class="service-content"><p>{e(s[3+lang])}</p>{article_link}</div></details>')
     if not full:
         rows.append('<div class="other-projects"><h3>'+text('其他实际项目','Other available services',lang)+'</h3><div class="project-links">'+''.join(f'<a href="{route("price.html",lang)}#{s[0]}">{e(s[1+lang])}</a>' for s in SERVICES[3:])+'</div></div>')
     rows.append(f'<p class="service-policy">{text("所有项目一年内免费补色。具体价格以","All services include free touch-ups within one year. For prices, see the ",lang)}<a href="{DIANPING}" target="_blank" rel="noopener noreferrer">{text("大众点评当期门店信息","current Dianping listing",lang)}</a>{text("为准。",".",lang)}</p>')
