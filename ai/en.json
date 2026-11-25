@@ -73,17 +73,17 @@
     {
       "name": "Lash-line enhancement",
       "original_name": "美瞳线",
-      "description": "Definition along the lash line. Black gives a stronger visual presence, while brown is softer. Suitability and aftercare are discussed before treatment."
+      "description": "Definition along the lash line. Black gives a stronger visual presence, while brown is softer. Line thickness and placement consider eye shape, lid crease width and outer-corner angle; suitability and aftercare are discussed before treatment."
     },
     {
       "name": "Lip-contour refinement",
       "original_name": "扩唇 / 唇形调整",
-      "description": "Refines the visual shape and edges of the lips. It does not add tissue volume and is distinct from full-lip colour correction. There is a scabbing phase; about three days is an experience-based guide, with individual variation."
+      "description": "Refines the visual shape and edges of the lips along the natural lip line. It does not add tissue volume and is distinct from full-lip colour correction. There is a scabbing phase; about three days is an experience-based guide, with individual variation."
     },
     {
       "name": "Dark-lip colour correction",
       "original_name": "改乌唇",
-      "description": "Assessment-led colour correction for darker lips, with contour refinement where appropriate. There is a scabbing phase. A recovery plan is discussed after assessment rather than assigning the same timeline to everyone."
+      "description": "Assessment-led colour correction for darker lips, balancing underlying cool or dark tones before building natural colour rather than covering directly with heavy pigment. There is a scabbing phase. A recovery plan is discussed after assessment rather than assigning the same timeline to everyone."
     },
     {
       "name": "Hairline pigmentation",
@@ -93,7 +93,7 @@
     {
       "name": "Philtrum shading",
       "original_name": "纹人中窝",
-      "description": "A localised pigmentation service for the philtrum area. Discuss the intended visual detail and suitability first; it does not change bone or tissue structure."
+      "description": "A localised visual shading service for the philtrum area that can be assessed alongside lip-contour refinement. Subtle light-and-shadow shading adds visual depth without surgery, fillers or changes to bone and tissue structure."
     }
   ],
   "faqs": [
@@ -122,5 +122,5 @@
       "a": "Contact the studio on WeChat at MiaoMeiHuaMu or call +86 192 8218 2068 to discuss the service and a suitable time. Lele designs and performs the work personally, one client at a time. An appointment is confirmed by the studio’s reply."
     }
   ],
-  "updated": "2026-11-08"
+  "updated": "2026-11-25"
 }
