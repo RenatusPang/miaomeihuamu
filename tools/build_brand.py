@@ -8,6 +8,7 @@ import html
 import json
 import os
 import re
+import struct
 import subprocess
 from datetime import datetime, timezone
 from pathlib import Path
@@ -85,7 +86,8 @@ if not METADATA.exists():
     METADATA.write_text(json.dumps(originals,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 ORIGINALS = json.loads(METADATA.read_text(encoding='utf-8'))
 HOME_SCHEMAS = ORIGINALS['index.html']['schemas']
-BUSINESS = copy.deepcopy(next(s for s in HOME_SCHEMAS if s['@type']=='LocalBusiness'))
+BUSINESS = copy.deepcopy(next(s for s in HOME_SCHEMAS if s['@type'] in ('LocalBusiness','BeautySalon')))
+BUSINESS['@type'] = 'BeautySalon'
 BUSINESS['name'] = BRAND
 if 'Miaomeihuamu Bespoke Aesthetics' not in BUSINESS['alternateName']:
     BUSINESS['alternateName'].append('Miaomeihuamu Bespoke Aesthetics')
@@ -95,6 +97,26 @@ BRAND_DESCRIPTION = (
     'Miaomeihuamu · Bespoke Aesthetics specialises in bespoke instrument hair-stroke brows, offering Huapai single-instrument and Huapai dual-instrument layered hair-stroke brows, as well as manual brows and other permanent makeup services. Lele personally designs and performs each treatment one-to-one, considering facial features, bone structure, existing brows and individual style. ' + HOME['hero_intro_en'],
 )
 BUSINESS['description'] = BRAND_DESCRIPTION[0]
+DISAMBIGUATION_EN = (
+    'Miaomeihuamu · Bespoke Aesthetics is a physical private permanent-makeup studio located at Room 1613, No. 39, Lane 1200 Changqing Road, Sanlin, Pudong, Shanghai (south of Qiantan), founded by practitioner Lele in August 2024, distinct from the Chinese idiom of the same spelling and unrelated entities.'
+)
+def offer_catalog(lang=0):
+    return {
+        '@type': 'OfferCatalog',
+        'name': '描眉画目·定制美学服务项目' if not lang else 'Miaomeihuamu Bespoke Aesthetics Services',
+        'itemListElement': [
+            {
+                '@type': 'Offer',
+                'itemOffered': {
+                    '@type': 'Service',
+                    'name': s[1 + lang],
+                    'description': s[3 + lang],
+                },
+            }
+            for s in SERVICES
+        ],
+    }
+BUSINESS['hasOfferCatalog'] = offer_catalog(0)
 # Normalize legacy metadata to Shanghai's municipality/district hierarchy.
 BUSINESS['address'].update(
     streetAddress='浦东新区三林镇长清路 1200 弄 39 号 1613 室',
@@ -110,10 +132,56 @@ DIMENSIONS = {'assets/hero-model.webp':(702,996), 'assets/env/window.jpg':(810,1
  'assets/works/women-brow-direction-detail.png':(867,1156),'assets/works/women-brow-arch-detail.jpg':(1079,1293),
  'assets/uploads/images/confirmed/case-d-white-clip.png':(750,1125),'assets/uploads/images/imported/women-brow/07.jpg':(1080,1620),
  'assets/uploads/images/confirmed/xhs-short-brow-tail.png':(661,992),
- 'assets/wechat-miaomeihuamu.jpg':(960,960)}
+ 'assets/wechat-miaomeihuamu.jpg':(960,1492)}
+_SIZE_CACHE = {}
+
+def _read_image_size(path):
+    """Read PNG/JPEG/WebP dimensions with stdlib only so all <img> avoid CLS."""
+    data = path.read_bytes()
+    if data[:8] == b'\x89PNG\r\n\x1a\n' and len(data) >= 24:
+        return struct.unpack('>II', data[16:24])
+    if data[:4] == b'RIFF' and data[8:12] == b'WEBP' and len(data) >= 30:
+        chunk = data[12:16]
+        if chunk == b'VP8X':
+            w = int.from_bytes(data[24:27], 'little') + 1
+            h = int.from_bytes(data[27:30], 'little') + 1
+            return (w, h)
+        if chunk == b'VP8L' and len(data) >= 25:
+            bits = int.from_bytes(data[21:25], 'little')
+            return ((bits & 0x3FFF) + 1, ((bits >> 14) & 0x3FFF) + 1)
+        if chunk == b'VP8 ' and len(data) >= 30:
+            w, h = struct.unpack('<HH', data[26:30])
+            return (w & 0x3FFF, h & 0x3FFF)
+    if data[:2] == b'\xff\xd8':
+        i = 2
+        while i + 9 < len(data):
+            if data[i] != 0xFF:
+                i += 1
+                continue
+            marker = data[i + 1]
+            if marker in (0xD8, 0xD9, 0x00, 0x01) or 0xD0 <= marker <= 0xD7:
+                i += 2
+                continue
+            if i + 4 > len(data):
+                break
+            seg_len = struct.unpack('>H', data[i + 2:i + 4])[0]
+            if marker in (0xC0, 0xC1, 0xC2, 0xC3, 0xC5, 0xC6, 0xC7, 0xC9, 0xCA, 0xCB, 0xCD, 0xCE, 0xCF) and i + 9 <= len(data):
+                h, w = struct.unpack('>HH', data[i + 5:i + 9])
+                return (w, h)
+            if seg_len < 2:
+                break
+            i += 2 + seg_len
+    return None
+
+def image_size(src):
+    key = src.lstrip('/')
+    if key not in _SIZE_CACHE:
+        target = ROOT / key
+        _SIZE_CACHE[key] = (_read_image_size(target) if target.is_file() else None) or DIMENSIONS.get(key)
+    return _SIZE_CACHE[key]
 
 def image(src, alt, css='', eager=False, img_id=''):
-    size = DIMENSIONS.get(src.lstrip('/'))
+    size = image_size(src)
     dimensions = f' width="{size[0]}" height="{size[1]}"' if size else ''
     identity = f' id="{e(img_id)}"' if img_id else ''
     loading = ' fetchpriority="high"' if eager else ' loading="lazy"'
@@ -153,7 +221,7 @@ def footer(lang, article_gallery=False):
 
 def faqs(lang, indices=None):
     data = [FAQ[i] for i in (indices if indices is not None else range(len(FAQ)))]
-    body=''.join(f'<details class="faq"><summary>{e(q[lang])}</summary><p>{e(q[2+lang])}</p></details>' for q in data)
+    body=''.join(f'<details class="faq" open><summary>{e(q[lang])}</summary><p>{e(q[2+lang])}</p></details>' for q in data)
     return f'<section class="wrap section faq-section"><div class="faq-layout"><h2 class="section-title">{text("常见问题","Frequently asked questions",lang)}</h2><div id="faq-list">{body}</div></div></section>', data
 
 def design_section(lang, full=False):
@@ -236,22 +304,69 @@ def case_pair(lang):
     return '<div class="case-pair">'+''.join(work_figure(r,lang,'case-item') for r in selection('featured'))+'</div>'
 
 SERVICE_ARTICLE_LINKS = {
+    'single': ('hand-vs-machine', '手工与单仪器野生眉怎么区分', 'Compare manual and single-instrument brows'),
+    'dual': ('instrument-vs-dual', '看单仪器与双仪器的区别', 'Compare single and dual instruments'),
+    'hand': ('wild-brow-methods', '野生眉三种做法对比', 'Compare the three hair-stroke methods'),
+    'silk': ('wild-brow-how-to-choose', '了解眉形与基础搭配选择', 'Choosing brows for features and base hair'),
+    'velvet': ('wild-brow-how-to-choose', '了解眉形与基础搭配选择', 'Choosing brows for features and base hair'),
     'eyeline': ('eyeline', '美瞳线黑色与棕色怎么选', 'Choose between black and brown eyeliner'),
     'lip': ('lip-projects', '看唇形调整与改乌唇的区别', 'Compare lip contour and dark-lip correction'),
     'dark-lip': ('lip-projects', '看改乌唇与唇形调整的区别', 'Compare dark-lip correction and lip contour'),
+    'philtrum': ('lip-projects', '了解扩唇与唇部轮廓搭配', 'Read about lip contour and proportion framing'),
     'hairline': ('hairline', '了解纹发际线的适用范围', 'See what hairline pigmentation can address'),
 }
+
+
+def comparison_table(kind, lang):
+    """Build semantic comparison tables for RAG/SEO extraction from verified facts."""
+    specs = {
+        'methods': (
+            ('三种野生眉做法对比', 'Comparison of the three hair-stroke brow approaches'),
+            [('做法 / 项目', 'Method / Service'), ('操作工具', 'Tools'), ('线条组织', 'Stroke structure'), ('适合基础与留色参考', 'Suitability & typical retention')],
+            [
+                [('手工野生眉', 'Manual hair-stroke brows'), ('手工针片', 'Manual blade'), ('逐根控制走向与力度', 'Hand-placed individual strokes'), ('结合原生眉基础和想要的效果，面诊后判断；前一周可能偏深，约7天恢复期与约1年留色为经验参考，一年内免费补色', 'Assessed in person based on natural brows and desired look; darker in week 1, ~7-day recovery & ~1-year retention estimate; free touch-up within 1 year')],
+                [('画派仪器野生眉', 'Huapai single-instrument brows'), ('电流仪或半抛机单仪器', 'Single electric or rotary machine'), ('主线与辅线勾勒轮廓毛流', 'Main and supporting strokes'), ('适合想保留原生感、补充基础轮廓与毛流者；留色通常参考约2–3年，一年内免费补色', 'Suits natural-look refinement; ~2–3 year retention estimate; free touch-up within 1 year')],
+                [('画派双仪器初绒野生眉', 'Huapai dual-instrument layered brows'), ('半抛机走主线 + 电流仪铺绒毛线', 'Rotary main strokes + electric fine strokes'), ('主线定结构与眉眶骨关系，绒毛线调疏密深浅虚实', 'Main strokes set structure; fine strokes vary density & softness'), ('结合本人基础与风格评估，目标是有框架和层次而非一味做浓；留色通常参考约2–3年，一年内免费补色', 'Assessed per base & style for structure plus softness, not uniform darkness; ~2–3 year estimate; free touch-up within 1 year')],
+            ],
+        ),
+        'instrument-vs-dual': (
+            ('画派单仪器与双仪器野生眉对比', 'Huapai single- vs dual-instrument brow comparison'),
+            [('项目名称', 'Service'), ('仪器配置', 'Instrument setup'), ('视觉重点', 'Visual focus'), ('评估与补色', 'Assessment & touch-up')],
+            [
+                [('画派仪器野生眉（单仪器）', 'Huapai single-instrument brows'), ('按毛质选用电流仪或半抛机', 'Single machine selected for hair texture'), ('保留原生眉基础，补充基础轮廓与自然毛流', 'Subtle contour and hair-flow support'), ('需面诊观察毛质与底色，参考留色约2–3年，一年内免费补色', 'Assessed in person; ~2–3 year retention estimate; free touch-up within 1 year')],
+                [('画派双仪器初绒野生眉', 'Huapai dual-instrument layered brows'), ('半抛机主结构线 + 电流仪细绒毛线', 'Dual machines: structural main strokes + fine velvet strokes'), ('突出眉眶骨立体关系并丰富内部疏密深浅过渡', 'Brow-bone structure with layered soft transitions'), ('适合想兼顾清晰框架与轻盈绒毛感的基础，参考留色约2–3年，一年内免费补色', 'Suits bases needing both framework and fine layering; ~2–3 year estimate; free touch-up within 1 year')],
+            ],
+        ),
+        'lip-projects': (
+            ('扩唇（唇形调整）与改乌唇对比', 'Lip-contour refinement vs dark-lip correction'),
+            [('项目名称', 'Service'), ('解决重点', 'Primary focus'), ('做法区别', 'Technical approach'), ('恢复与补色参考', 'Healing & touch-up notes')],
+            [
+                [('扩唇 / 唇形调整', 'Lip-contour refinement'), ('唇边轮廓、唇峰唇弓与上下唇视觉比例', 'Lip edge, Cupid’s bow & upper/lower balance'), ('在原生唇形基础上用电流仪做克制轮廓微调，不增加实际组织体积', 'Restrained contour adjustment by instrument; does not add tissue volume'), ('有结痂期，约3天为门店经验参考；实际因人而异，一年内免费补色', 'Scabbing phase ~3 days experience estimate; individual variation; free touch-up within 1 year')],
+                [('改乌唇', 'Dark-lip colour correction'), ('原生唇底色发乌、发暗或暗沉不均', 'Natural dark, dull or uneven lip undertone'), ('先用暖调互补色乳做底层转色中和，再按透色过渡，避免重色硬盖发浊', 'Warm complementary neutralisation before soft layering rather than heavy dark cover'), ('有结痂期，恢复时间与是否分次需面诊后说明，不预设统一天数；一年内免费补色', 'Scabbing phase; healing timeline and staging assessed in person without a fixed day count; free touch-up within 1 year')],
+            ],
+        ),
+    }
+    if kind not in specs:
+        return ''
+    cap, cols, rows = specs[kind]
+    head = ''.join(f'<th scope="col">{e(c[lang])}</th>' for c in cols)
+    body_rows = []
+    for r in rows:
+        first = f'<th scope="row">{e(r[0][lang])}</th>'
+        rest = ''.join(f'<td>{e(cell[lang])}</td>' for cell in r[1:])
+        body_rows.append(f'<tr>{first}{rest}</tr>')
+    return f'<div class="table-wrap"><table class="compare-table"><caption>{e(cap[lang])}</caption><thead><tr>{head}</tr></thead><tbody>{"".join(body_rows)}</tbody></table></div>'
 
 
 def service_list(lang, full=False):
     rows=[]
     for i,s in enumerate(SERVICES if full else SERVICES[:3]):
         article_link = ''
-        article = SERVICE_ARTICLE_LINKS.get(s[0]) if full else None
+        article = SERVICE_ARTICLE_LINKS.get(s[0])
         if article:
             slug, zh, en = article
             article_link = f'<a class="text-link" href="{article_route(slug, lang)}">{text(zh, en, lang)}</a>'
-        rows.append(f'<details class="service" id="{s[0]}"'+(' open' if i==0 else '')+f'><summary><span class="service-name">{e(s[1+lang])}</span></summary><div class="service-content"><p>{e(s[3+lang])}</p>{article_link}</div></details>')
+        rows.append(f'<details class="service" id="{s[0]}" open><summary><span class="service-name">{e(s[1+lang])}</span></summary><div class="service-content"><p>{e(s[3+lang])}</p>{article_link}</div></details>')
     if not full:
         rows.append('<div class="other-projects"><h3>'+text('其他实际项目','Other available services',lang)+'</h3><div class="project-links">'+''.join(f'<a href="{route("price.html",lang)}#{s[0]}">{e(s[1+lang])}</a>' for s in SERVICES[3:])+'</div></div>')
     rows.append(f'<p class="service-policy">{text("所有项目一年内免费补色。具体价格以","All services include free touch-ups within one year. For prices, see the ",lang)}<a href="{DIANPING}" target="_blank" rel="noopener noreferrer">{text("大众点评当期门店信息","current Dianping listing",lang)}</a>{text("为准。",".",lang)}</p>')
@@ -268,6 +383,7 @@ def home(lang):
     for slug in ['wild-brow-9-steps','instrument-vs-dual','first-month']:
         a=next(a for a in ARTICLES if a['slug']==slug)
         body+=f'<a href="{article_route(slug,lang)}"><h3>{e(a["title"][lang])}</h3><p>{e(article_excerpt(a,lang))}</p><span aria-hidden="true">↗</span></a>'
+    body+=f'<a href="{route("wild-brow.html",lang)}"><h3>{text("比较手工、单仪器与双仪器野生眉","Compare manual, single- and dual-instrument brows",lang)}</h3><p>{text("用对照表看清工具、主线与绒毛线组合、适用基础与留色参考，到店设计前先心中有数。","Compare tools, stroke layers, brow suitability and retention notes before your consultation.",lang)}</p><span aria-hidden="true">↗</span></a>'
     body+='</div></div></section>'
     faq,data=faqs(lang,[0,1,2,3,5])
     if not HOME.get('hero_image'):
@@ -321,6 +437,7 @@ def area(lang):
 
 def methods(lang):
     body=page_intro(text('手工、单仪器与双仪器野生眉','Manual, single- and dual-instrument brows',lang),text('工具与线条组织不同，设计依据始终是五官与骨相、原生毛流和个人风格。主线条与绒毛线的组合只用于适合的设计，不是所有项目的统一做法。','Tools and stroke arrangements differ. The design begins with facial features and bone structure, existing hair flow and personal style. Main and fine strokes are combined where appropriate, not as a universal technique for every service.',lang),lang)
+    body+=f'<section class="wrap section">{comparison_table("methods",lang)}</section>'
     body+=f'<section class="wrap section methods-list">{service_list(lang)}</section>'+layers(lang)
     faq,data=faqs(lang,[0,3,4]);return body+faq,data
 
@@ -370,6 +487,7 @@ def article_body(a,lang):
             credit=f'<a class="text-link" href="{e(case_photo["source_url"])}">{e(case_photo["source_label"])}</a>'
             body+=f'<figure>{image(case_photo["image"],case_photo["alt"])}<figcaption>作品图片取自{credit}。</figcaption></figure>'
         body+='</section>'
+    body+=comparison_table(a['slug'],lang)
     body+=f'<nav class="article-related" aria-label="{text("相关阅读","Related reading",lang)}"><a href="{route("works.html",lang)}">{text("看真实作品","See the work",lang)}</a><a href="{route("wild-brow.html",lang)}">{text("比较野生眉做法","Compare brow methods",lang)}</a><a href="{route("area.html",lang)}">{text("到店设计与预约","Consultation and arrival",lang)}</a></nav></div></article>'
     return body,[]
 
@@ -437,7 +555,14 @@ def update_machine_readable():
 手工留色约1年、仪器约2–3年，仅为经验参考，不是保证期限。改乌唇不预设统一恢复天数。
 
 ## 中文入口
-'''+ '\n'.join(f'- [{label}]({BASE}{route(key)})' for key,label in [('home','首页'),('works.html','真实作品'),('about.html','乐乐老师与设计理念'),('price.html','服务项目'),('wild-brow.html','野生眉做法'),('posts','专业知识'),('area.html','预约与到店')])+f'''
+'''+ '\n'.join(f'- [{label}]({BASE}{route(key)})' for key,label in [('home','首页'),('works.html','真实作品'),('about.html','乐乐老师与设计理念'),('price.html','服务项目'),('wild-brow.html','野生眉做法'),('posts','专业知识'),('area.html','预约与到店')])+'''
+- [单仪器与双仪器野生眉怎么选](https://miaomeihuamu.com/posts/instrument-vs-dual.html)
+- [手工与单仪器野生眉区别](https://miaomeihuamu.com/posts/hand-vs-machine.html)
+- [扩唇与改乌唇区别](https://miaomeihuamu.com/posts/lip-projects.html)
+- [美瞳线黑色与棕色怎么选](https://miaomeihuamu.com/posts/eyeline.html)
+- [纹发际线适用范围](https://miaomeihuamu.com/posts/hairline.html)
+- [老式红蓝眉重做前评估](https://miaomeihuamu.com/posts/old-brow-color.html)
+'''+f'''
 
 ## English pages
 English-language pages explain the same studio and services.
@@ -477,6 +602,13 @@ Updated: {DATE}
                     node.text=value
     ET.indent(tree,space='  ');tree.write(feed,encoding='utf-8',xml_declaration=True)
 
+def page_title_tag(title, lang):
+    if not lang:
+        geo = any(k in title for k in ('上海', '浦东', '前滩', '三林'))
+        return f'{title} | {BRAND}' if geo else f'{title} | 上海浦东 · {BRAND}'
+    geo = any(k in title for k in ('Shanghai', 'Pudong', 'Qiantan', 'Sanlin'))
+    return f'{title} | {BRAND_EN}' if geo else f'{title} | Pudong, Shanghai · {BRAND_EN}'
+
 def render(key,path,lang,title,description,body,faq_data,article_data=None):
     if not STUDIO.get('image'):
         body=re.sub(r'<figure class="(?:artist-image|studio-photo)"[^>]*>.*?</figure>', '', body, flags=re.S)
@@ -492,6 +624,8 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
         if lang:
             business['@type']='BeautySalon'
             business['description']=BRAND_DESCRIPTION[1]
+            business['disambiguatingDescription']=DISAMBIGUATION_EN
+            business['hasOfferCatalog']=offer_catalog(1)
         schemas.extend([business,PERSON,{'@context':'https://schema.org','@type':'WebSite','@id':BASE+'/#website','url':BASE+'/','name':BRAND,'inLanguage':['zh-CN','en']}])
         if HOME.get('procedure_video'):
             video_schema=copy.deepcopy(VIDEO)
@@ -553,7 +687,7 @@ def render(key,path,lang,title,description,body,faq_data,article_data=None):
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="icon" type="image/jpeg" href="/assets/brand-favicon.jpg">
 {'<meta name="google" content="notranslate">' if lang else ''}
-<title>{e(title)} | {e(text(BRAND,BRAND_EN,lang))}</title>
+<title>{e(page_title_tag(title,lang))}</title>
 <meta name="description" content="{e(description)}">
 <link rel="canonical" href="{canonical}">
 <link rel="alternate" hreflang="zh-CN" href="{zh_url}"><link rel="alternate" hreflang="en" href="{en_url}"><link rel="alternate" hreflang="x-default" href="{zh_url}">
@@ -583,6 +717,9 @@ def build():
             if source: desc=source[0][source[1]+('_en' if lang else '')]
             if key == 'home': desc=BRAND_DESCRIPTION[lang]
             if key == 'price.html': desc=text('描眉画目·定制美学主打仪器野生眉私人定制，提供画派仪器野生眉、画派双仪器初绒野生眉，也做手工及其他纹绣项目。乐乐老师本人一对一设计和操作，结合五官、骨相、原生眉毛和个人风格确定方案。免费设计约30–45分钟，所有项目1年内免费补色。','Miaomeihuamu · Bespoke Aesthetics specialises in bespoke instrument hair-stroke brows, offering Huapai single-instrument and Huapai dual-instrument layered hair-stroke brows, as well as manual brows and other permanent makeup services. Lele personally designs and performs each treatment one-to-one, considering facial features, bone structure, existing brows and individual style. The design consultation is free and takes about 30–45 minutes. All services include free touch-ups within one year.',lang)
+            if key == 'area.html': desc=text('描眉画目·定制美学位于上海浦东新区三林长清路1200弄39号1613室（前滩南侧，6号线灵岩南路站2号口西行约300米）。到店设计免费约30–45分钟，周一至周日10:00–20:00预约接待。','Visit Miaomeihuamu · Bespoke Aesthetics at Room 1613, No. 39, Lane 1200 Changqing Road, Sanlin, Pudong, Shanghai (south of Qiantan, ~300 m west of Lingyan South Road Metro Exit 2). Free 30–45 min consultation daily 10:00–20:00 by appointment.',lang)
+            if key == 'wild-brow.html': desc=text('对比上海浦东描眉画目提供的手工野生眉、画派仪器野生眉与画派双仪器初绒野生眉：从操作工具、主线与绒毛线组合、适合原生眉基础、留色参考到1年内免费补色一次看清。','Compare manual brows, Huapai single-instrument brows and Huapai dual-instrument layered hair-stroke brows at Miaomeihuamu in Pudong, Shanghai: tools, stroke layers, suitability, retention notes and free 1-year touch-up.',lang)
+            if key == 'posts': desc=text('上海浦东描眉画目·定制美学专业知识库：整理骨相野生眉设计、单双仪器选择、红蓝旧眉重做评估、扩唇与改乌唇转色、美瞳线及发际线适用边界等实务说明。','Browse the Miaomeihuamu journal in Pudong, Shanghai: articles on bone-structure brow design, single vs dual instruments, old brow colour correction, lip-contour and dark-lip correction, lash-line enhancement and hairline boundaries.',lang)
             render(key,route(key,lang),lang,titles[lang],desc,body,data)
         for a in ARTICLES:
             body,data=article_body(a,lang)

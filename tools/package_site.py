@@ -34,7 +34,7 @@ def package():
         shutil.copy2(path, TARGET / path.name)
     for name in ('en', 'posts', 'assets', 'ai', '.well-known', 'admin'):
         shutil.copytree(ROOT / name, TARGET / name)
-    for name in ('CNAME', 'robots.txt', 'sitemap.xml', 'feed.xml', 'llms.txt', '.nojekyll'):
+    for name in ('CNAME', 'robots.txt', 'sitemap.xml', 'feed.xml', 'llms.txt', '.nojekyll', 'ac24bc4e094f0ac7aafd079556f45bef.txt'):
         path = ROOT / name
         if path.is_file():
             shutil.copy2(path, TARGET / name)

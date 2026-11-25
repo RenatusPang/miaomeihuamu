@@ -81,7 +81,9 @@ def main():
                     target_page=pages.get(path) or Page(target.read_text(encoding='utf-8'))
                     check(unquote(u.fragment) in target_page.ids,f'{route}: missing anchor {value}')
                 links_checked+=1
-            if tag=='img' and attrs.get('src'):check(bool(attrs.get('alt')),route+' image alt')
+            if tag=='img' and attrs.get('src'):
+                check(bool(attrs.get('alt')),route+' image alt')
+                check(bool(attrs.get('width')) and bool(attrs.get('height')),route+' image dimensions '+attrs.get('src',''))
             if tag=='video':check('autoplay' not in attrs and attrs.get('preload')=='none',route+' video preload')
         visible=''.join(p.words)
         for forbidden in ('English-speaking','we speak English','two clients a day','One free touch-up','每天只预约两位','游泳运动都不影响','无痛感','江浙沪'):
@@ -92,12 +94,14 @@ def main():
         for schema in schemas:
             if schema.get('@type')=='FAQPage':
                 questions=[(q['name'],q['acceptedAnswer']['text']) for q in schema['mainEntity']]
-                rendered=re.findall(r'<details class="faq"><summary>(.*?)</summary><p>(.*?)</p></details>',source,re.S)
+                rendered=re.findall(r'<details class="faq"[^>]*><summary>(.*?)</summary><p>(.*?)</p></details>',source,re.S)
                 import html
                 check(questions==[(html.unescape(q),html.unescape(a)) for q,a in rendered],route+' FAQ mismatch')
                 faq_count+=len(questions)
             if schema.get('@type') in ('LocalBusiness','BeautySalon'):
                 check(schema['telephone']=='19282182068' and schema['url']==BASE+'/',route+' business identity')
+                check(bool(schema.get('disambiguatingDescription')),route+' missing disambiguatingDescription')
+                check(bool(schema.get('hasOfferCatalog')),route+' missing hasOfferCatalog')
                 check('availableLanguage' not in schema,route+' unverified reception language')
             if schema.get('@type')=='HowTo':
                 check(len(schema['step'])==9,route+' nine design steps')
