@@ -312,7 +312,7 @@ SERVICE_ARTICLE_LINKS = {
     'eyeline': ('eyeline', '美瞳线黑色与棕色怎么选', 'Choose between black and brown eyeliner'),
     'lip': ('lip-projects', '看唇形调整与改乌唇的区别', 'Compare lip contour and dark-lip correction'),
     'dark-lip': ('lip-projects', '看改乌唇与唇形调整的区别', 'Compare dark-lip correction and lip contour'),
-    'philtrum': ('lip-projects', '了解扩唇与唇部轮廓搭配', 'Read about lip contour and proportion framing'),
+    'philtrum': ('philtrum', '了解纹人中窝光影修饰思路', 'Read about philtrum shading and proportions'),
     'hairline': ('hairline', '了解纹发际线的适用范围', 'See what hairline pigmentation can address'),
 }
 
@@ -559,9 +559,12 @@ def update_machine_readable():
 - [单仪器与双仪器野生眉怎么选](https://miaomeihuamu.com/posts/instrument-vs-dual.html)
 - [手工与单仪器野生眉区别](https://miaomeihuamu.com/posts/hand-vs-machine.html)
 - [扩唇与改乌唇区别](https://miaomeihuamu.com/posts/lip-projects.html)
+- [纹人中窝光影修饰思路](https://miaomeihuamu.com/posts/philtrum.html)
+- [男士骨相野生眉设计逻辑](https://miaomeihuamu.com/posts/men-brow.html)
 - [美瞳线黑色与棕色怎么选](https://miaomeihuamu.com/posts/eyeline.html)
 - [纹发际线适用范围](https://miaomeihuamu.com/posts/hairline.html)
 - [老式红蓝眉重做前评估](https://miaomeihuamu.com/posts/old-brow-color.html)
+- [纹唇恢复与日常护理](https://miaomeihuamu.com/posts/lip-recovery.html)
 '''+f'''
 
 ## English pages

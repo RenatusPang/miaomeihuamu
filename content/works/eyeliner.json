@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "title": "美瞳线 · 睫毛根部贴合局部",
+    "title_en": "Lash-line enhancement · close-up along the lash roots",
+    "image": "/assets/works/eyeliner-closeup-lashline.jpg",
+    "video": "",
+    "alt": "眼部近距离局部实拍，展示贴合睫毛根部走向的细线与眼尾收束",
+    "alt_en": "Eye close-up showing a fine lash-line contour following the lash roots to the outer corner",
+    "description": "眼部局部近景可见线条贴合睫毛根部与眼睑缘排列，从内眼角向眼尾自然收细，兼顾睁眼时的轮廓清晰度与日常柔和感。",
+    "description_en": "A close view along the lash roots and lid margin, tapering subtly toward the outer corner to balance eye definition with an everyday look.",
+    "published": true,
+    "featured": false,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
+  },
+  {
+    "title": "美瞳线 · 睫毛根部与眼尾延伸细节",
+    "title_en": "Lash-line enhancement · lash root density and outer corner detail",
+    "image": "/assets/works/eyeliner-closeup-outer-corner.jpg",
+    "video": "",
+    "alt": "单幅眼部微距局部实拍，可见睫毛根部填充细节与眼尾线条收尾",
+    "alt_en": "Single-frame macro close-up showing lash-root definition and a refined outer-corner taper",
+    "description": "微距视角展示睫毛根部空隙填充的细腻度以及外眼角顺着眼尾弧度自然收尾的线条方向，线条粗细根据眼裂长短与双眼皮褶宽窄配合调整。",
+    "description_en": "Macro view of lash-root definition and a controlled taper following the outer eye angle, scaled to the eye aperture and eyelid crease.",
+    "published": true,
+    "featured": false,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
+  }
+]

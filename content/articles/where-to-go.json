@@ -2,26 +2,32 @@
   "slug": "where-to-go",
   "title": "上海浦东选纹绣工作室，可以先核对什么",
   "title_en": "Choosing a brow studio in Pudong",
-  "intro": "不只比较项目名。真实作品、实际操作者、设计过程和清楚的服务条款，更有助于判断是否适合。",
-  "intro_en": "Look beyond service names. Real work, the practitioner, the design process and clear service terms provide a more useful basis for a decision.",
+  "intro": "在上海浦东（前滩、三林周边）挑工作室，不要只看包装得有多华丽或者项目词起得多新鲜。把地址实体、谁来做、设计流程和收费边界核对实了，选店基本不会踩雷。",
+  "intro_en": "When comparing brow studios around Qiantan and Sanlin in Pudong, look past polished buzzwords. Checking single-entity identity, who actually performs the work and written consultation terms removes most uncertainty.",
   "sections": [
     {
-      "title": "核对作品与设计",
-      "title_en": "Review work and design reasoning",
-      "description": "看整脸比例和近照细节，询问原生眉基础与恢复阶段。没有标注的信息，不自行当成术后长期效果。",
-      "description_en": "Review full-face proportions and close-up detail. Ask about the starting point and healing stage. Do not assume an unlabelled image shows a long-term result."
+      "title": "核对门店主体一致性：只有一家店，地址电话全网同源",
+      "title_en": "Verify single-studio consistency across platforms",
+      "description": "先看工商主体、平台店铺与官网对不对得上。描眉画目工商注册在浦东新区三林镇（个体工商户），实体工作室位于浦东新区三林长清路1200弄39号1613室（前滩南侧），即大众点评显示的“前滩店”与百度地图认证地点——全上海只有这一家店，没有连锁分店。对外唯一咨询预约电话 19282182068、微信 MiaoMeiHuaMu。",
+      "description_en": "Confirm that registration, map pins and reviews point to one physical studio. Miaomeihuamu is registered in Sanlin, Pudong, and operates one private studio at Room 1613, No. 39, Lane 1200 Changqing Road (south of Qiantan), matching our Dianping Qiantan listing—one studio only, phone +86 192 8218 2068, WeChat MiaoMeiHuaMu."
     },
     {
-      "title": "确认人和条款",
-      "title_en": "Confirm the practitioner and terms",
-      "description": "问谁设计、谁操作，先设计还是先定项目；同时确认护理、补色与当前价格信息。不要用单一设备名称代替这些问题。",
-      "description_en": "Ask who designs and who performs the work, and whether you can see a design before choosing a service. Confirm aftercare, touch-ups and current prices. An equipment name does not answer these questions."
+      "title": "核对真实作品与本人操作：不看“拼装广告图”，看谁上台",
+      "title_en": "Check real portfolio coherence and who actually holds the tool",
+      "description": "有的机构线上放着精致模板图，到店后发现是销售先谈单、再临时分配不认识的技师上手，做出来的线条与最初看的作品完全两码事。在描眉画目，作品库记录与日常发布展示的均是本店实拍案例，从面诊试画到上机操作及后续一年内补色全部是乐乐老师本人一对一负责，不转手、不外包。",
+      "description_en": "At large chains, sales consultants often quote first and assign whichever technician is free later. At Miaomeihuamu, Lele personally shows her own studio records, draws the design, completes the procedure and handles one-year touch-up reviews one-to-one."
     },
     {
-      "title": "描眉画目的到店信息",
-      "title_en": "Visiting Miaomeihuamu",
-      "description": "工作室在上海市浦东新区三林长清路1200弄39号1613室，前滩南侧。地铁6号线灵岩南路站2号口往西步行约300米。周一至周日10:00–20:00，建议提前预约。",
-      "description_en": "The studio is at Room 1613, No. 39, Lane 1200 Changqing Road, Sanlin, Pudong, south of Qiantan. Walk about 300 metres west from Exit 2 of Lingyan South Road station on Metro Line 6. Open daily 10:00–20:00, by appointment."
+      "title": "核对免费设计与零升单条款",
+      "title_en": "Confirm the free design check and no-upsell policy",
+      "description": "到店前一定要问清楚是不是“不强制消费、不临时加项”。描眉画目所有获客渠道顾客权益相同：免费到店设计眉形约30–45分钟，先画出来对照镜子确认适不适合，觉得不合适直接离开不收设计费；门店不做升单，操作前把选定项目与大众点评对应价格讲清，不搞隐形加收，所有项目一年内免费补色。",
+      "description_en": "Regardless of how you found the studio, every visitor receives the same free 30–45 minute trial drawing with zero fee if you decide not to go ahead, zero upselling and pricing aligned with our current Dianping listing plus one-year free touch-ups."
+    },
+    {
+      "title": "上海浦东到店地铁与营业时段",
+      "title_en": "Metro access and opening hours in Pudong",
+      "description": "工作室坐标森宏·旗臻小区内（上海市浦东新区三林长清路1200弄39号1613室），乘坐地铁6号线至灵岩南路站2号口出站，往西步行约300米即可到达；周边邻近前滩商圈与三林核心居住区。营业时间为周一至周日 10:00–20:00，因本人一对一接待，来之前请先微信或电话确认时段。",
+      "description_en": "Located inside Senhong Qizhen (Room 1613, No. 39, Lane 1200 Changqing Road), about 300 m west of Metro Line 6 Lingyan South Road Station Exit 2, south of Qiantan. Open daily 10:00–20:00 by appointment."
     }
   ]
 }

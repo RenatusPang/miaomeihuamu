@@ -2,26 +2,32 @@
   "slug": "lip-recovery",
   "title": "纹唇恢复与日常护理，需要确认什么",
   "title_en": "Lip pigmentation: recovery and everyday care",
-  "intro": "不同唇部项目与个人状态，恢复表现可能不同。不要把统一天数当作恢复完成的保证。",
-  "intro_en": "Healing varies with the service and the person. A set number of days is not a guarantee that recovery is complete.",
+  "intro": "扩唇和改乌唇做完后，都要经过表面结痂、脱痂返色到逐步稳定的过程。不要直接套用别人的第几天日程，按本次实际项目和自身状态来护理最稳妥。",
+  "intro_en": "Both lip-contour and dark-lip work progress through initial saturation, surface flaking and gradual tone settling. Follow service-specific instructions rather than copying someone else’s day-by-day calendar.",
   "sections": [
     {
-      "title": "刚做完的颜色",
-      "title_en": "Initial colour",
-      "description": "颜色可能比恢复后更明显，表面也可能发生代谢或结痂。避免自行撕剥，修复用品按老师针对本次项目给出的说明使用。",
-      "description_en": "Colour can initially appear stronger than it will after healing, and surface flaking may occur. Do not peel the area. Use aftercare products according to the instructions for this particular service."
+      "title": "头几天为什么看起来比预期深，怎么对待表皮结痂",
+      "title_en": "Why colour looks stronger initially and how to treat flaking skin",
+      "description": "刚做完唇部项目时，表层色素与轻微收干表皮叠在一起，视觉上会比最终稳定后明显不少。接着进入结痂期（扩唇通常约3天恢复参考，改乌唇因底色与肤质差异不预设固定天数），脱痂期间最重要的是**绝对不要用手撕剥起皮**——必须让皮屑在滋润状态下自己掉干净，强行撕扯容易把下面刚挂住的色素一并带走或造成局部不匀。",
+      "description_en": "Fresh pigment plus initial dryness can make lips appear darker than their settled tone. As flaking begins—roughly three days as a guide for contour work, and individually variable for dark-lip correction—never pull or peel loose skin; letting it shed naturally with gentle moisture prevents patchy colour loss."
     },
     {
-      "title": "口红、清洁与运动",
-      "title_en": "Makeup, cleaning and exercise",
-      "description": "何时涂口红、如何清洁、是否需要调整运动安排，应结合实际恢复状态确认。不把“做完马上不受影响”作为统一承诺。",
-      "description_en": "Confirm when to use lipstick, how to clean the area and whether activity needs adjusting based on actual healing. Immediate, unrestricted activity is not promised to everyone."
+      "title": "饮水、餐食、清洁与涂口红怎么逐步恢复",
+      "title_en": "Hydration, meals, cleansing and returning to lipstick",
+      "description": "唇部日常高频接触水分与食物，操作完按老师当日示范的清洁、涂抹专用修复膏频率来做即可；刚做完阶段注意避免辛辣滚烫、过咸汤汁长时间浸泡表皮，洁面时避开强力磨砂或刺激性洗面奶扫过唇缘。至于什么时候可以恢复涂平时口红、润唇膏或剧烈运动出汗，应结合自己脱痂后的实际闭合情况向乐乐老师确认，不承诺做完马上毫无影响。",
+      "description_en": "Because lips face frequent contact with food and water, follow your aftercare ointment and gentle cleansing routine closely. Avoid piping-hot, very spicy or overly salty meals early on, and confirm with Lele when everyday lipstick or heavy workouts fit your actual healing stage."
     },
     {
-      "title": "复看与补色",
-      "title_en": "Review and touch-ups",
-      "description": "观察颜色是否稳定、是否有局部差异，再讨论补色需求。所有项目一年内免费补色；如有明显不适或异常变化，及时联系老师，必要时就医。",
-      "description_en": "Review colour stability and local variation before discussing touch-ups. All services include free touch-ups within one year. Contact the practitioner about significant discomfort or unusual changes, and seek medical advice when needed."
+      "title": "返色期的明暗波动：为什么不能靠刚脱痂那天定结论",
+      "title_en": "Tone shifts after flaking: why day-four photos do not tell the whole story",
+      "description": "刚脱痂的那两天，唇面往往处于角质更新过渡期，尤其改乌唇有时会显得略淡或局部色彩还在慢慢往外透。需要给皮肤足够的平稳时间再观察整体均匀度，不要刚脱痂几天觉得颜色清淡就焦虑或急于加做。",
+      "description_en": "Right after flaking finishes, lips often pass through a transitional muted phase—especially after dark-lip neutralisation—before true undertone balance becomes clear. Allow the full settling period before judging colour evenness."
+    },
+    {
+      "title": "复看补色与异常就医边界",
+      "title_en": "Review, one-year touch-up and medical precautions",
+      "description": "所有唇部项目同样享有一年内免费补色，等颜色完全稳定后预约乐乐老师复看，如有局部边缘或转色不均处再针对性微调即可。如恢复期出现异常红肿持续不退、明显不适或个人体质特殊反应，请及时联系老师沟通，必要时尽早就医评估。",
+      "description_en": "All lip services include free touch-ups within one year once settled tone can be evaluated accurately. If persistent swelling, marked discomfort or unusual reactions appear during recovery, contact us immediately and consult a doctor if needed."
     }
   ]
 }

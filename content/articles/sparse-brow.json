@@ -2,20 +2,20 @@
   "slug": "sparse-brow",
   "title": "眉毛稀、缺眉尾和局部断眉，设计有什么不同",
   "title_en": "Sparse brows, missing tails and local gaps",
-  "intro": "看起来都像“眉毛少”，缺少的部分可能不同。先区分密度、框架与毛流方向。",
-  "intro_en": "Brows that all look sparse can have different needs. Separate questions of density, framework and hair direction.",
+  "intro": "看起来都像“眉毛少”，其实缺的是密度、眉尾转折还是局部断口，设计做法完全不一样。分清问题所在，才能补在点子上。",
+  "intro_en": "Brows that seem sparse often differ in what is missing: overall density, tail length or a discrete local break. Identifying the exact gap keeps the added lines natural.",
   "sections": [
     {
-      "title": "眉毛还在，缺的是密度",
-      "title_en": "Existing shape, lower density",
-      "description": "观察原有框架是否完整、毛发的浓淡和生长方向。需要补多少线条，应看整张脸的量感，而不是把所有留白填满。",
-      "description_en": "Check whether the framework is intact and how the hairs vary in density and direction. The amount of added detail should suit the whole face rather than filling every open space."
+      "title": "整条眉毛都在，只是毛量稀、颜色淡",
+      "title_en": "Intact framework with low density or faint colour",
+      "description": "这类基础往往原生眉框已经够用了，最怕的不是“少一根线”，而是被整片涂满失去透肤度。设计重点是观察现有眉毛哪一截特别空（常见在眉腰外侧或上缘），沿着本身毛发生长方向穿插细线条，保留皮肤本身的呼吸空隙，而不是把每一寸白底都填黑。",
+      "description_en": "When the natural frame is already present, the main risk is overfilling and losing skin show-through. The plan isolates where density drops—often along the mid-body or upper edge—and weaves fine strokes along existing hair direction while preserving breathing room."
     },
     {
-      "title": "缺眉尾或有断点",
-      "title_en": "Missing tails or breaks",
-      "description": "缺眉尾或有断点时，先结合颧骨、眉眶骨与眉眼关系讨论轮廓、眉峰位置和衔接。在适合采用主线条与绒毛线组合的设计中，主线条先建立主要结构与毛流方向，突出眉部与眉眶骨之间的视觉立体关系；绒毛线再丰富疏密、深浅与虚实，让线条自然衔接。目标是有框架、有层次、有自然毛流，并与五官协调，不是把所有空隙填满或单纯加深。",
-      "description_en": "When the tail is missing or the brow has gaps, the cheekbones, brow bone and eye area first inform the contour, arch position and connections. Where a combination of main and fine strokes is appropriate, main strokes establish structure and hair direction, bringing out the visual relationship between brows and brow bone. Fine strokes then vary density, tone and definition to connect the lines naturally. The aim is a framework with layers and natural hair flow that complements the features, not filling every gap or simply adding darkness.",
+      "title": "缺眉尾或眉峰转折偏平，重点看眼尾与颧骨关系",
+      "title_en": "Missing tails or flat arches: relating tail length to cheekbones and eyes",
+      "description": "很多人觉得自己“下半截没眉毛”，照着网上画了一条很长的细眉尾，结果近看半截是毛、后半截突然变成光秃秃一条细线，衔接非常假。设计缺眉尾时，必须结合外眼角弧度、太阳穴饱满度和颧骨位置定眉峰转折点，把后半段主线与前面原生毛发的过渡区拉长交错，让毛流感从前段顺滑延伸出去，而不是在断层处硬接一条尾巴。",
+      "description_en": "Drawing a sharp tail onto a short brow often creates an obvious split between real hair in front and ink behind. Instead, the arch position and tail slope are anchored to the outer eye corner, temple width and cheekbones, overlapping transition strokes into the existing mid-brow so the flow tapers organically.",
       "case_photo_zh": {
         "image": "/assets/uploads/images/confirmed/xhs-short-brow-tail.png",
         "alt": "正脸和眉眼局部展示眉峰转折与眉尾落点",
@@ -24,10 +24,16 @@
       }
     },
     {
-      "title": "不要用稀疏程度直接选档",
-      "title_en": "Do not choose by sparsity alone",
-      "description": "肤质、旧底色、眉眶骨与个人喜好都可能影响方案。设计追求的是视觉上的协调，不会让眉毛重新生长，也不改变实际骨骼结构。",
-      "description_en": "Skin, old pigment, the brow bone and personal preference may all affect the plan. The aim is visual coordination; pigmentation does not regrow hair or alter bone structure."
+      "title": "局部断眉或小块缺口，讲究周围毛流的交叉呼应",
+      "title_en": "Local breaks and small gaps: bridging surrounding hair flow",
+      "description": "眉毛中间有天生的空缺、或者留有小疤痕造成局部不长毛时，难点在于皮肤纹理和周围毛发色泽不同。设计上不能只从断口中间直直画两笔，而要顺着断口上方斜向下、下方斜向上的自然交叉走势补入错落线条，同时评估疤痕局部肤质吃色情况，做好色泽柔和衔接的预期沟通。",
+      "description_en": "Local gaps or small scars need more than straight filler strokes across the middle. Added strokes mimic the natural crisscross angle of hairs above and below the gap, while accounting for how scar tissue may hold pigment differently."
+    },
+    {
+      "title": "单用稀疏程度不能定项目，先到店看现场试画",
+      "title_en": "Sparsity alone never dictates the service; test the shape in person",
+      "description": "同样是缺眉尾，油皮和干皮、原生毛粗硬和细软的人，适合的仪器配置和线条间距都不一样。纹绣是通过线条色素形成视觉毛流感，不会让原本没毛的位置长出新眉毛，也不改变骨相本身。建议带日常习惯妆感或素颜来免费设计约30–45分钟，看清楚现场画出的框架再决定。",
+      "description_en": "Hair thickness, skin oiliness and old pigment still govern the tool choice even for the same missing-tail brief. Pigmentation builds visual hair flow rather than growing real hair. Visit for a free 30–45 minute trial drawing before deciding."
     }
   ]
 }

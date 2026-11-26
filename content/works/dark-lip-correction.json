@@ -1,1 +1,34 @@
-[]
+[
+  {
+    "title": "改乌唇 · 唇面色彩柔和过渡局部",
+    "title_en": "Dark-lip colour correction · soft mid-lip colour balance close-up",
+    "image": "/assets/works/dark-lip-closeup-center.jpg",
+    "video": "",
+    "alt": "改乌唇唇面色彩均匀柔和的近距离局部实拍，无文字标注",
+    "alt_en": "Close-up of balanced, muted lip colour transition on the central lip plane without text overlay",
+    "description": "近距离展示唇峰至唇面中央的色彩过渡状态：色调柔和均匀、边线不过度刻画，保留皮肤与唇面本身的自然纹理。",
+    "description_en": "A close-up showing balanced, muted tone transition from the Cupid’s bow across the central lip surface with a soft edge and natural lip texture.",
+    "published": true,
+    "featured": false,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
+  },
+  {
+    "title": "改乌唇 · 唇缘轮廓与内侧过渡局部",
+    "title_en": "Dark-lip colour correction · lip border and inner transition close-up",
+    "image": "/assets/works/dark-lip-closeup-outline.jpg",
+    "video": "",
+    "alt": "戴手套轻扶唇周的近距离局部实拍，展示唇缘与内侧唇面色调过渡",
+    "alt_en": "Close-up with a gloved hand gently supporting the lip area, showing the lip margin and inner tone transition",
+    "description": "局部近景可见唇峰弧度、唇缘边界及唇面内侧色彩分布，色调以通透自然过渡为主，不作统一浓艳覆盖。",
+    "description_en": "Close view of the Cupid’s bow contour, lip margin and inner lip tone distribution, focusing on translucent colour balance rather than heavy uniform coverage.",
+    "published": true,
+    "featured": false,
+    "wide": false,
+    "featured_order": 20,
+    "detail": false,
+    "cover": ""
+  }
+]

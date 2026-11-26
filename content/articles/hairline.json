@@ -2,26 +2,32 @@
   "slug": "hairline",
   "title": "纹发际线能做什么，不能做什么",
   "title_en": "What hairline pigmentation can and cannot do",
-  "intro": "纹发际线用线条模拟毛流，在视觉上补充部分边缘与空缺；它与植发是不同的事。",
-  "intro_en": "Hairline pigmentation uses hair-like lines to address some visible gaps and edges. It is different from hair transplantation.",
+  "intro": "纹发际线是用接近发色的极细线条填补局部视觉空缺，让人在扎丸子头或拨开头发时额角显得更饱满。分清它和植发的边界，才不会抱错预期。",
+  "intro_en": "Hairline pigmentation places ultra-fine hair-like strokes to soften bare patches when hair is tied back or parted. Distinguishing it clearly from surgical hair restoration sets realistic expectations.",
   "sections": [
     {
-      "title": "顺着原生方向",
-      "title_en": "Follow the existing direction",
-      "description": "观察鬓角、发际线边缘与原生头发的生长方向，讨论局部颜色淡、露白或边缘不连贯等问题。",
-      "description_en": "Study the temples, hairline edges and existing growth direction when discussing faint colour, visible gaps or uneven edges."
+      "title": "最适合的三种日常困扰：M角露白、鬓角衔接断层、分缝发浅",
+      "title_en": "Three everyday concerns it addresses: temple corners, sideburns and partings",
+      "description": "日常门诊咨询最多的是：额头两侧M字发角发际线偏高显空、扎起高马尾时耳前鬓角上方缺了一块连贯过渡、或者头顶发缝/边缘绒毛偏浅显头皮白。纹发际线就是沿着这些区域原有碎发的生长方向，由深到浅排出长短错落的线条，在社交视觉距离下自然衔接到真发里去。",
+      "description_en": "Common briefs include sparse temple corners when hair is pulled back, uneven transitions above the sideburns, and pale wisps along the front perimeter. Strokes follow surrounding baby-hair angles and taper from shadow to finer tips so edges blend at conversational distance."
     },
     {
-      "title": "不让头发重新生长",
-      "title_en": "It does not regrow hair",
-      "description": "它不会增加真实头发。需要明显前移发际线、大面积缺失或高额头明显降低时，不应只靠纹绣解决，应到正规医疗机构咨询适合的方案。",
-      "description_en": "Pigmentation does not add real hair. Substantial hairline repositioning or extensive hair loss should be discussed with an appropriate medical provider rather than relying on pigmentation alone."
+      "title": "关键看“毛流衔接+发色协调”，不能描成一条黑头箍",
+      "title_en": "Hair flow and colour harmony—never a solid black band",
+      "description": "发际线做坏最常见的原因就是拿机器死死沿着额头画出一道生硬圆弧。正常人的原生碎发一定是参差不齐、由内密向外虚、带一点绒毛毛茸感的。设计前乐乐老师会结合你的额头饱满度、脸宽窄和原生发丝粗细来决定弧度与留白，并结合发色与头皮肤色调配柔和灰棕或深棕系，避免反光发青。",
+      "description_en": "Natural hairlines never look like a uniform stamped arch. Real edge hairs vary in density and direction; Lele designs irregular, staggered stroke depth matched to forehead contour, hair thickness and hair/scalp undertone so it avoids looking stiff or overly dark."
     },
     {
-      "title": "护理与留色",
-      "title_en": "Aftercare and retention",
-      "description": "洗头、运动和日常护理的安排按实际操作部位与恢复情况确认。留色常以约2–3年作经验参考，个体差异明显；所有项目一年内免费补色。",
-      "description_en": "Confirm washing, exercise and aftercare around the actual treatment area and healing. Around two to three years is a retention guide, with individual variation. All services include free touch-ups within one year."
+      "title": "硬边界：不会长出新头发，也不代替植发手术",
+      "title_en": "Clear limits: no real hair growth and not a substitute for hair transplant",
+      "description": "必须明确交代两个事实：第一，纹发际线是平面色素视觉修饰，不会让毛囊长出新的真头发；第二，如果你希望把原本很高的发际线整体大幅度往下前移，或者头顶、前额大面积脱发明显光裸没有原生碎发依托，单靠纹发际线在斜看侧看时会有平面反差，这类需求应当先到正规医疗机构咨询植发或对应医疗方案。",
+      "description_en": "Pigmentation creates visual hair density on the skin—it does not stimulate follicles or regrow hair. Extensive hair loss or requests to lower a high hairline substantially lack natural hair support and look flat from side angles; those needs belong with a qualified hair-restoration physician."
+    },
+    {
+      "title": "没有尴尬期，护理与留色参考",
+      "title_en": "No awkward recovery phase, aftercare and retention guide",
+      "description": "纹发际线属于仪器类项目，定位没有尴尬期；做完后何时正常洗头、大量出汗运动与护理，按操作当次交代的部位注意点执行即可。门店经验留色通常参考约2–3年（头皮油脂与洗护习惯不同会带来明显个体差异），所有项目一年内免费补色，先约30–45分钟免费到店设计画看位置再决定。",
+      "description_en": "Performed by instrument without a heavy-scabbing awkward phase, hairline work carries an experience retention guide of roughly two to three years depending on scalp oiliness and washing habits. Confirm washing and workout timing at your appointment, backed by free consultation and one-year free touch-up."
     }
   ]
 }

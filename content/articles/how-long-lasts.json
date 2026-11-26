@@ -2,26 +2,32 @@
   "slug": "how-long-lasts",
   "title": "野生眉能维持多久？留色时间怎么看",
   "title_en": "How long do hair-stroke brows last?",
-  "intro": "半永久纹绣会随时间变化。留色时间只能结合个人情况估计，不能仅凭项目名称给出保证。",
-  "intro_en": "Semi-permanent pigment changes over time. Retention can only be estimated in context; a service name cannot guarantee a duration.",
+  "intro": "半永久纹绣的色泽会随皮肤更新逐渐变淡，维持时间只能结合个人肤质和做法估计，不能只靠项目名称给出统一数字。",
+  "intro_en": "Semi-permanent pigment fades gradually as skin renews. Retention depends on individual skin, technique and aftercare rather than a fixed duration promise.",
   "sections": [
     {
-      "title": "门店经验参考",
-      "title_en": "Experience-based estimates",
-      "description": "手工野生眉通常参考约1年，单仪器与双仪器通常参考约2–3年。这些是沟通时的经验区间，不是每个人都能达到的期限。",
-      "description_en": "The studio commonly discusses around one year for manual brows and two to three years for single- or dual-instrument brows. These are working estimates, not guaranteed lifespans."
+      "title": "门店经验参考区间：手工与仪器为什么不一样",
+      "title_en": "Experience-based ranges: why manual and instrument retention differ",
+      "description": "在描眉画目的门店经验口径里，手工野生眉的留色通常参考约1年，画派单仪器和双仪器野生眉通常参考约2–3年。这是因为手工与仪器在皮肤表浅层入色的稳定度与颗粒分布不同，加上很多人天生希望保留一点随着年度微调审美方向的空间。需要明确的是，这些时间只是沟通时的经验参考，不是每个人都能精确停在同一年份。",
+      "description_en": "In our studio experience, manual brows are commonly discussed around one year and single- or dual-instrument brows around two to three years. Differences stem from how uniformly strokes hold in superficial skin layers, and gradual fading also leaves room to refresh shape over time. These are working guides, not guarantees."
     },
     {
-      "title": "为什么会有差异",
-      "title_en": "Why retention varies",
-      "description": "肤质、原有底色、操作及日常护理等因素都会影响留色。刚做完的颜色和恢复后的颜色也不同，不能只用当天照片判断后续表现。",
-      "description_en": "Skin, pre-existing pigment, the procedure and aftercare can affect retention. Fresh colour also differs from healed colour, so a same-day photograph does not establish long-term performance."
+      "title": "自然代谢掉之后干净吗？会积红底或蓝底吗？",
+      "title_en": "Does colour fade cleanly or leave red and blue undertones?",
+      "description": "我们选择的做法与进口植物色料，目的是让颜色随着时间自然代谢掉；代谢完之后整体是干净的，不会像老式深度纹眉那样反复沉积出明显红底、蓝底或灰底。当然，皮肤个体表现与色料搭配需要贴合自身底色来看，面诊时乐乐老师会结合你的肤色与原生发色配比颜色。",
+      "description_en": "Our placement approach and botanical pigments are chosen to fade gradually and cleanly without building stubborn red, blue or grey residue. Pigment balance is always tailored to your skin undertone and hair colour during consultation."
     },
     {
-      "title": "补色解决什么",
-      "title_en": "What a touch-up addresses",
-      "description": "恢复后如有局部留色差异，应由老师结合实际情况评估。所有项目一年内免费补色，具体安排先沟通，不要因为颜色暂时变化就急于再次操作。",
-      "description_en": "Uneven retention after healing should be assessed by the practitioner. All services include free touch-ups within one year. Discuss timing instead of rushing to repeat treatment when colour changes during recovery."
+      "title": "影响实际留色快慢的四个现实因素",
+      "title_en": "Four practical factors that shift how fast pigment fades",
+      "description": "第一是肤质出油程度——油性皮肤平时皮脂分泌旺盛、新陈代谢偏快，留色普遍比干皮或混干皮肤消退得快一些；第二是原生底色深浅与毛量对比；第三是设计本身走的是极轻淡裸眉风还是骨架偏明确的风格；第四是恢复期的清洁防晒和护肤习惯（例如经常使用去角质、酸类护肤品扫过眉区，也会加快颜色变淡）。",
+      "description_en": "Four factors shape fading speed: skin oiliness (oily skin generally metabolises pigment faster than drier skin), existing pigment depth, how light or defined the chosen design is, and habits such as exfoliating acids or sun exposure over the brow area."
+    },
+    {
+      "title": "一年内免费补色到底解决什么问题",
+      "title_en": "What the one-year free touch-up is actually for",
+      "description": "恢复稳定后如果发现局部线条接得稍微浅一点、或者某一小段因为个人肤质吸收差异比别处淡，一年内都可以在描眉画目免费补色。我们通常不建议刚恢复几天颜色还没稳住就急着补，而是由老师复看实际留色分布后，按需把小段空隙补充均匀。",
+      "description_en": "If individual strokes heel slightly lighter in one spot once settled, all services include free touch-ups within one year. Rather than rushing back too early, wait until colour stabilises so Lele can review evenness and adjust only where needed."
     }
   ]
 }

@@ -2,26 +2,26 @@
   "slug": "who-does-it",
   "title": "选做法之前，先了解谁设计、谁操作",
   "title_en": "Who designs your brows, and who performs the work?",
-  "intro": "同样的工具，设计和操作可能不同。选之前，可以把作品、设计思路和实际操作者放在一起看。",
-  "intro_en": "The same tools can be used with different design and technical approaches. Review the work, design reasoning and the person who will perform the procedure together.",
+  "intro": "“纹绣这行就是看操作老师的技术和审美的。”同样的色料和仪器，换一双手设计、排线、控深浅，呈现出来的耐看度和后期代谢状态会完全不同。",
+  "intro_en": "In permanent makeup, outcome rests primarily on the practitioner’s skill and aesthetic judgement. Even with similar tools and pigments, design judgement, spacing and placement depth determine how naturally the work ages.",
   "sections": [
     {
-      "title": "看完整的脸，也看细节",
-      "title_en": "Look at the whole face and the detail",
-      "description": "先看眉形与五官是否协调，再放大看线条的间距、走向与衔接。照片是否说明恢复时间，也会影响你能从中判断什么。",
-      "description_en": "Look first at the relationship between brows and facial features, then examine stroke spacing, direction and transitions. Whether the healing stage is documented also affects what a photograph can tell you."
+      "title": "看作品先核“全脸整体+局部细节+是否同人实拍”",
+      "title_en": "Check full-face harmony alongside close-up detail",
+      "description": "挑纹绣老师不能只看修得特别白的局部微距图。真正能看出审美水平和基本功的，是先看全脸状态下眉毛有没有压眼睛、两边气韵和妆面自不自然；再把局部图放大看线条起收尖不尖、毛流之间有没有留呼吸感，以及图注有没有把阶段边界说清（没有标明恢复时间的图，不能拿来当长期留色证明）。",
+      "description_en": "Do not judge a portfolio solely by bright cropped macro shots. Look first at full-face proportion—whether brows suit the eyes and overall presence—then inspect close-ups for tapered ends and clean spacing, while remembering unlabelled images do not prove long-term healed retention."
     },
     {
-      "title": "问设计依据",
-      "title_en": "Ask about the design",
-      "description": "设计前，会综合观察五官的立体度、量感和整体风格，以及颧骨、眉眶骨的高低、眉眼关系和原生眉毛的生长方向。在尊重原有骨骼结构的基础上，通过调整眉头、眉峰、眉尾的位置、弧度与整体轮廓，修饰面部视觉比例，协调颧骨与眉眼之间的关系，让面部线条看起来更加流畅、舒展，并呈现更自然的立体感与折叠感。",
-      "description_en": "Before designing, she considers the depth, visual weight and overall character of the features, the height and prominence of the cheekbones and brow bone, the relationship between brows and eyes, and the direction of the existing brow hairs. Working with the existing bone structure, she adjusts the position and curvature of the brow start, arch and tail, along with the overall contour, to refine facial proportions visually and balance the relationship between the cheekbones and eye area. The aim is a smoother, more open visual flow, with natural depth and definition between facial planes."
+      "title": "听设计沟通：能不能说清“为什么这样画”，而不是推贵档",
+      "title_en": "Listen to the design reasoning rather than sales scripts",
+      "description": "负责任的面诊不是上来就用名词轰炸、把高档位推给你，而是先听你日常习惯怎么化妆、素颜最在意眉毛哪一段，再结合你的眉眼关系和原生毛流画出来对照。顾客常在点评里提到“不跟风、按脸型反复调位置、没有推销和隐形消费”，原因正是先把设计依据摆上桌面，合不合适你自己镜子里看得见。",
+      "description_en": "A trustworthy consultation explains why an arch or tail sits where it does for your eye spacing and daily habits rather than pushing the highest tier. Many client reviews note that shapes are adjusted repeatedly for the face without template copying or sales pressure."
     },
     {
-      "title": "确认实际操作者",
-      "title_en": "Confirm who performs the work",
-      "description": "描眉画目由乐乐老师本人一对一设计操作。2016年进入纹绣行业，2024年8月创立工作室；此前有连锁机构工作与纹绣培训、讲师经历。",
-      "description_en": "At Miaomeihuamu, Lele personally designs and performs the work, one client at a time. She entered the field in 2016 and opened the studio in August 2024, following work in beauty and specialist brow chains as well as training and teaching experience."
+      "title": "乐乐老师从业背景与全程本人一对一责任制",
+      "title_en": "Lele’s background from 2016 and personal one-to-one execution",
+      "description": "主理人乐乐老师2016年进入纹绣行业，曾任大型连锁美容院外聘纹绣师、也在专业纹绣连锁机构从业并担任过纹绣培训讲师，2024年8月在上海浦东创立描眉画目·定制美学。工作室坚持从设计试画、配比调色到上机操作及后续一年内补色复看，全部由乐乐老师本人一对一完成，不外包、不拼台、不转手给学徒。",
+      "description_en": "Lele entered the industry in 2016, serving as an external artist for large beauty chains and working in specialist permanent makeup chains as well as training and teaching before founding Miaomeihuamu in August 2024. From trial drawing and pigment blending to treatment and one-year follow-up touch-ups, every step is handled personally by Lele—never handed off to assistants."
     }
   ]
 }

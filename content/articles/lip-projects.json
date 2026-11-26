@@ -2,26 +2,32 @@
   "slug": "lip-projects",
   "title": "扩唇与改乌唇：轮廓和颜色的区别",
   "title_en": "Lip-contour refinement and colour correction",
-  "intro": "唇形轮廓与原生唇色是两件事。先说明想调整什么，再判断项目是否适合。",
-  "intro_en": "Lip outline and natural lip colour are different concerns. Start by identifying the detail you want to address.",
+  "intro": "很多人咨询唇部项目时，容易把“想让嘴唇轮廓更饱满清晰”和“想把发乌发暗的唇底提亮”混为一谈。其实扩唇与改乌唇解决的是完全不同的两件事。",
+  "intro_en": "Many enquiries mix up wanting a clearer lip silhouette with wanting to neutralise dark, cool lip undertones. Contour refinement and dark-lip colour correction tackle two separate issues.",
   "sections": [
     {
-      "title": "扩唇 / 唇形调整",
-      "title_en": "Lip-contour refinement",
-      "description": "主要讨论唇边轮廓、上下唇的视觉比例和局部形态，不是增加组织体积，也不是整张唇重新改色。采用电流仪操作。",
-      "description_en": "This focuses on the lip edge, visual balance between upper and lower lips and local contour. It does not add tissue volume or recolour the entire lip. The studio uses an instrument for this service."
+      "title": "扩唇 / 唇形调整：微调唇峰与边界，不增加实际组织体积",
+      "title_en": "Lip-contour refinement: subtle edge framing without volume filler",
+      "description": "扩唇（唇形调整）主要针对唇形边界模糊、唇峰偏平、上唇略薄或者两侧嘴角视觉略下垂的情况。操作采用电流仪在原生唇缘外侧做非常克制的轮廓与比例微调，让唇峰弧度和上下唇视觉协调度更清楚。必须讲清的边界是：扩唇属于视觉轮廓调整，不会增加真实的唇部组织体积，也不是靠整唇大面积盖浓色来冒充饱满。",
+      "description_en": "Lip-contour refinement targets blurred borders, flat Cupid’s bows or upper/lower proportion balance using an electric instrument with conservative placement along the natural margin. It refines visual shape and does not add physical tissue volume like injectable fillers."
     },
     {
-      "title": "改乌唇",
-      "title_en": "Dark-lip colour correction",
-      "description": "结合原生唇色，评估改色、上色及必要的轮廓调整。能否操作、如何安排，需要面诊，不保证一次达到某一种颜色。",
-      "description_en": "This involves assessing the natural lip colour, colour correction and any appropriate contour refinement. Suitability and staging need an in-person assessment; a specific colour in one session is not guaranteed."
+      "title": "改乌唇：为什么必须先用暖调互补色乳转色，不能直接拿红色硬盖",
+      "title_en": "Dark-lip correction: warm complementary neutralisation before soft layering",
+      "description": "如果原生唇底色本身发乌、发青紫或局部暗沉不均，直接涂一层正红或粉红重色硬盖上去，底下的深暗色素透出来后，最终反色往往更发暗发浊甚至泛灰紫。描眉画目处理改乌唇的底层逻辑是：先评估乌暗程度与冷暖底调，先用偏暖调的互补色乳（如针对青紫乌调的暖橘/明暖调）把冷暗底色中和转暖，再结合自身皮肤透色情况做轻柔过渡，不追求一次性涂成厚重口红感。",
+      "description_en": "Applying bright red or pink straight onto naturally dark, cool or uneven lips leaves underlying grey-purple tones showing through, resulting in a muddy healed shade. Proper dark-lip correction first balances cool undertones with warm complementary pigment before layering translucent colour smoothly."
     },
     {
-      "title": "恢复安排分别说明",
-      "title_en": "Different aftercare discussions",
-      "description": "两类项目都可能有结痂期。扩唇恢复约3天是经验参考；改乌唇不预设统一恢复天数。具体护理按实际项目与恢复状态执行。所有项目一年内免费补色。",
-      "description_en": "Both services may involve surface flaking. Around three days is an experience-based guide for contour work; no fixed recovery period is assigned to dark-lip correction. Follow the individual aftercare plan. All services include free touch-ups within one year."
+      "title": "底色越深越要看是否需要分次，以及是否搭配“纹人中窝”",
+      "title_en": "Staging deep undertones and optional pairing with philtrum shading",
+      "description": "轻度唇周暗沉与重度全唇乌暗的转色工作量不一样，是否一次调整还是分次逐步提亮，需要面诊看到素颜自然光下的真实唇色后再决定，不保证单次一定达到某一种指定口红色号。此外，如果本身不仅想微调唇峰，还觉得中庭略偏长，面诊时也可以同步评估“扩唇 + 纹人中窝”的光影配合。",
+      "description_en": "Mild dullness along the border differs from deep all-over dark undertones, so whether staging is sensible must be judged in natural light rather than promising an exact lipstick shade in one session. Clients wanting subtle mid-face proportion balance can also explore philtrum shading alongside contour work."
+    },
+    {
+      "title": "恢复期区分：两类都有结痂期，但时间参考不同",
+      "title_en": "Different healing timelines: both involve scabbing, not the same day count",
+      "description": "扩唇和改乌唇都不属于“无尴尬期、当天随便碰水”的品类，两者在恢复过程中都会经历结痂期：扩唇的门店经验恢复期参考约3天；改乌唇由于每个人的底色深度和皮肤更新节奏差异很大，不预设统一恢复天数，需要现场说明护理。两类项目均享有一年内免费补色，具体复看时机按各自返色稳态安排。",
+      "description_en": "Unlike instrument brow work, both lip services involve a scabbing phase. Contour refinement typically uses around three days as an experience guide, whereas dark-lip correction is never assigned a single universal day count due to wide individual variation. Both include free touch-ups within one year."
     }
   ]
 }

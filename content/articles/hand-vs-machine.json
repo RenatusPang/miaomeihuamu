@@ -2,26 +2,32 @@
   "slug": "hand-vs-machine",
   "title": "手工与单仪器野生眉，各自怎么做",
   "title_en": "Manual and single-instrument brows",
-  "intro": "工具影响操作方式，具体效果仍取决于原生眉、设计与老师的操作。不能只根据项目名称判断适不适合。",
-  "intro_en": "Tools change how strokes are placed. Existing brows, the design and the practitioner’s technique still determine suitability.",
+  "intro": "手工针片和单台仪器都能做出野生眉毛流，但入色方式、前一周视觉感、恢复过程和留色规律完全不同。选前先把两边真实做法摆在一起对照。",
+  "intro_en": "Both manual blades and a single motorised instrument can create hair-stroke brows, yet their ink placement, first-week look, recovery and retention differ markedly.",
   "sections": [
     {
-      "title": "手工针片走线",
-      "title_en": "Manual strokes",
-      "description": "以手工针片逐条走线，力度和走向由老师控制。通常在原生眉框架比较完整、希望调整轮廓或补充毛流时讨论。",
-      "description_en": "Individual strokes are placed with a manual blade. Pressure and direction are controlled by the practitioner. This may be considered when the natural framework is relatively complete and the brief is to refine the outline or add hair-like detail."
+      "title": "手工野生眉：针片手控走线，适合基础匹配且能接受恢复期",
+      "title_en": "Manual brows: blade placement and when it fits",
+      "description": "手工野生眉由老师手握针片逐根推划，发力轻重与弯曲弧度全靠手腕感知控制。传统观念常误以为“手工就是便宜替代”，其实它只是工具有别：手工做完有结痂期和尴尬期，前一周颜色往往会偏深，门店经验参考恢复期约7天（前1–2天尤其注意护理）、留色约1年。至于你适不适合手工，面诊时会结合你的原生眉基础和想要的风格共同判断。",
+      "description_en": "Manual brows use a handheld blade to place strokes individually by hand feel. Rather than simply being a lower tier, it is a distinct technique with a scabbing phase: colour can appear darker during week one, healing is typically discussed as around seven days (with extra care in the first 1–2 days) and retention around one year. Suitability is judged in person from your natural brows and preferred finish."
     },
     {
-      "title": "单仪器的选择依据",
-      "title_en": "Selecting one instrument",
-      "description": "原生毛发细软色浅或粗硬色深，会影响电流仪与半抛机的选择。仪器数量不能替代对眉形、线条间距和毛流方向的设计。",
-      "description_en": "The texture and colour of existing hair inform instrument choice. The number of instruments does not replace decisions about shape, spacing and direction."
+      "title": "画派仪器野生眉（单仪器）：电流仪与半抛机怎么选",
+      "title_en": "Huapai single-instrument brows: electric vs rotary selection",
+      "description": "做单仪器时，重点在于“看原生毛质配机器”：本身眉毛细软、毛色较浅且皮肤较薄的顾客，往往需要电流仪出线柔和自然；本身毛发偏粗硬、颜色偏深、缺口处需要明显支撑感的，则会考量半抛机的笔触力度。同等原生条件下，仪器走线在皮肤表面的均匀度和自然绒感通常更稳定，而且没有尴尬期，当天做完不影响正常洗脸护肤。",
+      "description_en": "With a single instrument, the machine choice matches natural hair texture: fine, lighter brows often pair well with softer electric strokes, while coarser dark hair or structural gaps may favour rotary precision. On the same starting brows, instruments tend to produce finer uniformity without an awkward heavy-scab stage, allowing normal face washing the same day."
     },
     {
-      "title": "恢复与留色分别讨论",
-      "title_en": "Discuss healing and retention separately",
-      "description": "手工前一周颜色可能偏深，恢复约7天是经验参考；仪器类的恢复表现也需结合实际情况。手工留色通常参考约1年，仪器约2–3年，都不是保证期限。",
-      "description_en": "Manual work may look darker during the first week; around seven days is a recovery guide. Instrument work also requires an individual aftercare plan. Retention is commonly discussed as about one year for manual work and two to three for instrument work, with individual variation."
+      "title": "如果原生毛少或希望更多绒毛层次怎么办",
+      "title_en": "What if natural hair is scarce or finer layering is wanted",
+      "description": "单仪器偏重沿着现有眉形框架补充清晰的主辅线；如果现场试画发现眉峰支撑力还不够、或者眉腰与周围绒毛过渡需要“先建主干、再撒细绒毛”两种笔触分工，就需要进一步对比双仪器做法，或者看看平时习惯浓淡妆是不是适合丝雾、绒雾等其他项目，不必把所有需求都硬塞进单仪器里。",
+      "description_en": "A single instrument works best reinforcing an existing frame; when extra structural framing plus feathery edge softness are both needed, comparing dual-instrument layering or shaded options during trial drawing gives a clearer answer than stretching one method."
+    },
+    {
+      "title": "恢复预期、留色区间与一年内免费补色",
+      "title_en": "Healing expectations, retention estimates and one-year touch-up",
+      "description": "手工野生眉的参考留色通常约1年，单仪器参考约2–3年；两者后期都随皮肤自然代谢干净，不积红底或蓝底，不过油皮普遍代谢较快、干皮偏慢。不管选哪种，到店免费设计约30–45分钟后再做决定，且所有项目均包含一年内免费补色，恢复稳定后再评估微调需求。",
+      "description_en": "Working retention estimates are roughly one year for manual brows and two to three years for single-instrument work, fading gradually without red or blue residue—faster on oily skin and slower on dry skin. Both start with a free 30–45 minute design preview and include free touch-ups within one year."
     }
   ]
 }

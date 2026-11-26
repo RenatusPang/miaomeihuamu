@@ -2,26 +2,32 @@
   "slug": "old-brow-color",
   "title": "旧眉发红、发蓝或底色重，重做前看什么",
   "title_en": "Working with old brow pigment",
-  "intro": "重新设计前，先评估旧底色的深浅、范围和原眉形。不能默认用新颜色就能盖住旧颜色。",
-  "intro_en": "Before redesigning, assess the depth, extent and shape of old pigment. Adding new colour does not automatically cover what is already there.",
+  "intro": "以前纹过眉留下一片红底、蓝底或灰印，想重新做野生眉时，不能默认拿新颜色往上一压就盖得住。先做现场底色评估，再看适不适合直接调整。",
+  "intro_en": "When an older brow tattoo has left red, blue or grey residue, adding new hair strokes on top does not automatically mask it. Assessing undertone, width and shape boundaries comes first.",
   "sections": [
     {
-      "title": "底色会限制颜色与轮廓",
-      "title_en": "Colour and shape constraints",
-      "description": "旧眉宽度、眉尾位置和底色范围，会影响新的轮廓选择。红、蓝、灰等残留颜色可能与色料、操作深浅等因素有关，具体原因和处理方式需评估。",
-      "description_en": "The width, tail position and extent of old pigment can restrict a new shape. Red, blue or grey residual colour can have several contributing factors, including pigment and placement. The specific situation needs assessment."
+      "title": "为什么老式纹眉会变成红底或蓝灰底",
+      "title_en": "Why older brow tattoos fade to red, blue or grey undertones",
+      "description": "老式纹眉留下偏红、偏蓝或发灰的底色，通常与当年的色料成分、以及操作入色深浅有关：冷色系代谢完偏浅后如果暖棕留存久了常呈现红底，深灰黑打得偏深或冷调比例失衡则会显青蓝底。知道这些成因后就明白，底色还在皮肤里时，单靠表浅层的纤细野生眉线条很难把一整片旧印完全遮光。",
+      "description_en": "Residual red, blue or grey tones relate to older pigment formulations and placement depth. Because residual ink sits inside the skin, ultra-fine hair strokes placed softly on top cannot erase a solid dark block underneath."
     },
     {
-      "title": "必要时先咨询旧色处理",
-      "title_en": "When removal advice may be needed",
-      "description": "底色较深、已影响重新设计时，先到具备相应资质的正规机构咨询旧色处理。本店不提供去色服务，旧眉修复也不是主打项目。",
-      "description_en": "If dark residual pigment limits redesign, seek removal advice from an appropriately qualified provider. The studio does not offer pigment removal, and old-brow correction is not its main service."
+      "title": "重做前到店看哪四个维度",
+      "title_en": "Four points checked before redesigning over old pigment",
+      "description": "到店面诊旧眉时，乐乐老师会重点看四件事：① 旧底色的色调（偏红橙还是偏蓝青灰）与深浅饱和度；② 原先纹的范围是不是过宽、把眉腰拉太高或眉尾压得太低；③ 你自己还剩多少原生真眉毛能帮新线条融在一起；④ 新希望设计的骨相轮廓能不能把旧框合理兼容进来，而不是强行压出两层影子。",
+      "description_en": "An in-person check examines four factors: undertone and saturation (reddish vs bluish-grey), whether the old outline is too wide or drooping, how much natural hair remains to blend strokes, and whether a refined new contour can sensibly incorporate the existing footprint."
     },
     {
-      "title": "能否直接做，要现场判断",
-      "title_en": "An in-person decision",
-      "description": "底色较浅也不意味着一定适合直接覆盖。先明确能保留什么、哪些轮廓受限制，以及是否需要分阶段安排，再讨论具体做法。",
-      "description_en": "Even faint old pigment is not an automatic indication for new work. Identify what can be retained, which contours are constrained and whether stages may be needed before selecting a technique."
+      "title": "本店边界：旧眉修复不是主打，且不提供洗眉去色",
+      "title_en": "Studio boundaries: not our primary service and no removal offered",
+      "description": "需要坦诚说明的是，描眉画目主打新眉私人定制，旧眉修复（含红底蓝底覆盖）并不是本店的主打项目，需要到店现场看适合才接；另外本店不提供洗眉或激光去色服务。如果旧底色太深、外框严重偏离原本骨相，我们会建议先前往具备正规医疗资质的机构做洗眉处理、等皮肤恢复合适后再重新设计。",
+      "description_en": "To be transparent, bespoke virgin hair-stroke brows are our main focus; corrective cover-ups are assessed case by case and accepted only when visually viable. We do not perform laser or chemical pigment removal—if heavy or misplaced old ink prevents clean redesign, we advise consulting a qualified medical provider first."
+    },
+    {
+      "title": "如果底色较浅符合覆盖条件，接下来怎么衔接",
+      "title_en": "If faint old colour qualifies for direct adjustment",
+      "description": "当旧底色足够淡、且原有形状大致落在合理骨相范围内时，可以先用对应色调做柔和平衡过渡，再顺着原生毛流配合主线或结构调整轮廓。这类重调也同样先经约30–45分钟免费设计，画出来对比确认满意再做，不合适绝不硬接；所有实际承接的项目仍享一年内免费补色。",
+      "description_en": "When old pigment is light and sits within a workable bone-structure zone, gentle tonal balancing plus natural hair-flow lines may be discussed during a free 30–45 minute trial drawing, always subject to honest suitability review and backed by our one-year free touch-up."
     }
   ]
 }

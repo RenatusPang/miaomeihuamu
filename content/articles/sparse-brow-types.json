@@ -2,26 +2,32 @@
   "slug": "sparse-brow-types",
   "title": "眉毛少还能做吗？先看五官、骨相与原生眉毛",
   "title_en": "Can very sparse brows be designed? Facial features, bone structure and existing brow hairs",
-  "intro": "是否适合，需要结合五官、骨相与原生眉毛评估。野生眉通过线条与颜色形成视觉表达，不是真实长出新的眉毛。",
-  "intro_en": "Suitability is assessed in relation to facial features, bone structure and existing brow hairs. Hair-stroke pigmentation creates a visual effect with lines and colour; it does not grow new hairs.",
+  "intro": "从只有淡淡一层绒毛到“几乎无眉”，不同基础能不能做野生眉、做出来靠不靠得住自然，关键在于骨相依托和线条虚实控制。",
+  "intro_en": "From faint fuzz to nearly absent brows, suitability depends on underlying bone structure and how edge softness and spacing are handled.",
   "sections": [
     {
-      "title": "先分清缺少什么",
-      "title_en": "Identify what is missing",
-      "description": "框架完整但颜色淡，与接近无眉、局部断眉或缺眉尾，不是同一个问题。先观察已有毛发与底色，再讨论轮廓。",
-      "description_en": "An intact but faint brow differs from an almost absent brow, a local gap or a missing tail. Observe existing hairs and pigment before discussing the outline."
+      "title": "近乎无眉的基础，怎么不画成“两条孤零零的线条”",
+      "title_en": "Nearly bare brows: avoiding two isolated drawn lines",
+      "description": "天生眉毛极少或长期剃眉导致毛量寥寥无几的人，最担心做完野生眉因为没有真毛遮掩，线条显得像印在皮肤上的笔画。遇到这种基础，面诊设计时重心会放到眉弓骨隆起位置、眼窝凹陷边界和眉眼距上：必须靠骨相定位眉形的高低落差，在眉骨转折处做柔和的线条错落与虚实留白，避免四条边界都画得死平对称。",
+      "description_en": "When very few natural hairs exist to blend with strokes, the risk is a flat, stamped appearance. Design anchors the shape directly to the brow ridge, orbital rim and eye-to-brow spacing, staggering stroke edges and leaving skin gaps instead of tracing rigid upper and lower borders."
     },
     {
-      "title": "结构和密度要分开考虑",
-      "title_en": "Plan structure and density separately",
-      "description": "在适合采用主线条与绒毛线组合的设计中，主线条先建立主要结构与毛流方向，突出眉部与眉眶骨之间的视觉立体关系；绒毛线再丰富疏密、深浅与虚实，让线条自然衔接。目标是有框架、有层次、有自然毛流，并与五官协调，不是把所有空隙填满或单纯加深。",
-      "description_en": "Where a combination of main and fine strokes is appropriate, main strokes establish structure and hair direction, bringing out the visual relationship between brows and brow bone. Fine strokes then vary density, tone and definition to connect the lines naturally. The aim is a framework with layers and natural hair flow that complements the features, not filling every gap or simply adding darkness."
+      "title": "色浅毛细 vs 局部无眉，发色和肤色的配色逻辑",
+      "title_en": "Faint light hair vs patchy areas: matching colour to hair and skin",
+      "description": "不少人其实有眉毛，只是颜色非常浅、毛丝细软，远看几乎隐形。这种情况绝对不能套用深黑或冷灰重色，否则新加线条会和原本的浅淡毛发“两张皮”。调色时会结合本人发色、瞳色和皮肤底色来配比柔和自然的棕灰调，让线条贴近原本绒毛的深浅节奏。",
+      "description_en": "Fine, pale hairs that look invisible from a distance clash immediately if paired with dark charcoal pigment. Pigment blends are matched to natural hair, iris and skin undertones so strokes sit softly beside fine existing hair."
     },
     {
-      "title": "先画出方案",
-      "title_en": "See a proposed shape",
-      "description": "免费到店设计约30–45分钟。乐乐老师会结合骨骼结构与想要的气质画出眉形，适合再做，不适合的情况会说明。",
-      "description_en": "A free design consultation takes about 30–45 minutes. Lele considers the existing bone structure and the desired character, draws the proposed shape and discusses any limits before a decision is made."
+      "title": "如果完全没毛、想要带一点底妆雾感怎么办",
+      "title_en": "When zero-hair bases prefer a hint of powder softness",
+      "description": "需要客观看待的是，野生眉本质是通过线条与色素模拟毛流的视觉表达，不可能凭空长出真实立体的眉毛。如果几乎无眉、且平时几乎天天带全妆，或者偏爱稍微饱满一点的眉妆效果，面诊时除了双仪器初绒野生眉，也可以对比丝雾眉或绒雾眉在皮肤上的呈现差异，再选最贴合自己平时照镜子习惯的方案。",
+      "description_en": "Pigmentation creates visual hair-stroke illusion rather than growing real three-dimensional hair. For bare bases that wear full makeup daily, comparing dual-instrument hair strokes with silk-shaded or velvet-shaded brows during consultation helps pick what looks best in your everyday mirror."
+    },
+    {
+      "title": "免费到店试画30–45分钟：适合再做，不硬推",
+      "title_en": "Free 30–45 minute trial consultation: honest assessment first",
+      "description": "眉毛极少越不能盲目直接约操作。来描眉画目可先约免费到店设计，约30–45分钟，乐乐老师会结合你的面部骨骼与想要的气质，先在脸上把毛流定位和轮廓画出来给你看；适合才接，有局限或需调整预期会当面说清，不做不收费，所有项目一年内免费补色。",
+      "description_en": "Very sparse brows benefit most from seeing the drawn design before committing. Book a free 30–45 minute consultation with Lele to inspect the proposed contour and stroke direction directly on your face, with honest discussion of limits and free touch-ups within one year if you proceed."
     }
   ]
 }
