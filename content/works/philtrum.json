@@ -9,7 +9,11 @@
     "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "cover": "",
+    "title_en": "Philtrum shading · work record 1",
+    "alt_en": "Philtrum shading record 1 showing subtle light-and-shadow contrast below the nose",
+    "description": "纹人中窝实拍记录 1，在鼻底至唇峰间的自然凹陷处做极浅淡的明暗光影过渡，从视觉上增强中庭立体折叠度。",
+    "description_en": "Philtrum shading record 1 placing ultra-soft tonal transition across the natural dip between nose and Cupid's bow for subtle visual depth."
   },
   {
     "title": "人中窝 · 作品 2",
@@ -21,6 +25,10 @@
     "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "cover": "",
+    "title_en": "Philtrum shading · work record 2",
+    "alt_en": "Philtrum shading record 2 showing feathered bare-skin shadow transition",
+    "description": "纹人中窝实拍记录 2，重点看低饱和浅调与原生肤色的边缘羽化衔接，素颜近看保持克制自然不显生硬。",
+    "description_en": "Philtrum shading record 2 focusing on low-saturation feathered blending into natural skin tone so the shadow remains subtle bare-faced."
   }
 ]

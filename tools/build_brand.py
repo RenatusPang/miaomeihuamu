@@ -121,6 +121,11 @@ BUSINESS['hasOfferCatalog'] = offer_catalog(0)
 BUSINESS['address'].update(
     streetAddress='浦东新区三林镇长清路 1200 弄 39 号 1613 室',
     addressLocality='上海市', addressRegion='上海市')
+BUSINESS['geo'] = {
+    '@type': 'GeoCoordinates',
+    'latitude': 31.151996,
+    'longitude': 121.48569,
+}
 PERSON = copy.deepcopy(next(s for s in HOME_SCHEMAS if s['@type']=='Person'))
 # The legacy quote is neither a Schema.org Person property nor visible copy.
 PERSON.pop('quote', None)

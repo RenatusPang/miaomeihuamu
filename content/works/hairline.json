@@ -7,7 +7,11 @@
     "featured": false,
     "featured_order": 20,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Hairline shading · close-up detail",
+    "alt_en": "Close-up hairline hair-stroke work showing edge transition along the forehead",
+    "description": "发际线边缘局部实拍记录，顺着原生碎发的生长方向排布细线条，柔化额角衔接并保持皮肤底色自然透出。",
+    "description_en": "Close-up hairline record following natural baby-hair growth direction to soften the forehead border while preserving natural skin tone underneath."
   },
   {
     "title": "纹发际线 · 操作视频 1",
@@ -37,6 +41,10 @@
     "featured": false,
     "featured_order": 20,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Hairline shading · work record 3",
+    "alt_en": "Hairline permanent makeup record showing natural frontal contour transition",
+    "description": "正面视角发际线作品记录，重点观察额角轮廓过渡与绒毛线条疏密节奏，不做生硬齐整的涂满边框。",
+    "description_en": "Frontal view of a hairline record showing gradual temple contour transition and spaced hair-stroke density rather than a solid filled edge."
   }
 ]

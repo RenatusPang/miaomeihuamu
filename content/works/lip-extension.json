@@ -9,7 +9,11 @@
     "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "cover": "",
+    "title_en": "Lip-contour refinement · overview",
+    "alt_en": "Lip-contour refinement record showing balanced Cupid's bow and subtle border definition",
+    "description": "扩唇与唇形轮廓微调综合作品记录，着重呈现唇峰弧度、嘴角走势及上下唇视觉比例的克制协调。",
+    "description_en": "Overview of lip-contour refinement focusing on Cupid's bow curvature, corner alignment and restrained upper-to-lower visual proportion."
   },
   {
     "title": "扩唇 · 作品 1",
@@ -21,7 +25,11 @@
     "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "cover": "",
+    "title_en": "Lip-contour refinement · work record 1",
+    "alt_en": "Lip-contour refinement record 1 showing subtle upper-lip edge definition",
+    "description": "扩唇实拍记录 1，沿原生唇缘外侧做极克制的柔和轮廓延伸，提升唇峰清晰度而不显得边缘生硬。",
+    "description_en": "Lip-contour refinement record 1 featuring restrained edge framing along the natural upper lip line to clarify the Cupid's bow softly."
   },
   {
     "title": "扩唇 · 作品 2",
@@ -33,7 +41,11 @@
     "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "cover": "",
+    "title_en": "Lip-contour refinement · work record 2",
+    "alt_en": "Lip-contour refinement record 2 showing natural lip proportion balance",
+    "description": "扩唇实拍记录 2，结合原本唇形条件柔化唇边模糊段落，让上下唇在自然光下呈现更协调的视觉饱满感。",
+    "description_en": "Lip-contour refinement record 2 softening blurred lip margins so upper and lower lip proportions read more evenly in natural light."
   },
   {
     "title": "扩唇 · 作品 3",
@@ -45,7 +57,11 @@
     "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "cover": "",
+    "title_en": "Lip-contour refinement · work record 3",
+    "alt_en": "Lip-contour refinement record 3 highlighting refined Cupid's bow contour",
+    "description": "扩唇实拍记录 3，重点观察唇峰微弧与唇珠两侧的过渡线条，色调柔和自然、保留嘴唇原有皮肤质感。",
+    "description_en": "Lip-contour refinement record 3 highlighting subtle Cupid's bow curvature and blended margins while retaining natural lip skin texture."
   },
   {
     "title": "扩唇 · 作品 4",
@@ -57,6 +73,10 @@
     "wide": false,
     "featured_order": 20,
     "detail": false,
-    "cover": ""
+    "cover": "",
+    "title_en": "Lip-contour refinement · work record 4",
+    "alt_en": "Lip-contour refinement record 4 showing harmonious outer-corner framing",
+    "description": "扩唇实拍记录 4，兼顾唇缘清晰度与双侧嘴角视觉衔接，属于视觉轮廓微调而非增加实际组织体积。",
+    "description_en": "Lip-contour refinement record 4 balancing lip margin clarity with outer-corner harmony through visual contour framing rather than physical volume."
   }
 ]

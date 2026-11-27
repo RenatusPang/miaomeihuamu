@@ -35,7 +35,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": true
+    "wide": true,
+    "title_en": "Women's hair-stroke brows · multi-angle view",
+    "alt_en": "Multi-angle close-up of women's bespoke instrument hair-stroke brows",
+    "description": "女士仪器野生眉多角度实拍，方便对照正面与微侧视角下眉峰转折、毛流走向和眉骨贴合度。",
+    "description_en": "Multi-angle view of women's instrument hair-stroke brows showing arch curvature, stroke flow and brow-bone fit from front and oblique angles."
   },
   {
     "title": "女士野生眉 · 多组记录",
@@ -45,7 +49,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": true
+    "wide": true,
+    "title_en": "Women's hair-stroke brows · multiple records",
+    "alt_en": "Collection of women's bespoke hair-stroke brow records across different face shapes",
+    "description": "多位女士模特的野生眉实拍合集，体现因五官量感与骨相差异而定制的不同弧度、粗细与毛流风格。",
+    "description_en": "Compilation of women's hair-stroke brow records demonstrating tailored arch, thickness and stroke flow across varied facial structures."
   },
   {
     "title": "有眉毛基础，也不必套固定眉型",
@@ -101,7 +109,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 1",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 1 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 1，注重眉头轻盈直立毛流与眉中自然过渡，整体偏温柔素颜感。",
+    "description_en": "Women's hair-stroke brow record 1. Focuses on airy upright strokes at the brow start transitioning smoothly into a gentle bare-faced mid-brow."
   },
   {
     "title": "女士野生眉 · 作品 2",
@@ -111,7 +123,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 2",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 2 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 2，围绕原生眉骨弧度微调眉峰位置，保留自然留白而不显边框感。",
+    "description_en": "Women's hair-stroke brow record 2. Refines arch placement along the natural brow ridge with soft spacing and no rigid outline."
   },
   {
     "title": "女士野生眉 · 作品 3",
@@ -121,7 +137,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 3",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 3 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 3，在原生毛发稀疏段落补入细腻绒毛线，拉齐左右视觉轻重平衡。",
+    "description_en": "Women's hair-stroke brow record 3. Adds fine hair strokes across sparse gaps to even out visual density and left-right balance."
   },
   {
     "title": "女士野生眉 · 作品 4",
@@ -131,7 +151,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 4",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 4 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 4，采用平缓弧度收拢眉尾，修饰外眼角与太阳穴区域的视觉比例。",
+    "description_en": "Women's hair-stroke brow record 4. Uses a soft tapering tail to balance the outer eye corner and temple proportion naturally."
   },
   {
     "title": "女士野生眉 · 作品 5",
@@ -141,7 +165,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 5",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 5 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 5，结合偏柔和的五官量感控制眉形粗细，主线条与辅线自然融合。",
+    "description_en": "Women's hair-stroke brow record 5. Calibrates brow width to softer facial proportions, blending main structural lines with fine strokes."
   },
   {
     "title": "女士野生眉 · 作品 6",
@@ -151,7 +179,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 6",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 6 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 6，保留大部分原生眉毛基础，只对边缘杂散空缺做克制结构整理。",
+    "description_en": "Women's hair-stroke brow record 6. Retains most existing brow hair while tidying scattered margins with restrained structural lines."
   },
   {
     "title": "女士野生眉 · 作品 7",
@@ -161,7 +193,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 7",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 7 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 7，根据肤色与发色配比自然棕灰调，远看有型、近看根根清晰。",
+    "description_en": "Women's hair-stroke brow record 7. Matches muted brown-grey tones to hair and skin colour so strokes look defined up close and natural at distance."
   },
   {
     "title": "女士野生眉 · 作品 8",
@@ -171,7 +207,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 8",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 8 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 8，通过上缘虚化绒毛与下缘干净支撑，呈现轻盈流畅的立体毛流感。",
+    "description_en": "Women's hair-stroke brow record 8. Pairs feathered upper-edge hairs with a clean lower line to create light, dimensional hair flow."
   },
   {
     "title": "女士野生眉 · 作品 9",
@@ -181,7 +221,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 9",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 9 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 9，顺着眉眶骨起伏定位眉腰转折，微笑和静态表情下都保持舒展。",
+    "description_en": "Women's hair-stroke brow record 9. Positions the brow bend along the orbital bone so the shape reads relaxed both at rest and smiling."
   },
   {
     "title": "女士野生眉 · 作品 10",
@@ -191,7 +235,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 10",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 10 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 10，重点梳理眉尾下垂走势，微抬视觉落点让眉眼整体显得更清亮。",
+    "description_en": "Women's hair-stroke brow record 10. Lifts a drooping tail subtly along the outer brow to open up the eye area without looking sharp."
   },
   {
     "title": "女士野生眉 · 作品 11",
@@ -201,7 +249,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 11",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 11 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 11，在原生粗细不均的毛流间穿插细线条，柔化局部断层与颜色深浅差。",
+    "description_en": "Women's hair-stroke brow record 11. Interweaves fine strokes through uneven natural density to smooth out gaps and tonal contrast."
   },
   {
     "title": "女士野生眉 · 作品 12",
@@ -211,7 +263,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 12",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 12 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 12，以东方柔和审美基调收束眉峰，避免生硬锐角带来的距离感。",
+    "description_en": "Women's hair-stroke brow record 12. Rounds the brow arch gently to avoid harsh angles while preserving clear facial framing."
   },
   {
     "title": "女士野生眉 · 作品 13",
@@ -221,7 +277,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 13",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 13 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 13，强化主线条框架与绒毛层次的虚实对比，兼顾素颜与淡妆状态。",
+    "description_en": "Women's hair-stroke brow record 13. Balances primary structural lines against delicate secondary strokes to suit both bare skin and light makeup."
   },
   {
     "title": "女士野生眉 · 作品 14",
@@ -231,7 +291,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 14",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 14 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 14，针对眉尾偏短情况自然延展收尖，与眼尾及鼻翼比例形成协调呼应。",
+    "description_en": "Women's hair-stroke brow record 14. Extends a naturally short tail to a tapered finish aligned with the outer eye and facial proportions."
   },
   {
     "title": "女士野生眉 · 作品 15",
@@ -241,7 +305,11 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 15",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 15 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 15，顺应原本眉毛自然斜向生长轨迹排线，减少新生毛茬带来的违和感。",
+    "description_en": "Women's hair-stroke brow record 15. Aligns stroke direction with natural brow growth so regrowth blends seamlessly over time."
   },
   {
     "title": "女士野生眉 · 作品 16",
@@ -251,6 +319,10 @@
     "featured": false,
     "featured_order": 10,
     "detail": false,
-    "wide": false
+    "wide": false,
+    "title_en": "Women's hair-stroke brows · work record 16",
+    "alt_en": "Women's bespoke instrument hair-stroke brow record 16 by Miaomeihuamu",
+    "description": "女士野生眉实拍记录 16，整体控制低饱和自然显色与柔和边缘，呈现贴近原生毛发的通透观感。",
+    "description_en": "Women's hair-stroke brow record 16. Maintains low-saturation colour and feathered edges for a translucent finish close to natural brows."
   }
 ]
